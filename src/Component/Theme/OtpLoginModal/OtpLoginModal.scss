@@ -1,0 +1,355 @@
+.otp-LoginModalMainWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+    .otp-modal-content {
+        background: white;
+        border-radius: 21px;
+        width: 28%;
+        height: 91vh;
+        overflow-y: auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        animation: modalFadeIn 0.3s ease-out;
+
+        .otp-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 3.6rem;
+            text-align: center;
+            border-radius: 22px;
+            margin-top: 1rem;
+
+
+            h3 {
+                font-family: Nohemi;
+                font-weight: 600;
+                font-style: Semi Bold;
+                font-size: 26px;
+                leading-trim: NONE;
+                line-height: 105%;
+                letter-spacing: -2%;
+                background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 99.03%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+
+            .close-button {
+                background: none;
+                border: none;
+                font-size: 2.2rem;
+                padding-left: 1rem !important;
+                padding-bottom: 0.5rem !important;
+                cursor: pointer;
+                color: #666;
+                padding: 0;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                border-radius: 50%;
+                transition: background-color 0.2s;
+
+
+
+            }
+
+        }
+
+        .acc-para-otp {
+            font-family: General Sans;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 16px;
+            leading-trim: NONE;
+            line-height: 100%;
+            letter-spacing: -2%;
+            color: #1B1919;
+            text-align: start;
+            margin-left: 3.6rem;
+
+
+        }
+
+        .otp-modal-body {
+            padding: 1rem 44px 1px 3.8rem;
+
+            .input-group-otp {
+
+                margin-top: 8px;
+
+                .inputs-otp {
+
+                    width: 57.5px;
+                    height: 58px;
+                    font-size: 18px;
+                    text-align: center;
+                    border: 1px solid #CACACB;
+                    border-radius: 8px;
+                    outline: none;
+                    transition: border-color 0.4s ease;
+                    cursor: pointer;
+                    margin-left: 4.5px;
+
+                    &:focus {
+                        border-color: #738933;
+                        box-shadow: 0 0 5px rgba(115, 137, 51, 0.5);
+                    }
+                }
+
+                label {
+                    display: block;
+                    font-family: General Sans;
+                    font-weight: 500;
+                    font-style: Medium;
+                    font-size: 16px;
+                    leading-trim: NONE;
+                    line-height: 110.00000000000001%;
+                    letter-spacing: 0%;
+                    color: #242323;
+                    margin-bottom: 9px;
+
+                }
+
+            }
+
+            .continue-btn-otp {
+                width: 100%;
+                padding: 11px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 78px;
+                font-family: General Sans;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 18px;
+                leading-trim: NONE;
+                line-height: 130%;
+                letter-spacing: 0%;
+                cursor: pointer;
+                margin-top: 2rem;
+                transition: background-color 0.2s, opacity 0.2s;
+                margin-bottom: 4px;
+                position: relative;
+
+                &:hover {
+                    background-color: #45a049;
+                    transition: .5s;
+                }
+            }
+
+            .divider-otp {
+                text-align: center;
+                margin: 8px 0;
+                position: relative;
+                margin-bottom: 1.5rem !important;
+
+                span {
+                    font-family: General Sans;
+                    font-weight: 600;
+                    font-style: Semibold;
+                    font-size: 11px;
+                    leading-trim: NONE;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                    text-align: center;
+                    color: #c4c4c4;
+
+
+                }
+            }
+
+            .social-login-otp {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 24px;
+
+                .google-btn,
+                .facebook-btn {
+                    width: 100%;
+                    padding: 12px 16px;
+                    border: 1px solid #CACACB;
+                    border-radius: 78px;
+                    background-color: white;
+                    cursor: pointer;
+                    font-family: General Sans;
+                    font-weight: 500;
+                    font-style: Medium;
+                    font-size: 14px;
+                    leading-trim: NONE;
+                    line-height: 110.00000000000001%;
+                    letter-spacing: 0%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+                    transition: border-color 0.2s, box-shadow 0.2s;
+
+                    &:hover:not(:disabled) {
+                        border-color: #ccc;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    }
+
+                    &:disabled {
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                    }
+
+                    .google-icon,
+                    .facebook-icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .footer-links-otp {
+                font-family: General Sans;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 14px;
+                leading-trim: NONE;
+                line-height: 110.00000000000001%;
+                letter-spacing: 0%;
+                text-align: left;
+
+                p {
+                    margin-bottom: 8px;
+                    margin-top: 1rem !important;
+                }
+
+                .signup-link {
+                    color: #4CAF50;
+                    cursor: pointer;
+                    font-family: General Sans;
+                    font-weight: 600;
+                    font-style: Semibold;
+                    font-size: 14px;
+                    leading-trim: NONE;
+                    line-height: 110.00000000000001%;
+                    letter-spacing: 0%;
+                    text-decoration: underline;
+                    text-decoration-style: solid;
+                    text-decoration-offset: 0%;
+                    text-decoration-thickness: 0%;
+                    text-decoration: none;
+                    margin-left: 4px;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+}
+
+// Responsive design for mobile
+@media (max-width: 597.98px) {
+    .otp-LoginModalMainWrapper {
+
+
+        .otp-modal-content {
+            width: 95%;
+            margin: 10px;
+
+            .acc-para-otp {
+                margin-left: 2.8rem;
+            }
+
+
+            .otp-modal-body {
+
+                padding: 1rem 44px 1px 2.8rem;
+
+
+                .continue-btn-otp {
+                    width: 100%;
+                    padding: 6px !important;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 78px;
+                    font-family: General Sans;
+                    font-weight: 500;
+                    font-style: Medium;
+                    font-size: 18px;
+                    leading-trim: NONE;
+                    line-height: 130%;
+                    letter-spacing: 0%;
+                    cursor: pointer;
+                    margin-top: 2rem;
+                    transition: background-color 0.2s, opacity 0.2s;
+                    margin-bottom: 4px;
+                    position: relative;
+
+                    &:hover {
+                        background-color: #45a049;
+                        transition: .5s;
+                    }
+                }
+
+
+                .input-group-otp {
+
+
+
+                    .inputs-otp {
+
+                        width: 47.5px;
+                        height: 58px;
+
+                    }
+
+                }
+
+
+
+            }
+
+            .otp-modal-header {
+                padding: 18px 2.6rem;
+
+                h3 {
+                    font-family: Nohemi;
+                    font-weight: 600;
+                    font-style: Semi Bold;
+                    font-size: 22px;
+                    line-height: 100%;
+
+                }
+
+
+
+            }
+        }
+    }
+}
+
+// Responsive design for mobile
+@media (min-width: 598px) and (max-width: 768px) {
+
+    .otp-LoginModalMainWrapper {
+        .otp-modal-content {
+            width: 95%;
+            margin: 10px;
+        }
+    }
+
+}

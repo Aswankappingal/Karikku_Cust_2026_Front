@@ -1,0 +1,538 @@
+@font-face {
+  font-family: 'Resonate';
+  src: url('/public/Fonts/Resonate.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nohemi';
+  src: url('/public/Fonts/Nohemi-SemiBold-BF6438cc57db2ff.woff') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.AboutMainWrapper {
+
+  // background-image: repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.2) 26px 50px, transparent 2px 2px), url("/Images/bg-why-choose-removebg-preview.png");
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  padding: 2rem 12rem;
+
+
+  .about-top {
+    text-align: center;
+    padding: 0 1rem;
+    height: auto;
+    padding-bottom: 1rem;
+    margin-top: 5rem;
+
+
+
+
+    .about-header-section {
+
+      .about-header-image {
+        position: relative !important;
+
+        .images-pure {
+          position: absolute;
+          bottom: 72%;
+          left: 25%;
+          transform: translateX(-50%);
+          width: 10%;
+          // transform: translate(-50%, -50%);
+        }
+
+      }
+
+      @media(min-width:1400px)and (max-width: 1900px) {
+        .about-header-image {
+          position: relative !important;
+
+          .images-pure {
+            position: absolute;
+            bottom: 70%;
+            left: 27%;
+            transform: translateX(-50%);
+            width: 10%;
+            // transform: translate(-50%, -50%);
+          }
+
+        }
+
+      }
+
+      @media(min-width:579px)and (max-width: 1108px) {
+
+        .about-header-image {
+          position: relative !important;
+
+          .images-pure {
+            display: none !important;
+          }
+        }
+      }
+
+
+      h3 {
+        font-family: Resonate;
+        font-weight: 400;
+        font-size: 56px;
+        background: linear-gradient(90deg, rgba(245, 189, 46, 1) 0%, rgba(52, 109, 0, 1) 83%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+
+      }
+
+      h2 {
+        font-family: Nohemi;
+        font-weight: 500;
+        font-size: 80px;
+        line-height: 105%;
+        letter-spacing: -2%;
+        background: linear-gradient(90deg, rgba(115, 137, 51, 1) 10%, rgba(6, 44, 11, 1) 83%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+
+        img {
+          width: 45px;
+          height: auto;
+          vertical-align: left;
+        }
+      }
+    }
+
+
+    .description {
+      margin-top: 2rem;
+
+
+      p {
+        font-family: General Sans;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 120%;
+        letter-spacing: -2%;
+        text-align: center;
+      }
+
+      button {
+        margin-top: 2rem;
+        color: #0E3E13;
+        padding: 7px 7px 7px 18px;
+        background-color: transparent;
+        border: 1px solid black;
+        font-family: General Sans;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 125%;
+        letter-spacing: 0%;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        .btn-icon {
+          margin-left: 5px;
+          width: 24px;
+          height: 24px;
+          color: #3DAE4A;
+        }
+
+        #about-us {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+
+  // Achievement section
+
+  // .achievements {
+  //   padding-top: 5rem;
+  //   width: 100%;
+  //   margin: auto;
+
+  //   .achv-main {
+  //     padding-left: 2rem;
+
+  //     h3 {
+  //       font-family: Nohemi;
+  //       font-weight: 600;
+  //       font-size: 50px;
+  //       line-height: 110.00000000000001%;
+  //       letter-spacing: -2%;
+  //       color: #072C0B;
+
+  //     }
+
+  //     p {
+  //       font-family: General Sans;
+  //       font-weight: 400;
+  //       font-size: 18px;
+  //       line-height: 130%;
+  //       letter-spacing: 0%;
+  //       color: #050D1E;
+  //     }
+  //   }
+  // }
+
+  .commitment-features {
+    width: 100%;
+    margin: auto;
+    margin-top: 8rem;
+
+    h3 {
+      font-family: General Sans;
+      font-weight: 700 !important;
+      font-style: Bold;
+      font-size: 30px;
+      leading-trim: NONE;
+      line-height: 130%;
+      letter-spacing: 0%;
+      text-align: center;
+      color: #1B1B1B !important;
+    }
+
+
+
+
+    .why-choose-head {
+      text-align: center;
+      padding-bottom: 3rem;
+
+      .feature-head {}
+
+      h2 {
+        font-family: Nohemi;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 110.00000000000001%;
+        letter-spacing: -2%;
+        color: #072C0B;
+      }
+    }
+
+    .why-images {
+      margin: auto;
+      width: 100px;
+      height: 100px;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+
+    h3 {
+      font-family: General Sans;
+      font-weight: 600;
+      font-size: 20px;
+      // border: 1px solid red;
+      line-height: 130%;
+      letter-spacing: 0%;
+      padding-top: 1rem;
+    }
+
+    p {
+      font-family: General Sans;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      letter-spacing: 0%;
+      padding-top: .8rem;
+
+    }
+
+    .col-lg-3 {
+      padding: 0 15px;
+      margin-bottom: 30px;
+      text-align: center;
+
+      .feature-para {
+        width: 88%;
+        margin: auto;
+
+        p {
+          font-family: General Sans;
+          font-weight: 500;
+          font-style: Medium;
+          font-size: 18px;
+          leading-trim: NONE;
+          line-height: 130%;
+          letter-spacing: 0%;
+          text-align: center;
+
+        }
+      }
+    }
+  }
+
+
+  // Marque section
+  .marque-main {
+    margin-top: 3rem;
+
+  }
+
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .marquee {
+    display: flex;
+    gap: 15px;
+    animation: scroll 30s linear infinite;
+    padding: 5px 0;
+  }
+
+  .pill {
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    min-width: fit-content;
+    height: 40px;
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-pill {
+    background-color: transparent;
+    border: 1px solid #B0E1B5;
+    color: #7C8733;
+    font-family: General Sans;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: -3%;
+    width: 200px;
+    height: 58px;
+
+  }
+
+  .image-pill {
+    padding: 0 !important;
+    overflow: hidden;
+    width: 200px !important;
+    height: 58px !important;
+    border-radius: 50px;
+    display: inline-block;
+    /* Ensures consistent container behavior */
+  }
+
+  .image-pill img {
+    width: 100%;
+    height: 100%;
+    /* Changed from 'auto' to '100%' */
+    object-fit: cover;
+    border-radius: 50px;
+    display: block;
+    /* Removes any inline spacing issues */
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* For the second row of pills */
+  .reverse {
+    animation: scroll-reverse 30s linear infinite;
+  }
+
+  @keyframes scroll-reverse {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+
+
+  // 📱 Mobile (up to 576px)
+  @media (max-width: 576px) {
+    margin-top: 2rem !important;
+
+    .about-top {
+      text-align: start;
+      margin-top: 0rem;
+
+
+      .about-header-section {
+
+
+        h3 {
+          font-size: 22px;
+        }
+
+        h2 {
+          padding-top: .5rem;
+          font-size: 30px;
+
+          img {
+            display: none;
+          }
+
+          img {
+            width: 25px;
+          }
+        }
+      }
+
+      .description {
+        margin-top: 1rem !important;
+        text-align: start !important;
+
+        p {
+          font-size: 16px;
+          text-align: start;
+        }
+
+        button {
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 1.5rem;
+
+
+          .btn-icon {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        #about-us {
+          display: none;
+        }
+      }
+    }
+
+    // Achievement section
+    .achievements {
+
+      // margin-top: 1rem;
+      padding-top: 2rem;
+      width: 100%;
+
+      .achv-main {
+        padding-left: 1rem;
+
+        h3 {
+
+          font-weight: 600;
+          font-size: 32px;
+
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          width: 70%;
+
+        }
+      }
+    }
+
+    .commitment-features {
+      margin-top: 3rem !important;
+
+      .why-choose-head {
+        text-align: center;
+        padding-bottom: 3rem;
+
+        h2 {
+          font-family: Nohemi;
+          font-weight: 600;
+          font-size: 32px !important;
+          line-height: 110.00000000000001%;
+          letter-spacing: -2%;
+          color: #072C0B;
+        }
+      }
+    }
+
+    // marquee
+    .marque-main {
+      margin-top: 2rem;
+
+    }
+
+    .pill {
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      min-width: fit-content;
+      height: 40px;
+      width: 150px;
+      // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-pill {
+      height: 40px !important;
+      width: 150px !important;
+    }
+  }
+
+
+  // 💻 Tablet (577px to 768px)
+  @media(min-width:577px)and (max-width: 768px) {
+    .about-top {
+      margin-top: 1rem;
+
+      .about-header-section {
+        h3 {
+          font-size: 40px;
+        }
+
+        h2 {
+          font-size: 60px;
+        }
+      }
+
+      .description {
+        p {
+          font-size: 18px;
+        }
+
+        button {
+          font-size: 15px;
+
+          .btn-icon {
+            width: 22px;
+            height: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  @media(min-width:769px)and (max-width: 991px) {
+    .about-top {
+      margin-top: 1rem;
+    }
+  }
+
+  @media(min-width:991px)and (max-width: 1199px) {
+    .about-top {
+      margin-top: 1rem;
+    }
+  }
+
+}

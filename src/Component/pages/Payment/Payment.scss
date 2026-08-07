@@ -1,0 +1,235 @@
+.checkoutPaymentmainWrapper {
+    .processing-modal{
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        text-align: center;
+
+        .processing-spinner {
+            margin-bottom: 1rem;
+        }
+
+        // h4 {
+        //     font-family: General Sans;
+        //     font-weight: 600;
+        //     font-size: 20px;
+        //     line-height: 130%;
+        //     letter-spacing: 0%;
+        //     color: #17232A;
+        //     margin-bottom: 0.5rem;
+        // }
+
+        // p {
+        //     font-family: General Sans;
+        //     font-weight: 400;
+        //     font-size: 16px;
+        //     line-height: 130%;
+        //     letter-spacing: 0%;
+        //     color: #666666;
+        // }
+    }
+    .paymentMain {
+        padding: 2rem 2rem;
+
+        .payment-header {
+            background: white;
+            // padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+
+            h2 {
+                font-family: General Sans;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 105%;
+                letter-spacing: -2%;
+                background: linear-gradient(90deg, rgba(115, 137, 51, 1) 0%, rgba(6, 44, 11, 1) 12%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+            }
+        }
+
+        .addresses-header {
+            h4 {
+                font-family: General Sans;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 130%;
+                letter-spacing: 0%;
+                color: #17232A;
+            }
+        }
+
+        .left-col {
+            padding-right: 8rem;
+
+            @media(max-width: 991px) {
+                padding-right: 0;
+            }
+        }
+
+
+        .payment-option-main {
+            border: 1px solid #E6E6E6;
+            border-radius: 12px;
+            height: auto;
+            padding: 20px;
+            
+            .payment-option {
+                padding-bottom: 1rem;
+            }
+
+            .payment-row {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+
+                input {
+                    margin-top: .2rem;
+                    accent-color: #0E3E13;
+                    padding: 4px;
+                    height: 20px;
+                    margin: 0;
+                    width: 20px;
+                }
+
+                label {
+                    margin: 0;
+                    font-family: General Sans;
+                    font-weight: 600;
+                    font-style: Semibold;
+                    font-size: 16px;
+
+                }
+            }
+
+            .card-details {
+                border: 1px solid #E6E6E6;
+                border-radius: 12px;
+                height: auto;
+                padding: 20px;
+
+                .input-field {
+                    display: flex;
+                    gap: .6rem;
+                    flex-direction: column;
+
+
+                    input,
+                    input::placeholder {
+                        font-family: General Sans;
+                        // font-weight: 500;
+                        font-size: 16px;
+                        letter-spacing: 0%;
+                        border-radius: 8px;
+
+                    }
+
+                    input {
+                        border: 1px solid #BDBDBD;
+                        border-radius: 8px;
+                        padding: 8px;
+                    }
+
+                    .input-label {
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 110.00000000000001%;
+                        letter-spacing: 0%;
+
+                    }
+                }
+
+                .card-detail-footer {
+                    display: flex;
+                    margin-top: 1rem;
+                    justify-content: space-between;
+                    align-items: center;
+
+
+                    .security-check {
+                        display: flex;
+                        gap: .7rem;
+                        align-items: center;
+
+                        input {
+                            margin: 0;
+                            accent-color: #0E3E13;
+                            padding: 4px;
+                            height: 20px;
+                            margin: 0;
+                            width: 20px;
+                        }
+
+                        label {
+                            font-family: General Sans;
+                            font-weight: 400;
+                            font-size: 16px;
+                            color: #666666;
+                        }
+                    }
+
+
+                    .checkout-btn {
+                        padding-top: 1rem;
+                        text-align: center;
+
+                        button {
+                            padding: 10px 30px;
+                            background-color: #3DAE4A;
+                            border: none;
+                            color: #ffffff;
+                            border-radius: 78px;
+                            width: 100%;
+                            font-family: General Sans;
+                            font-weight: 500;
+                            font-size: 15px;
+                            line-height: 130%;
+                            letter-spacing: 0%;
+
+                        }
+                    }
+                }
+
+
+            }
+
+        }
+    }
+
+    @media(max-width:768px) {
+
+        .payment {
+            padding: 0rem 2rem;
+        }
+
+
+        .card-detail-footer {
+            flex-direction: column;
+            justify-content: left !important;
+            align-items: baseline;
+        }
+
+        .checkout-card {
+            margin-top: 1rem;
+        }
+
+        .input-field {
+            margin-top: .5rem;
+        }
+    }
+
+    @media(max-width:991px) {
+
+
+        .checkout-card {
+            margin-top: 1rem;
+        }
+
+        .input-field {
+            margin-top: .5rem;
+        }
+    }
+
+}

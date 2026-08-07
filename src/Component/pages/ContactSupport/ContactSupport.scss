@@ -1,0 +1,250 @@
+.contact-support-wrapper {
+    background: #f7f8fa;
+    min-height: 100vh;
+
+    .contact-header {
+        padding: 1rem 2.8rem;
+
+        h3 {
+            margin-top: 5rem;
+            font-family: "General Sans", sans-serif;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 105%;
+            background: linear-gradient(90deg, #738933 18%, rgba(3, 36, 7, 0.793) 44%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+    }
+
+    .contact-main {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+
+        .contact-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            width: 100%;
+            max-width: 700px;
+
+            .order-info {
+                margin-bottom: 2rem;
+                font-family: General Sans;
+                font-weight: 600;
+                font-style: Semibold;
+                font-size: 16px;
+                leading-trim: CAP_HEIGHT;
+                line-height: 130%;
+                letter-spacing: 0%;
+                color: #17232A;
+
+
+                span {
+                    font-family: General Sans;
+                    font-weight: 600;
+                    font-style: Semibold;
+                    font-size: 16px;
+                    leading-trim: CAP_HEIGHT;
+                    line-height: 130%;
+                    letter-spacing: 0%;
+                    color: #3DAE4A;
+                }
+            }
+
+            .support-form {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+
+                .Privacy-policy {
+                    font-family: General Sans;
+                    font-weight: 600;
+                    font-style: Semibold;
+                    font-size: 16px;
+                    leading-trim: CAP_HEIGHT;
+                    line-height: 130%;
+                    letter-spacing: 0%;
+
+                }
+
+                .form-row {
+                    display: flex;
+                    gap: 1rem;
+
+                    .form-group {
+                        flex: 1;
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-style: Medium;
+                        font-size: 16px;
+                        leading-trim: NONE;
+                        line-height: 110.00000000000001%;
+                        letter-spacing: 0%;
+
+                        .us-phone ::placeholder {
+                            padding-left: 2rem !important;
+                        }
+
+
+
+                        .issue-type-select {
+                            width: 100%;
+                            padding: 0.8rem 1rem;
+                            border: 1px solid #ccc;
+                            border-radius: 8px;
+                            font-size: 14px;
+                            outline: none;
+                            transition: border 0.2s;
+
+                            &:focus {
+                                border-color: #2ecc71;
+                            }
+                        }
+
+
+
+                    }
+                }
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+
+                    label {
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-style: Medium;
+                        font-size: 16px;
+                        leading-trim: NONE;
+                        line-height: 110.00000000000001%;
+                        letter-spacing: 0%;
+                        color: #1B1919;
+                    }
+
+
+                    input,
+                    textarea {
+                        padding: 0.8rem 1rem;
+                        border: 1px solid #ccc;
+                        border-radius: 8px;
+                        font-size: 14px;
+                        outline: none;
+                        transition: border 0.2s;
+
+                        &:focus {
+                            border-color: #2ecc71;
+                        }
+                    }
+
+                    textarea {
+                        min-height: 100px;
+                        resize: vertical;
+                    }
+
+                    &.full-width {
+                        width: 100%;
+                    }
+
+                    &.checkbox {
+                        flex-direction: row;
+                        align-items: flex-start;
+                        gap: 0.5rem;
+
+                        input {
+                            margin-top: 3px;
+                        }
+
+                        label {
+                            font-size: 13px;
+                            color: #555;
+                            line-height: 1.4;
+                        }
+                    }
+
+                    .privacy {
+                        font-family: General Sans;
+                        font-weight: 600;
+                        font-style: Semibold;
+                        font-size: 16px;
+                        leading-trim: CAP_HEIGHT;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+
+                    }
+                }
+
+                .file-upload {
+                    border: 2px dashed #ccc;
+                    border-radius: 8px;
+                    padding: 2rem;
+                    text-align: center;
+                    color: #666;
+                    font-size: 14px;
+
+
+                    img {
+                        margin-bottom: 9px !important;
+                        cursor: pointer;
+                    }
+
+
+                    p {
+                        margin: 0;
+                        font-family: General Sans;
+                        font-weight: 600;
+                        font-style: Semibold;
+                        font-size: 14px;
+                        leading-trim: NONE;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+                        text-align: center;
+                        color: #666666;
+
+                    }
+
+                    small {
+                        display: block;
+                        margin-top: 0.5rem;
+                        font-family: General Sans;
+                        font-weight: 600;
+                        font-style: Semibold;
+                        font-size: 14px;
+                        leading-trim: NONE;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+                        text-align: center;
+                        color: #BDBDBD;
+
+                    }
+                }
+
+                .submit-btn {
+                    background: #3DAE4A;
+                    color: white;
+                    border: none;
+                    border-radius: 100px;
+                    padding: 1rem;
+                    font-family: General Sans;
+                    font-weight: 500;
+                    font-style: Medium;
+                    font-size: 18px;
+                    leading-trim: NONE;
+                    line-height: 130%;
+                    letter-spacing: 0%;
+                    cursor: pointer;
+                    transition: background 0.3s;
+
+                    &:hover {
+                        background: #3DAE4A;
+                    }
+                }
+            }
+        }
+    }
+}

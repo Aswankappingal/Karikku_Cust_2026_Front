@@ -1,0 +1,42 @@
+.cartNavbarWrapper {
+  .navbar {
+    border-bottom: 1px solid #CEE2C9;
+  }
+
+  .divider {
+    width: 61px;
+    height: 1px;
+    background-color: #9597D0;
+    // border: 1px dotted #9597D0;
+  }
+
+  .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50px;
+    background-color: #E3F7E5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .active-icon {
+    background-color: #3DAE4A;
+  }
+
+  small,
+  span {
+    font-family: General Sans;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: -2%;
+    color: #1B1919;
+  }
+
+  @media (max-width :578px) {
+    .navbar {
+      border-bottom: none;
+    }
+  }
+}

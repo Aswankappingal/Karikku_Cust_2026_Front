@@ -1,0 +1,437 @@
+.LoginModalMainWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  // Prevent body scroll on mobile
+  overflow: hidden;
+
+  .modal-content {
+    background: white;
+    border-radius: 21px;
+    width: 34%;
+    height: 91vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.3s ease-out;
+    // Prevent modal from being affected by viewport changes
+    position: relative;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 3.8rem;
+      text-align: center;
+      border-radius: 22px;
+      margin-top: 10px !important;
+
+      h3 {
+        font-family: Nohemi;
+        font-weight: 600;
+        font-style: Semi Bold;
+        font-size: 24px !important;
+        leading-trim: NONE;
+        line-height: 100%;
+        letter-spacing: -2%;
+        background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 99.03%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        font-size: 2.2rem;
+        padding-left: 2rem !important;
+        padding-bottom: 1.1rem !important;
+        cursor: pointer;
+        color: #666;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 50%;
+        transition: background-color 0.2s;
+        // Ensure close button is always clickable
+        pointer-events: all;
+      }
+    }
+
+    .acc-para {
+      font-family: General Sans;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      leading-trim: NONE;
+      line-height: 100%;
+      letter-spacing: -2%;
+      color: #1B1919;
+      text-align: start;
+      margin-left: 3.6rem;
+    }
+
+    .modal-body {
+      padding: 1rem 33px 1px 3.8rem;
+
+      .input-group {
+        margin-bottom: 20px;
+
+        label {
+          display: block;
+          font-family: General Sans;
+          font-weight: 500;
+          font-style: Medium;
+          font-size: 16px;
+          leading-trim: NONE;
+          line-height: 100.00000000000001%;
+          letter-spacing: 0%;
+          color: #242323;
+          margin-bottom: 9px;
+        }
+
+        .email-input {
+          width: 100%;
+          padding: 14px 16px;
+          border: 1px solid #ddd;
+          border-radius: 8px !important;
+          font-size: 16px;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          outline: none;
+          font-family: inherit;
+          // Ensure input is always interactive
+          pointer-events: all;
+          // Prevent zoom on iOS
+          transform: scale(1);
+          -webkit-text-size-adjust: 100%;
+
+          // Fix for mobile input issues
+          &:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+            outline: none;
+          }
+
+          &:disabled {
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+            opacity: 0.6;
+          }
+
+          &::placeholder {
+            color: #999;
+          }
+        }
+      }
+
+      .continue-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 78px;
+        font-family: General Sans;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 18px;
+        leading-trim: NONE;
+        line-height: 100%;
+        letter-spacing: 0%;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: background-color 0.2s, opacity 0.2s;
+        margin-bottom: 14px;
+        position: relative;
+        // Ensure button is always clickable
+        pointer-events: all;
+
+        &:hover:not(:disabled) {
+          background-color: #45a049;
+          transition: .5s;
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+
+      .divider {
+        text-align: center;
+        margin: 8px 0;
+        position: relative;
+        margin-bottom: 1.5rem !important;
+
+        span {
+          font-family: General Sans;
+          font-weight: 600;
+          font-style: Semibold;
+          font-size: 11px;
+          leading-trim: NONE;
+          line-height: 100%;
+          letter-spacing: 0%;
+          text-align: center;
+          color: #c4c4c4;
+        }
+      }
+
+    
+
+      .social-login {
+        .google-wrapper {
+          position: relative;
+          width: 100%;
+          height: 44px;
+          border: 1px solid #CACACB;
+          border-radius: 78px;
+          background-color: white;
+          overflow: hidden;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          cursor: pointer;
+
+          &:hover {
+            border-color: #ccc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          }
+
+          >div {
+            position: absolute;
+            top: 0;
+            left: 12%;
+            right: 22px !important;
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 0;
+            cursor: pointer;
+          }
+
+          &::after {
+            content: 'Continue with Google';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'General Sans';
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 110%;
+            pointer-events: none;
+            gap: 12px;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 52%;
+            left: 42.5%;
+            transform: translate(-50%, -50%) translateX(-60px);
+            width: 18px;
+            height: 18px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%234285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="%2334A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="%23FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="%23EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>') no-repeat center;
+            background-size: contain;
+            pointer-events: none;
+            z-index: 1;
+          }
+
+          /* Keep style consistent during loading */
+          .google-btn-loading {
+            border: none;
+            background: white;
+            width: 100%;
+            height: 100%;
+            border-radius: 78px;
+            font-family: 'General Sans';
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 110%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #000;
+            cursor: not-allowed;
+          }
+        }
+      }
+
+      .footer-links {
+        font-family: General Sans;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 14px;
+        leading-trim: NONE;
+        line-height: 110.00000000000001%;
+        letter-spacing: 0%;
+        text-align: center !important;
+
+        p {
+          margin-bottom: 8px;
+          margin-top: 1rem !important;
+        }
+
+        .signup-link {
+          color: #4CAF50;
+          cursor: pointer;
+          font-family: General Sans;
+          font-weight: 600;
+          font-style: Semibold;
+          font-size: 14px;
+          leading-trim: NONE;
+          line-height: 110.00000000000001%;
+          letter-spacing: 0%;
+          text-decoration: underline;
+          text-decoration-style: solid;
+          text-decoration-offset: 0%;
+          text-decoration-thickness: 0%;
+          text-decoration: none;
+          margin-left: 4px;
+          // Ensure signup link is clickable
+          pointer-events: all;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Mobile styles - Fixed and improved
+@media (max-width: 597.98px) {
+  .LoginModalMainWrapper {
+    // Ensure full coverage on mobile
+    padding: 0;
+    align-items: flex-start;
+
+    .modal-content {
+      width: 90%;
+      max-width: 400px;
+      margin: 20px auto;
+      height: auto;
+      max-height: calc(100vh - 40px);
+      // Better mobile positioning
+      margin-top: 5vh;
+
+      .acc-para {
+        font-family: General Sans;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px !important;
+        leading-trim: NONE;
+        line-height: 130%;
+        letter-spacing: -2%;
+        color: #1B1919;
+        text-align: start;
+        margin-left: 1.6rem !important;
+      }
+
+      .modal-body {
+        padding: 1rem 1.8rem 1rem 1.8rem !important;
+
+        .input-group {
+          .email-input {
+            // Prevent zoom on mobile Safari
+            font-size: 16px;
+            -webkit-appearance: none;
+            // Better touch target
+            min-height: 44px;
+          }
+        }
+
+        .continue-btn {
+          // Better touch target
+          min-height: 44px;
+          font-size: 16px;
+        }
+
+        .social-login {
+
+          .google-btn,
+          .facebook-btn {
+            // Better touch targets
+            min-height: 44px;
+            padding: 14px 16px;
+          }
+        }
+      }
+
+      .modal-header {
+        padding: 18px 1.8rem !important;
+
+        h3 {
+          font-family: Nohemi;
+          font-weight: 600;
+          font-style: Semi Bold;
+          font-size: 20px !important;
+          leading-trim: NONE;
+          line-height: 105%;
+          letter-spacing: -2%;
+          background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 99.03%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .close-button {
+          // Ensure close button has proper touch target
+          min-width: 44px;
+          min-height: 44px;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .divider {
+    display: none !important;
+  }
+}
+
+// Tablet styles
+@media (min-width: 598px) and (max-width: 768px) {
+  .LoginModalMainWrapper {
+    .modal-content {
+      width: 80%;
+      max-width: 200px;
+      margin: 20px;
+    }
+  }
+}
+
+// Landscape mobile
+@media (max-width: 768px) and (orientation: landscape) {
+  .LoginModalMainWrapper {
+    .modal-content {
+      height: auto;
+      max-height: 20vh;
+      margin: 10px;
+    }
+  }
+}

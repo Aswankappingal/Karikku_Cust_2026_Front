@@ -1,0 +1,469 @@
+.CommitmentMainWrapper {
+    margin-top: 4rem;
+    height: auto;
+    padding-bottom: 1rem;
+
+    .commitment-head {
+        text-align: center;
+
+        h2 {
+            font-family: Nohemi;
+            font-weight: 590;
+            font-size: 72px;
+            line-height: 105%;
+            letter-spacing: -2%;
+            text-align: center;
+            background: linear-gradient(120deg, #738933 10%, #062C0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .commitment-description {
+            padding-top: 2rem;
+            width: 50%;
+            margin: auto;
+
+            p {
+                font-family: General Sans;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 130%;
+                letter-spacing: -2%;
+                text-align: center;
+            }
+        }
+    }
+
+    .commitment {
+
+        background:
+            linear-gradient(rgba(255, 255, 255, 0.701), rgba(255, 255, 255, 0.848)),
+            url('/Images/our-story-gradient.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: lighten; // or try multiply/overlay/soft-light
+        padding: 4rem 1rem;
+
+
+        .commitment-images {
+            position: relative;
+            padding: 1rem 2rem 0rem 2rem;
+            height: 700px;
+
+
+            .img1 {
+                position: absolute;
+                width: 260px;
+                height: 308px;
+                top: 0;
+                left: 40px;
+                border-radius: 40px;
+            }
+
+            .img2 {
+                position: absolute;
+                width: 127px;
+                height: 150px;
+                top: 225px;
+                left: 350px;
+                border-radius: 30px;
+            }
+
+            .img3 {
+                position: absolute;
+                width: 183.40428161621094px;
+                height: 200.5015869140625px;
+                top: 58.65px;
+                left: 600px;
+            }
+
+            .img4 {
+                position: absolute;
+                width: 86px;
+                height: 69px;
+                top: 103px;
+                left: 647px;
+            }
+
+            .img5 {
+                position: absolute;
+                width: 260px;
+                height: 308px;
+                top: 0;
+                left: 1050px;
+                border-radius: 40px;
+            }
+
+            .img6 {
+                position: absolute;
+                width: 152px;
+                height: 180px;
+                top: 420px;
+                left: 390px;
+                border-radius: 40px;
+            }
+
+            .img7 {
+                position: absolute;
+                width: 211px;
+                height: 249px;
+                top: 454px;
+                left: 675px;
+                border-radius: 40px;
+            }
+
+            .img8 {
+                position: absolute;
+                width: 152px;
+                height: 180px;
+                top: 368px;
+                left: 1000px;
+                border-radius: 40px;
+            }
+        }
+
+    }
+
+
+
+    .commitment-features {
+        width: 100%;
+        margin: auto;
+        margin-top: 8rem;
+
+        h3 {
+            font-family: General Sans;
+            font-weight: 600;
+           
+            font-size: 20px;
+            line-height: 130%;
+            letter-spacing: 0%;
+            padding-top: 1rem;
+          
+        }
+
+        p {
+            font-family: General Sans;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 130%;
+            letter-spacing: 0%;
+            padding-top: .8rem;
+
+        }
+
+        .col-lg-3 {
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+    }
+
+    /* Media Queries for Responsive Design */
+
+    /* Tablet Responsive Styles */
+    @media (max-width: 991px) {
+        .commitment-head {
+            h2 {
+                font-size: 50px;
+            }
+
+            .commitment-description {
+                width: 80%;
+
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .commitment {
+            .commitment-images {
+                height: 500px;
+
+                .img1 {
+                    width: 180px;
+                    height: 220px;
+                    left: 20px;
+                }
+
+                .img2 {
+                    width: 100px;
+                    height: 120px;
+                    left: 220px;
+                    top: 170px;
+                }
+
+                .img3,
+                .img4 {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                .img5 {
+                    width: 180px;
+                    height: 220px;
+                    left: auto;
+                    right: 20px;
+                }
+
+                .img6 {
+                    width: 110px;
+                    height: 140px;
+                    left: 100px;
+                    top: 350px;
+                }
+
+                .img7 {
+                    width: 150px;
+                    height: 180px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 320px;
+                }
+
+                .img8 {
+                    width: 110px;
+                    height: 140px;
+                    left: auto;
+                    right: 100px;
+                    top: 300px;
+                }
+            }
+        }
+
+        .commitment-features {
+            margin-top: 4rem;
+        }
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 767px) {
+        margin-top: 2rem;
+
+        .commitment-head {
+            h2 {
+                font-size: 36px;
+                line-height: 110%;
+            }
+
+            .commitment-description {
+                width: 90%;
+                padding-top: 1rem;
+
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .commitment {
+
+            .commitment-images {
+                height: 450px;
+                padding: 1rem 1rem 0 1rem;
+
+                .img1 {
+                    width: 120px;
+                    height: 150px;
+                    left: 10px;
+                    top: 150px;
+                    border-radius: 20px;
+                }
+
+                .img5 {
+                    width: 80px;
+                    height: 100px;
+                    left: auto;
+                    right: 10px;
+                    top: 150px;
+                    border-radius: 15px;
+                }
+
+                .img3 {
+                    width: 120px;
+                    height: 130px;
+                    top: 30px;
+                    left: 60%;
+                    transform: translateX(-70%);
+                }
+
+                .img4 {
+                    width: 60px;
+                    height: 48px;
+                    top: 56px;
+                    left: 55%;
+                    transform: translateX(-70%);
+                }
+
+                .img2 {
+                    display: none;
+                }
+
+                .img6 {
+                    width: 90px;
+                    height: 110px;
+                    left: 15px;
+                    top: 300px;
+                    border-radius: 20px;
+                }
+
+                .img7 {
+                    width: 120px;
+                    height: 140px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 310px;
+                    border-radius: 20px;
+                }
+
+                .img8 {
+                    width: 90px;
+                    height: 110px;
+                    left: auto;
+                    right: 15px;
+                    top: 300px;
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        .commitment-features {
+            margin-top: 5rem;
+
+            .feature-para {
+                width: 80%;
+                // margin: 0 auto;
+            }
+
+            h3 {
+                font-size: 18px;
+                text-align: start;
+            }
+
+            p {
+                font-size: 14px;
+                text-align: start;
+            }
+
+            .col-lg-3 img {
+                display: block;
+                // margin: 0 auto 15px;
+            }
+        }
+    }
+
+    /* Small Mobile Phones */
+    @media (max-width: 480px) {
+        .commitment-head {
+            h2 {
+                font-size: 30px;
+            }
+        }
+
+        .commitment {
+            .commitment-images {
+                height: 400px;
+
+                .img1 {
+                    width: 100px;
+                    height: 120px;
+                }
+
+                .img2 {
+                    width: 70px;
+                    height: 80px;
+                }
+
+                .img6,
+                .img8 {
+                    width: 80px;
+                    height: 95px;
+                }
+
+                .img7 {
+                    width: 100px;
+                    height: 120px;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 799px) and (max-width: 1300px) {
+
+        .commitment {
+
+            .commitment-images {
+                height: 450px;
+                padding: 1rem 1rem 0 1rem;
+
+                .img1 {
+                    width: 143px;
+                    height: 150px;
+                    left: 70px;
+                    top: 101px;
+                    border-radius: 25px;
+
+                }
+
+                .img5 {
+                    width: 134px;
+                    height: 138px;
+                    left: 78%;
+                    right: 10px;
+                    top: 102px;
+                    border-radius: 15px;
+                }
+
+                .img3 {
+                    width: 120px;
+                    height: 130px;
+                    top: 30px;
+                    left: 52%;
+                    transform: translateX(-70%);
+                }
+
+                .img4 {
+                    width: 60px;
+                    height: 48px;
+                    top: 56px;
+                    left: 51%;
+                    transform: translateX(-70%);
+                }
+
+                .img2 {
+                    display: none;
+                }
+
+                .img6 {
+                    width: 150px;
+                    height: 110px;
+                    left: 94px;
+                    top: 338px;
+                    border-radius: 30px !important;
+                }
+
+                .img7 {
+                    width: 115px;
+                    height: 140px;
+                    left: 49%;
+                    transform: translateX(-50%);
+                    top: 328px;
+                    border-radius: 20px;
+                }
+
+                .img8 {
+                    width: 90px;
+                    height: 110px;
+                    left: 78%;
+                    right: 15px;
+                    top: 330px;
+                    border-radius: 20px;
+                }
+            }
+        }
+
+
+    }
+
+}

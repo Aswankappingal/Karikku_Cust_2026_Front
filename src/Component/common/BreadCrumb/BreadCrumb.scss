@@ -1,0 +1,59 @@
+.breadcrumb-wrapper {
+    padding: 20px 75px;
+    //   background-color: #f8f9fa;
+
+    .breadcrumb-nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: #6c757d;
+
+        .breadcrumb-link {
+            font-family: General Sans;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            letter-spacing: 0%;
+            color: #4F595F;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: #495057;
+                text-decoration: none;
+            }
+        }
+
+        .breadcrumb-current {
+            font-family: General Sans;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 120%;
+            letter-spacing: 0%;
+            color: #17232A;
+        }
+
+        .breadcrumb-separator {
+            color: #17232A;
+            font-size: 20px;
+            // line-height: 1;
+            margin: 0 4px;
+        }
+    }
+    @media(max-width:576px){
+        padding: 7px 10px;
+    }
+
+     @media (min-width: 579.98px) and (max-width: 768px) {
+
+           padding: 20px 42px;
+
+     }
+}
+
+// If you want to use it within a container
+.container .breadcrumb-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+}

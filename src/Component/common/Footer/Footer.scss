@@ -1,0 +1,522 @@
+.FootermainWrapper {
+    .vector {
+        width: 100%;
+        display: block;
+    }
+
+    .footer {
+        background-color: #D8F6DC;
+        padding: 2px 0 40px;
+
+
+        .footer-content-full {
+            width: 99%;
+            // border: 1px solid red;
+            margin: auto;
+        }
+
+
+        .newsletter-outer-line {
+            border-bottom: 1px solid #C4E2C8;
+            /* green instead of red if you want brand color */
+            width: 100%;
+            margin-top: 2rem;
+            /* pushes the border down */
+            padding-bottom: 1.9rem;
+            /* adds breathing space above the line */
+        }
+
+        // Newsletter Section
+        .karikku-logo {
+            .logo {
+                height: 110px;
+                // width: auto;
+                width: 100%;
+                margin-bottom: 12px;
+            }
+        }
+
+        .newsletter-title {
+            font-family: Nohemi;
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 100%;
+            letter-spacing: -2%;
+            text-align: center;
+            background: linear-gradient(90deg, rgba(115, 137, 51, 1) 10%, rgba(6, 44, 11, 1) 83%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+
+            @media (max-width: 768px) {
+                font-size: 1.5rem;
+            }
+        }
+
+        .newsletter-form {
+            display: flex;
+            width: 45%;
+            margin: auto;
+            align-items: center;
+            padding: 5px 0px 6px 20px;
+            height: 50px;
+            border-radius: 25px;
+            justify-content: space-between;
+            background-color: white;
+
+
+
+            .email {
+                width: 40%;
+
+            }
+
+            .subscribe-btn {
+                width: 20%;
+                margin-left: 1rem;
+            }
+
+            .newsletter-input {
+                border: 1px solid #ddd;
+                border-radius: 25px;
+                padding: 10px 20px;
+                width: 100%;
+                border: none;
+                font-size: 14px;
+
+                &::placeholder {
+                    color: #999;
+                }
+
+                &:focus {
+                    outline: none !important;
+                    box-shadow: none !important;
+                    border-color: #ddd !important;
+                }
+            }
+
+            .newsletter-btn {
+                background-color: #4CAF50;
+                border: none;
+                width: 80%;
+                border-radius: 25px;
+                padding: 10px 10px;
+                margin-left: 1rem;
+                font-weight: 500;
+                font-size: 14px;
+
+                &:hover {
+                    background-color: #45a049;
+                }
+            }
+        }
+
+        // Footer Content
+
+
+        .footer-heading {
+            font-family: General Sans;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 130%;
+            letter-spacing: 0%;
+            color: #1B1B1B;
+
+        }
+
+        .footer-text {
+            font-family: General Sans;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 18px;
+            leading-trim: NONE;
+            line-height: 130%;
+            letter-spacing: 0%;
+            text-transform: uppercase;
+            margin-top: 1.4rem;
+            color: #1B1B1B !important;
+
+
+
+
+
+            .only-91 {
+                font-family: General Sans;
+                font-weight: 300;
+                font-style: Light;
+                font-size: 20px;
+                leading-trim: NONE;
+                line-height: 110.00000000000001%;
+                letter-spacing: -3%;
+                color: #003E00;
+
+
+
+            }
+
+            .number-only {
+                font-family: General Sans;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 19px;
+                leading-trim: NONE;
+                line-height: 110.00000000000001%;
+                letter-spacing: -3%;
+                color: #003E00;
+
+            }
+
+            .sales-karikku-only {
+                color: #003E00;
+                font-family: General Sans;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 17px;
+                leading-trim: NONE;
+                line-height: 152%;
+                letter-spacing: -3%;
+
+
+            }
+
+            span {
+                font-weight: 500;
+
+            }
+
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-top: .5rem;
+
+            li {
+                margin-bottom: 0.5rem;
+
+
+
+                a {
+                    color: #1B1B1B !important;
+                    text-decoration: none;
+                    font-family: General Sans;
+                    font-weight: 420 !important;
+                    font-style: Regular;
+                    font-size: 16px;
+                    leading-trim: NONE;
+                    line-height: 130%;
+                    letter-spacing: 0%;
+
+                }
+            }
+        }
+
+        // Social Media
+        .social-links {
+            display: flex;
+            gap: 15px;
+
+
+            @media (max-width: 991px) {
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            .social-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background-color: transparent;
+                border: 0.7px solid rgba(132, 132, 132, 0.1);
+                border-radius: 100%;
+                color: #555;
+                text-decoration: none;
+                font-size: 17px;
+                transition: all 0.3s ease;
+                // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+                &:hover {
+                    background-color: #2E7D32;
+                    color: #fff;
+                    transform: translateY(-2px);
+                }
+
+                i {
+                    font-size: 22px !important;
+
+                }
+            }
+        }
+
+        // Bottom Section
+        .footer-copyright {
+            color: #1B1B1B;
+            font-family: General Sans;
+            font-weight: 450;
+            font-style: Regular;
+            font-size: 15px !important;
+            leading-trim: NONE;
+            line-height: 130%;
+            letter-spacing: 0%;
+
+
+
+            @media (max-width: 767px) {
+                text-align: start;
+                margin-bottom: 10px !important;
+            }
+        }
+
+        .privacy-link {
+            color: #1B1B1B;
+            font-family: General Sans;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 15px;
+            leading-trim: NONE;
+            line-height: 150%;
+            letter-spacing: 0%;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-left: 12px;
+
+            &:hover {
+                color: #2E7D32;
+            }
+
+            @media (max-width: 767px) {
+                display: block;
+                text-align: start;
+            }
+        }
+
+        .privacy-link-first {
+            font-family: General Sans;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 16px;
+            leading-trim: NONE;
+            line-height: 120%;
+            letter-spacing: 0%;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            color: #1B1B1B;
+            margin-left: 12px;
+
+
+
+        }
+
+        .privacy-link-first-mob {
+            display: none;
+        }
+
+        .border-top {
+            border-color: rgba(46, 125, 50, 0.2) !important;
+        }
+
+        @media (min-width: 576px) and (max-width: 876px) {
+
+            .privacy-link-first {
+                display: none;
+            }
+
+            .footer-copyright {
+                color: #1B1B1B;
+                font-family: General Sans;
+                font-weight: 450;
+                font-style: Regular;
+                font-size: 15px !important;
+                leading-trim: NONE;
+                line-height: 130%;
+                letter-spacing: 0%;
+            }
+
+            .privacy-link {
+                color: #1B1B1B;
+                font-family: General Sans;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 14px;
+                leading-trim: NONE;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+            }
+
+
+
+            .privacy-link-first-mob {
+                font-family: General Sans;
+                font-weight: 400;
+                font-style: normal;
+                /* Regular → normal */
+                font-size: 14px;
+                line-height: 130%;
+                letter-spacing: 0;
+                text-decoration: none;
+                transition: color 0.3s ease;
+                color: #1B1B1B;
+                margin-left: 12px !important;
+                display: inline-block;
+            }
+        }
+
+        @media (max-width:576px) {
+
+            .privacy-link {
+                color: #1B1B1B;
+                font-family: General Sans;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 13px;
+                leading-trim: NONE;
+                line-height: 163%;
+                letter-spacing: 0%;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+            }
+
+            .privacy-link-first-mob {
+                font-family: General Sans;
+                font-weight: 400;
+                font-style: normal;
+                /* Regular → normal */
+                font-size: 14px;
+                line-height: 130%;
+                letter-spacing: 0;
+                text-decoration: none;
+                transition: color 0.3s ease;
+                color: #1B1B1B;
+                margin-left: 6px !important;
+                display: inline-block;
+
+            }
+
+            .privacy-link-first {
+                display: none !important;
+            }
+
+            .footer-copyright {
+                color: #1B1B1B;
+                font-family: General Sans;
+                font-weight: 450;
+                font-style: Regular;
+                font-size: 13px !important;
+                leading-trim: NONE;
+                line-height: 130%;
+                letter-spacing: 0%;
+                margin-right: 12px;
+            }
+
+        }
+
+
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 576px) {
+    .FootermainWrapper .footer {
+        padding: 40px 0 30px;
+
+        .newsletter-form {
+            padding-right: 2rem;
+            width: 100% !important;
+
+            .row {
+                --bs-gutter-x: 0.5rem;
+            }
+
+            .newsletter-input,
+            .newsletter-btn {
+                font-size: 11px !important;
+                padding: 10px 30px;
+            }
+
+            .newsletter-btn {
+                padding: 20px 60px 10px 10px;
+                margin-left: 1rem;
+
+            }
+        }
+
+        .footer-heading {
+            font-size: 1rem;
+        }
+
+        .footer-text,
+        .footer-links a {
+            font-size: 0.85rem;
+        }
+
+        .quick-links {
+            margin-left: .1rem;
+        }
+
+        .subscribe-btn {
+            width: 40%;
+        }
+
+        .email {
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 876px) {
+    .FootermainWrapper .footer {
+        padding: 0px 0 2rem !important;
+
+
+        .newsletter-form {
+            padding-right: 2rem;
+
+            .email {
+                width: 60%;
+            }
+
+            .row {
+                --bs-gutter-x: 0.5rem;
+            }
+
+            .newsletter-input {
+                font-size: 13px !important;
+                padding: 10px 0px !important;
+            }
+
+            .newsletter-btn {
+                padding: 10px 60px 10px 10px;
+                margin-left: .5rem;
+
+            }
+        }
+
+        .footer-heading {
+            font-size: 1rem;
+        }
+
+        .footer-text,
+        .footer-links a {
+            font-size: 0.85rem;
+        }
+
+        .quick-links {
+            margin-left: .1rem;
+        }
+
+        .subscribe-btn {
+            width: 40%;
+        }
+
+        .email {
+            width: 60%;
+        }
+    }
+}

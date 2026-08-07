@@ -1,0 +1,714 @@
+.OneDropMain {
+    margin-top: 4rem;
+    width: 100%;
+    overflow: hidden; // Prevent horizontal overflow
+
+    .vector {
+            margin-top: 14px !important;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .one-drop {
+        background-color: #3DAE4A;
+        margin-top: 0 !important;
+        width: 100%;
+        overflow: hidden; // Prevent overflow
+        
+
+        .one-drop-head {
+            padding-top: 3rem;
+            padding-left: 3rem;
+
+            h3 {
+                font-family: Resonate;
+                font-weight: 400;
+                font-size: 56px;
+                letter-spacing: -2%;
+                background: linear-gradient(90deg, rgba(245, 189, 46, 1) 0%, rgba(255, 255, 255, 1) 17%, rgba(237, 221, 83, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            h2 {
+                font-family: Nohemi;
+                font-weight: 600;
+                font-size: 80px;
+                line-height: 105%;
+                letter-spacing: -2%;
+                color: #FFFFFF;
+            }
+        }
+
+        .one-drop-image img {
+            will-change: transform;
+        }
+
+        .one-drop-image {
+            position: relative;
+            height: 700px;
+            overflow: hidden;
+            width: 100%;
+
+            .vector1 {
+                position: absolute;
+                bottom: 0;
+                width: 300px;
+                z-index: 0;
+                left: 0;
+            }
+
+            .vector-flower {
+                position: absolute;
+                bottom: 0;
+                width: 96px;
+                left: 10%;
+            }
+
+            .coconut {
+                position: absolute;
+                bottom: 280px;
+                left: 25%;
+                width: 400px;
+                transform: rotate(50deg);
+                transition: transform 0.1s ease-out;
+                transform-origin: bottom center;
+            }
+
+            .bottle {
+                position: absolute;
+                width: 500px;
+                bottom: 0;
+                top: 100px;
+                left: 35%;
+                transition: transform 0.1s ease-out;
+                transform-origin: bottom center;
+            }
+
+            .flower-1 {
+                position: absolute;
+                left: 70%;
+            }
+
+            .flower-2 {
+                position: absolute;
+                top: 45%;
+                left: 80%;
+            }
+
+            .flower-3 {
+                position: absolute;
+                top: 20%;
+                left: 30%;
+            }
+
+            .vector1,
+            .vector-flower {
+                transition: transform 0.3s ease-out;
+                will-change: transform;
+            }
+        }
+    }
+
+    .oil-section {
+        background-color: #FEEC99;
+        height: 900px;
+        position: relative;
+
+        .green-leaf {
+            position: absolute;
+            left: -3%;
+        }
+
+        .oil-section-head {
+            text-align: center;
+            padding-top: 7rem;
+
+            h2 {
+                font-family: Nohemi;
+                font-weight: 600;
+                font-size: 80px;
+                line-height: 105%;
+                letter-spacing: -2%;
+                color: #675606;
+            }
+        }
+
+        .oil-images {
+            margin-top: 0rem;
+
+            .oil-f1 {
+                position: absolute;
+                left: 226px;
+                top: 361.83px;
+            }
+
+            .oil-f2 {
+                position: absolute;
+                left: 80%;
+                top: 401.83px;
+            }
+
+            .oil-vector-1 {
+                position: absolute;
+                left: 300.08px;
+                top: 401.83px;
+            }
+
+            .oil-vector-2 {
+                position: absolute;
+                left: 700.08px;
+                top: 551.83px;
+            }
+
+            .oil-bottle {
+                position: absolute;
+                left: 750.08px;
+                top: 290.83px;
+                width: 230px;
+            }
+
+            .coconut {
+                position: absolute;
+                width: 558.5918615392419px;
+                left: 380px;
+            }
+
+            .oil-plant {
+                position: absolute;
+                left: 330px;
+                top: 720px;
+            }
+
+            .oil-pouch {
+                position: absolute;
+                width: 348.13399407614116px;
+                left: 430px;
+            }
+        }
+    }
+
+    // Tablet Styles
+    @media (max-width: 1024px) and (min-width: 769px) {
+        .one-drop {
+            .one-drop-head {
+                padding-top: 2rem;
+                padding-left: 2rem;
+
+                h3 {
+                    font-size: 40px;
+                }
+
+                h2 {
+                    font-size: 60px;
+                }
+            }
+
+            .one-drop-image {
+                height: 550px;
+
+                .vector1 {
+                    width: 240px;
+                }
+
+                .vector-flower {
+                    width: 76px;
+                    left: 12%;
+                }
+
+                .coconut {
+                    bottom: 220px;
+                    left: 20%;
+                    width: 320px;
+                }
+
+                .bottle {
+                    width: 400px;
+                    top: 80px;
+                    left: 30%;
+                }
+
+                .flower-1 {
+                    left: 65%;
+                    width: 60px;
+                }
+
+                .flower-2 {
+                    top: 40%;
+                    left: 75%;
+                    width: 50px;
+                }
+
+                .flower-3 {
+                    top: 15%;
+                    left: 25%;
+                    width: 45px;
+                }
+            }
+        }
+
+        .oil-section {
+            height: 700px;
+
+            .oil-section-head {
+                padding-top: 5rem;
+
+                h2 {
+                    font-size: 60px;
+                }
+            }
+
+            .oil-images {
+                .oil-f1 {
+                    left: 180px;
+                    top: 290px;
+                    width: 80px;
+                }
+
+                .oil-f2 {
+                    left: 75%;
+                    top: 320px;
+                    width: 70px;
+                }
+
+                .oil-vector-1 {
+                    left: 240px;
+                    top: 320px;
+                    width: 120px;
+                }
+
+                .oil-vector-2 {
+                    left: 560px;
+                    top: 440px;
+                    width: 140px;
+                }
+
+                .oil-bottle {
+                    left: 600px;
+                    top: 230px;
+                    width: 180px;
+                }
+
+                .coconut {
+                    width: 450px;
+                    left: 300px;
+                    top: 280px;
+                }
+
+                .oil-plant {
+                    left: 260px;
+                    top: 580px;
+                    width: 120px;
+                }
+
+                .oil-pouch {
+                    width: 280px;
+                    left: 340px;
+                    top: 300px;
+                }
+            }
+        }
+    }
+
+    // Mobile Styles
+    @media (max-width: 768px) {
+        margin-top: 2rem;
+        overflow-x: hidden; // Critical for mobile
+
+        .vector {
+            height: 25px;
+            overflow: hidden;
+            margin-bottom: -2px; // Remove any margin
+            display: block; 
+
+            img {
+                width: 100%;
+                display: block; // Remove inline spacing
+                margin: 0;
+            }
+        }
+
+        .one-drop {
+            margin-top: -2 !important; // Ensure no gap
+            padding-top: 0; // Remove any padding
+            .one-drop-head {
+                padding-top: 1.5rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+
+                h3 {
+                    font-size: 28px;
+                }
+
+                h2 {
+                    font-size: 32px;
+                    line-height: 110%;
+                }
+            }
+
+            .one-drop-image {
+                height: 400px;
+                max-width: 100vw;
+
+                .vector1 {
+                    width: 120px;
+                    left: 0;
+                    max-width: 30vw;
+                }
+
+                .vector-flower {
+                    width: 40px;
+                    left: 12%;
+                    max-width: 12vw;
+                }
+
+                .coconut {
+                    bottom: 140px;
+                    left: 8%;
+                    width: 160px;
+                    max-width: 45vw;
+                }
+
+                .bottle {
+                    width: 200px;
+                    max-width: 55vw;
+                    top: 50px;
+                    left: 22%;
+                    right: auto;
+                }
+
+                .flower-1 {
+                    left: 65%;
+                    top: 10%;
+                    width: 32px;
+                    max-width: 8vw;
+                }
+
+                .flower-2 {
+                    top: 35%;
+                    left: 75%;
+                    width: 28px;
+                    max-width: 7vw;
+                }
+
+                .flower-3 {
+                    top: 8%;
+                    left: 18%;
+                    width: 24px;
+                    max-width: 6vw;
+                }
+            }
+        }
+
+        .oil-section {
+            height: 500px;
+
+            .green-leaf {
+                left: -8%;
+                width: 100px;
+                max-width: 25vw;
+            }
+
+            .oil-section-head {
+                padding-top: 3rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+
+                h2 {
+                    font-size: 32px;
+                    line-height: 110%;
+                }
+            }
+
+            .oil-images {
+                .oil-f1 {
+                    left: 15%;
+                    top: 200px;
+                    width: 40px;
+                    max-width: 10vw;
+                }
+
+                .oil-f2 {
+                    left: 68%;
+                    top: 220px;
+                    width: 36px;
+                    max-width: 9vw;
+                }
+
+                .oil-vector-1 {
+                    left: 20%;
+                    top: 220px;
+                    width: 65px;
+                    max-width: 16vw;
+                }
+
+                .oil-vector-2 {
+                    left: 58%;
+                    top: 300px;
+                    width: 75px;
+                    max-width: 18vw;
+                }
+
+                .oil-bottle {
+                    left: 55%;
+                    top: 150px;
+                    width: 100px;
+                    max-width: 25vw;
+                }
+
+                .coconut {
+                    width: 220px;
+                    max-width: 55vw;
+                    left: 8%;
+                    top: 200px;
+                }
+
+                .oil-plant {
+                    left: 25%;
+                    top: 400px;
+                    width: 65px;
+                    max-width: 16vw;
+                }
+
+                .oil-pouch {
+                    width: 140px;
+                    max-width: 35vw;
+                    left: 25%;
+                    top: 220px;
+                }
+            }
+        }
+    }
+
+    // Extra Small Mobile Styles
+    @media (max-width: 576px) {
+        .vector {
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    
+    img {
+      display: block;
+      margin: 0;
+      padding: 0;
+      
+    }
+  }
+  
+  .one-drop {
+    margin-top: 0px; // Slight overlap to eliminate gap
+  }
+
+        .one-drop {
+            margin-top: 0 !important;
+            padding-top: 0;
+            
+            .one-drop-head {
+                padding-top: 1rem;
+                padding-left: 0.8rem;
+                padding-right: 0.8rem;
+
+                h3 {
+                    font-size: 24px;
+                }
+
+                h2 {
+                    font-size: 28px;
+                }
+            }
+
+            .one-drop-image {
+                height: 350px;
+
+                .vector1 {
+                    width: 100px;
+                    max-width: 28vw;
+                }
+
+                .vector-flower {
+                    width: 32px;
+                    left: 15%;
+                    max-width: 10vw;
+                }
+
+                .coconut {
+                    bottom: 120px;
+                    left: 15%;
+                    width: 140px;
+                    max-width: 40vw;
+                }
+
+                .bottle {
+                    width: 170px;
+                    max-width: 50vw;
+                    top: 138px;
+                    left: 40%;
+                }
+
+                .flower-1 {
+                    left: 70%;
+                    top: 8%;
+                    width: 28px;
+                    max-width: 7vw;
+                }
+
+                .flower-2 {
+                    top: 30%;
+                    left: 80%;
+                    width: 24px;
+                    max-width: 6vw;
+                }
+
+                .flower-3 {
+                    top: 5%;
+                    left: 12%;
+                    width: 20px;
+                    max-width: 5vw;
+                }
+            }
+        }
+
+        .oil-section {
+            height: 450px;
+
+            .green-leaf {
+                left: 0%;
+                width: 80px;
+                max-width: 22vw;
+            }
+
+            .oil-section-head {
+                padding-top: 2.5rem;
+                padding-left: 0.8rem;
+                padding-right: 0.8rem;
+
+                h2 {
+                    font-size: 28px;
+                }
+            }
+
+            .oil-images {
+                .oil-f1 {
+                    left: 12%;
+                    top: 180px;
+                    width: 32px;
+                    max-width: 8vw;
+                }
+
+                .oil-f2 {
+                    left: 72%;
+                    top: 200px;
+                    width: 28px;
+                    max-width: 7vw;
+                }
+
+                .oil-vector-1 {
+                    left: 35%;
+                    top: 250px;
+                    width: 85px;
+                    max-width: 18vw;
+                }
+
+                .oil-vector-2 {
+                    left: 60%;
+                    top: 270px;
+                    width: 85px;
+                    max-width: 20vw;
+                }
+
+                .oil-bottle {
+                    left: 58%;
+                    top: 130px;
+                    width: 105px;
+                    max-width: 30vw;
+                }
+
+                .coconut {
+                    width: 180px;
+                    max-width: 50vw;
+                    left: 26%;
+                    top: 180px;
+                }
+
+                .oil-plant {
+                    left: 22%;
+                    top: 360px;
+                    width: 55px;
+                    max-width: 14vw;
+                }
+
+                .oil-pouch {
+                    width: 120px;
+                    max-width: 50vw;
+                    left: 22%;
+                    top: 200px;
+                }
+            }
+        }
+    }
+
+    // Very Small Screens (320px and below)
+    @media (max-width: 320px) {
+        .vector {
+            height: 18px;
+            margin-bottom: 0;
+            
+            img {
+                display: block;
+                margin: 0;
+            }
+        }
+
+        .one-drop {
+            margin-top: 0 !important;
+            padding-top: 0;
+            .one-drop-head {
+                h3 {
+                    font-size: 20px;
+                }
+
+                h2 {
+                    font-size: 24px;
+                }
+            }
+
+            .one-drop-image {
+                height: 300px;
+
+                .coconut {
+                    width: 120px;
+                    left: 3%;
+                }
+
+                .bottle {
+                    width: 140px;
+                    left: 18%;
+                }
+            }
+        }
+
+        .oil-section {
+            height: 400px;
+
+            .oil-section-head {
+                h2 {
+                    font-size: 24px;
+                }
+            }
+
+            .oil-images {
+                .coconut {
+                    width: 150px;
+                    left: 3%;
+                }
+
+                .oil-pouch {
+                    width: 100px;
+                    left: 20%;
+                }
+            }
+        }
+    }
+}

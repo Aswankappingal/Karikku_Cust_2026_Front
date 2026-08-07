@@ -1,0 +1,158 @@
+.BannerMainWrapper {
+    overflow: hidden;
+    margin-top: 3.4rem !important;
+
+    .banner-sub-wrapper {
+        background-color: white;
+        padding: 30px 0px;
+        position: relative;
+
+        .banner-img {
+            width: 100%;
+            height: 95vh;
+            overflow: hidden;
+
+            position: relative !important;
+
+            img {
+                width: 97%;
+                margin: auto;
+                backdrop-filter: black;
+                height: 100%;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+
+            .banner-txt {
+                position: absolute !important;
+                bottom: 18%;
+                width: 30%;
+                left: 7%;
+
+
+                h1 {
+                    font-weight: 500;
+                    font-family: Nohemi;
+                    font-weight: 500;
+                    line-height: 120%;
+                    letter-spacing: -3%;
+                    font-style: Medium;
+                    font-size: 48px !important;
+                }
+
+                /* Gradient text */
+                background: linear-gradient(93.31deg, #AEFF5D 0.94%, #FFD94E 28.42%, #FFFFED 54.17%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                /* For Firefox */
+                color: transparent;
+            }
+
+        }
+
+
+        // Custom Slick Dots Styling
+        .slick-dots {
+            position: absolute;
+            bottom: 90px;
+            left: 9%;
+            transform: translateX(-50%);
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            gap: 13px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            z-index: 10;
+
+            li {
+                margin: 0;
+                padding: 0;
+                width: auto;
+                height: auto;
+
+                button {
+                    width: 17px;
+                    height: 5px;
+                    border-radius: 5px;
+                    border: none;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    cursor: pointer;
+                    padding: 0;
+                    margin: 0;
+                    font-size: 0;
+                    line-height: 0;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+                    // &:hover {
+                    //     background-color: rgba(255, 255, 255, 0.8);
+                    //     transform: scale(1.2);
+                    // }
+
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        background-color: #B2FF06;
+                        box-shadow: 0 0 15px #B2FF06;
+                        transform: scale(1.6);
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+        .banner-sub-wrapper {
+            padding: 15px;
+
+            .banner-img {
+                height: 60vh;
+
+                .banner-txt {
+                    bottom: 9% !important;
+                    width: 50% !important;
+
+                    h1 {
+                        font-size: 20px !important;
+
+                    }
+                }
+            }
+
+            .slick-dots {
+                bottom: 30px;
+                gap: 10px;
+                left: 12%;
+
+                li button {
+                    // width: 10px;
+                    // height: 10px;
+                }
+            }
+
+            .slick-arrow {
+                width: 40px;
+                height: 40px;
+
+                &.slick-prev {
+                    left: 20px;
+                }
+
+                &.slick-next {
+                    right: 20px;
+                }
+            }
+        }
+    }
+}

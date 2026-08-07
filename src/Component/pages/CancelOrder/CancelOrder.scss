@@ -1,0 +1,526 @@
+.cancel-main-main-wrapper {
+    .cancel-header-for-only {
+
+        padding: 1rem 2.8rem;
+
+
+
+        h3 {
+
+            margin-top: 5rem;
+            font-family: General Sans;
+            font-weight: 600;
+            font-style: Semibold;
+            font-size: 24px;
+            leading-trim: NONE;
+            line-height: 105%;
+            letter-spacing: -2%;
+            background: linear-gradient(90deg, #738933 18%, rgba(3, 36, 7, 0.793) 44%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+
+
+        }
+    }
+
+    .cancel-main-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // min-height: 100vh;
+        // padding: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-bottom: 3rem;
+
+        .cancel-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 32px;
+            width: 100%;
+            max-width: 50rem;
+
+            .Order-3012 {
+                font-family: General Sans;
+                font-weight: 600;
+                font-style: Semibold;
+                font-size: 20px;
+                leading-trim: CAP_HEIGHT;
+                line-height: 130%;
+                letter-spacing: -2%;
+
+
+            }
+
+            .Order-Id {
+                font-family: General Sans;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 20px;
+                leading-trim: CAP_HEIGHT;
+                line-height: 130%;
+                letter-spacing: -2%;
+
+
+            }
+
+            .cancel-header {
+                margin-bottom: 24px;
+
+                h2 {
+                    margin: 0 0 12px 0;
+                    font-size: 24px;
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                .order-info {
+                    .order-number {
+                        display: block;
+                        color: #666;
+                        font-size: 14px;
+                        margin-bottom: 8px;
+                    }
+
+                    .order-status {
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        color: #ff4444;
+                        background-color: #FEF2F2;
+                        border-radius: 50px;
+                        padding: 20px 12px;
+
+
+                        .Exclammation-mark {
+                            background-color: #D52525;
+                            border-radius: 100%;
+                            padding: 2px 8px 2px 11px;
+                            color: white;
+                            margin-right: 10px;
+
+                        }
+
+                        .Order-getting {
+                            font-family: General Sans;
+                            font-weight: 500;
+                            font-style: Medium;
+                            font-size: 16px;
+                            leading-trim: NONE;
+                            line-height: 105%;
+                            letter-spacing: -2%;
+                            text-align: center;
+
+                        }
+
+                        ;
+
+                        .status-dot {
+                            width: 8px;
+                            height: 8px;
+                            background-color: #ff4444;
+                            border-radius: 50%;
+                            margin-right: 8px;
+                        }
+                    }
+                }
+            }
+
+            .cancel-content {
+                .order-availability {
+                    margin-bottom: 20px;
+
+                    .total-section {
+                        text-align: left;
+                        margin: 16px 0;
+
+                        .totalll {
+                            font-family: General Sans;
+                            font-weight: 600;
+                            font-style: Semibold;
+                            font-size: 16px;
+                            leading-trim: NONE;
+                            line-height: 130%;
+                            letter-spacing: -2%;
+
+                            .price {
+                                font-family: General Sans;
+                                font-weight: 400;
+                                font-style: Regular;
+                                font-size: 16px;
+                                leading-trim: NONE;
+                                line-height: 130%;
+                                letter-spacing: -2%;
+                                color: #1B1919;
+
+                            }
+
+                        }
+                    }
+
+                    .order-flexer {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+
+                        .Processinggg {
+                            background-color: #F4E9B5;
+                            padding: 10px 12px;
+                            border-radius: 8px;
+
+                            .processing {
+
+                                font-weight: 620;
+                                font-style: Regular;
+                                font-size: 16px;
+                                leading-trim: NONE;
+                                line-height: 100%;
+                                letter-spacing: 0%;
+                                text-align: center;
+                                color: #675606;
+
+                            }
+
+                        }
+
+                        .order-summaary {
+
+                            font-family: General Sans;
+                            font-weight: 600;
+                            font-style: Semibold;
+                            font-size: 16px;
+                            leading-trim: NONE;
+                            line-height: 130%;
+                            letter-spacing: 0%;
+                            text-transform: uppercase;
+
+
+                        }
+
+
+
+                    }
+
+
+                    h3 {
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0 0 12px 0;
+                        color: #333;
+                    }
+
+                    .availability-item {
+                        // display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 8px 0;
+                        border-bottom: 1px solid #E6E6E6 !important;
+                        width: 100%;
+
+                        .Tshirts-and-caps {
+                            font-family: General Sans;
+                            font-weight: 400;
+                            font-style: Regular;
+                            font-size: 16px;
+                            leading-trim: NONE;
+                            line-height: 130%;
+                            letter-spacing: -2%;
+                            color: #1B1919;
+
+                            .order-font {
+                                font-family: General Sans;
+                                font-weight: 400;
+                                font-style: Regular;
+                                font-size: 14px;
+                                leading-trim: NONE;
+                                line-height: 140%;
+                                letter-spacing: -2%;
+                                color: #4F595F;
+
+                            }
+
+                            .Tshirts-sub {
+                                font-family: General Sans;
+                                font-weight: 400;
+                                font-style: Regular;
+                                font-size: 16px;
+                                leading-trim: NONE;
+                                line-height: 130%;
+                                letter-spacing: -2%;
+
+                                color: #1B1919;
+
+                            }
+
+                        }
+
+                        .item-name {
+
+                            font-family: General Sans;
+                            color: #1B1919 !important;
+                            font-weight: 600 !important;
+                            font-style: Semibold !important;
+                            font-size: 16px !important;
+                            leading-trim: NONE;
+                            line-height: 130%;
+                            letter-spacing: -2% !important;
+
+
+
+                        }
+
+
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+
+
+                        .item-name {
+                            color: #333;
+                            font-weight: 500;
+                        }
+
+                        .availability-status {
+                            padding: 4px 12px;
+                            border-radius: 16px;
+                            font-size: 12px;
+                            font-weight: 500;
+
+                            &.processing {
+                                background-color: #fff3cd;
+                                color: #856404;
+                            }
+
+                            &.available {
+                                background-color: #d4edda;
+                                color: #155724;
+                            }
+                        }
+                    }
+
+
+                }
+
+
+
+                .reason-section {
+                    margin: 24px 0;
+
+                    h3 {
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-style: Medium;
+                        font-size: 16px;
+                        leading-trim: NONE;
+                        line-height: 110.00000000000001%;
+                        letter-spacing: 0%;
+                        color: #1B1919;
+
+                    }
+
+                    .additional-text {
+                        textarea {
+                            width: 100%;
+                            padding: 12px;
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                            resize: vertical;
+                            font-family: General Sans;
+                            font-weight: 400;
+                            font-style: Regular;
+                            font-size: 16px;
+                            leading-trim: NONE;
+                            line-height: 110.00000000000001%;
+                            letter-spacing: 0%;
+
+
+                            &:focus {
+                                outline: none;
+                                border-color: #007bff;
+                                box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+                            }
+
+                            &::placeholder {
+                                color: #999;
+                            }
+                        }
+                    }
+                }
+
+                .reason-options {
+                    margin: 24px 0;
+
+                    h4 {
+                        font-family: "General Sans", sans-serif;
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 110%;
+                        color: #1B1919;
+                    }
+
+                    .reason-list {
+                        background-color: #F6F6F6;
+                        margin-top: 1.4rem;
+                        border-radius: 12px;
+                        width: 100%;
+                        height: 180px;
+                        padding: 25px 0px 12px 20px;
+
+                        label {
+                            display: flex;
+                            align-items: center;
+                            gap: 14px; // ✅ Adds spacing between radio & text
+                            margin-bottom: 12px;
+                            cursor: pointer;
+                        }
+
+                        input[type="radio"] {
+                            accent-color: #b40816d1; // ✅ Modern browsers allow styling the radio color
+                            width: 16px;
+                            height: 16px;
+                        }
+
+                        .reason-item {
+                            font-family: "General Sans", sans-serif;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 130%;
+                            color: #1B1919;
+                            margin: 0; // ✅ Remove extra margin
+                            padding: 0; // ✅ Remove padding for proper alignment
+                        }
+                    }
+                }
+
+
+                .policy-notice {
+
+
+                    border-radius: 8px;
+                    margin: 28px 0;
+
+                    .understand-text {
+                        font-family: General Sans;
+                        font-weight: 400;
+                        font-style: Regular;
+                        font-size: 16px;
+                        leading-trim: NONE;
+                        line-height: 130%;
+                        letter-spacing: -2%;
+                        text-align: center;
+
+
+                    }
+
+
+                    h4 {
+                        // margin: 5 7 12px 0;
+                        margin-top: 3px !important;
+                        font-family: General Sans;
+                        font-weight: 600;
+                        font-style: Semibold;
+                        font-size: 16px;
+                        leading-trim: CAP_HEIGHT;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+                        color: #1B1919;
+                    }
+
+                    .policy-label {
+                        display: flex;
+                        align-items: center;
+                        gap: 0px;
+                        cursor: pointer;
+                        font-size: 13px;
+                        color: #555;
+                        line-height: 1.5;
+
+                        input[type="checkbox"] {
+                            width: 18px;
+                            height: 18px;
+                            accent-color: #28a745; // modern browsers support
+                            cursor: pointer;
+                            border-radius: 4px;
+                        }
+
+                        span {
+                            font-family: General Sans;
+                            font-weight: 400;
+                            font-style: Regular;
+                            font-size: 16px;
+                            leading-trim: NONE;
+                            line-height: 130%;
+                            letter-spacing: -2%;
+                            text-align: center;
+                            margin-left: 5px !important;
+
+                        }
+
+                        &:hover span {
+                            color: #000;
+                        }
+                    }
+                }
+
+
+                .action-buttons {
+                    display: flex;
+                    gap: 12px; // spacing between buttons
+                    margin-top: 32px;
+                    justify-content: center;
+
+                    button {
+                        // padding: 12px 14px;
+                        width: 50%;
+                        border-radius: 22px;
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-style: Medium;
+                        font-size: 18px;
+                        leading-trim: NONE;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+                        border: none;
+                        cursor: pointer;
+
+
+                    }
+
+                    .cancel-order-btn {
+                        background-color: #28a745;
+
+                        color: white;
+
+                    }
+
+                    .keep-order-btn {
+                        background-color: transparent;
+                        color: #666;
+                        border: 1px solid #0E3E13 !important;
+                        color: #0E3E13;
+                        padding: 12px 54px;
+
+
+
+                    }
+                }
+
+            }
+        }
+
+        // Responsive design
+        @media (max-width: 768px) {
+            padding: 12px;
+
+            .cancel-container {
+                padding: 20px;
+                margin: 0;
+            }
+        }
+    }
+}

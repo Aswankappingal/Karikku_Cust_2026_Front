@@ -1,0 +1,247 @@
+.contact-Main-wrapper {
+
+    .contact-wrapper {
+        margin-top: 2rem;
+        height: 110vh;
+        // padding-bottom: 3rem;
+        background-color: #E3F7E5;
+
+        .left-content {
+            height: 100%;
+            // background-color: yellow;
+            display: flex;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contactus-lef-side {
+            // background-color: red;
+
+            width: 80%;
+            margin: auto;
+
+            h2 {
+                font-family: Resonate;
+                font-weight: 400;
+                font-size: 56px;
+                padding-top: 12px;
+                background: linear-gradient(90deg, rgba(245, 189, 46, 1) 18%, rgba(52, 109, 0, 1) 44%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                letter-spacing: -2%;
+
+            }
+
+            .ReadMoreBtn {
+                margin-top: 2rem;
+                color: #0E3E13;
+                padding: 7px 7px 7px 18px;
+                background-color: transparent;
+                border: 1px solid black;
+                font-family: General Sans;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 16px;
+                leading-trim: NONE;
+                line-height: 125%;
+                letter-spacing: 0%;
+                vertical-align: middle;
+                border-radius: 999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                .btn-icon {
+
+                    margin-left: 1rem;
+                    width: 24px;
+                    height: 24px;
+                    color: #3DAE4A;
+
+                }
+            }
+
+            h1 {
+                font-family: Nohemi;
+                font-weight: 600;
+                font-size: 60px;
+                line-height: 105%;
+                letter-spacing: -2%;
+                background: linear-gradient(90deg, rgba(115, 137, 51, 1) 18%, rgba(6, 44, 11, 1) 41%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+
+            }
+
+            p {
+                font-family: General Sans;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 130%;
+                width: 64%;
+                letter-spacing: -2%;
+
+            }
+
+            .button-container {
+                width: 236px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                padding-left: 20px;
+                padding-right: 10px;
+                justify-content: space-between;
+                border: 1px solid #0E3E13;
+                border-radius: 33px;
+
+                button {
+                    background: none;
+                    border: none;
+                    font-family: General Sans;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 125%;
+                    letter-spacing: 0%;
+                    vertical-align: middle;
+
+                }
+
+            }
+
+        }
+
+        .commitment-features {
+            width: 100%;
+            margin: auto;
+            margin-top: 8rem;
+
+            h3 {
+                font-family: General Sans;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 130%;
+                letter-spacing: 0%;
+                padding-top: 1rem;
+            }
+
+            p {
+                font-family: General Sans;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 130%;
+                letter-spacing: 0%;
+                padding-top: .8rem;
+
+            }
+
+            .col-lg-3 {
+                padding: 2rem 3rem;
+                margin-bottom: 30px;
+
+                .feature-para {
+                    p {
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-size: 15px;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+                        padding-top: 0.8rem;
+
+                    }
+
+                    display: flex;
+                    width: 100%;
+                    gap: 10px;
+                }
+            }
+        }
+
+
+        .map-section {
+            padding: 40px;
+            margin-top: 4rem;
+
+            .map-container {
+                width: 100%;
+                height: 697px;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+
+        }
+
+        .footer {
+            // padding-top: 7rem;
+        }
+    }
+
+    @media(max-width: 576px) {
+        .contact-wrapper {
+            margin-top: 0 !important;
+
+            .left-content {
+                height: 100%;
+                // background-color: yellow;
+                display: flex;
+                align-items: start !important;
+                height: 45vh;
+            }
+        }
+
+        .contactus-lef-side {
+            width: 100% !important;
+            margin-top: 4rem !important;
+            text-align: center;
+
+
+            .ReadMoreBtn {
+                margin-top: 1rem !important;
+                color: #0E3E13;
+                padding: 4px 7px 5px 8px !important;
+                background-color: transparent;
+                border: 1px solid black;
+                font-family: General Sans;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 16px;
+                leading-trim: NONE;
+                line-height: 100%;
+                letter-spacing: 0%;
+                vertical-align: middle;
+                // border-radius: 999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                .btn-icon {
+
+                    margin-left: 1rem;
+                    width: 24px;
+                    height: 24px;
+                    color: #3DAE4A;
+
+                }
+            }
+
+            h2 {
+                font-size: 30px !important;
+            }
+
+            h1 {
+                font-size: 30px !important;
+            }
+
+            p {
+                font-size: 16px !important;
+                // text-align: center !important;
+                width: 100% !important;
+            }
+
+        }
+
+        .map-section {
+            padding: 10px !important;
+        }
+    }
+}

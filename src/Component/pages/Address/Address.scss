@@ -1,0 +1,181 @@
+.AddressMainWrapper {
+    .address {
+        padding: 2rem 2rem;
+    }
+
+    .address-form {
+        padding-left: 0;
+
+        .addresses-header {
+            h4 {
+                font-family: General Sans;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 130%;
+                letter-spacing: 0%;
+                color: #17232A;
+            }
+        }
+
+        .address-card {
+            width: 100%;
+        }
+
+        .address-content {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            padding: 10px;
+
+            .left-content {
+                display: flex;
+                align-items: start;
+                gap: 10px;
+
+                h5 {
+                    font-family: General Sans;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 130%;
+                    letter-spacing: 0%;
+                    color: #1B1919;
+                }
+
+                p {
+                    font-family: General Sans;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 130%;
+                    letter-spacing: -2%;
+                    color: #1B1919;
+
+                }
+
+            }
+
+
+            input {
+                margin-top: .2rem;
+                accent-color: #0E3E13;
+                padding: 4px;
+                height: 20px;
+                width: 20px;
+            }
+
+            .right-content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 15px;
+
+                .address-type {
+                    h6 {
+                        font-family: Nohemi;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 100%;
+                        letter-spacing: 0%;
+                        text-align: center;
+                        color: #675606;
+                        border: 1px solid #C7BD90;
+                        background-color: #F4E9B5;
+                        padding: 5px 10px;
+                        margin: 0;
+                        border-radius: 6px;
+                    }
+                }
+
+                .address-actions {
+                    display: flex;
+                    gap: 8px;
+
+                    button {
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        padding: 8px;
+                        border-radius: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.2s ease;
+
+                        &.edit-btn {
+                            color: #0E3E13;
+                            background-color: rgba(14, 62, 19, 0.05);
+                            &:hover {
+                                background-color: rgba(14, 62, 19, 0.15);
+                            }
+                        }
+
+                        &.delete-btn {
+                            color: #E63946;
+                            background-color: rgba(230, 57, 70, 0.05);
+                            &:hover {
+                                background-color: rgba(230, 57, 70, 0.15);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .add-new-address-btn {
+        padding-top: 10px;
+        button {
+            background-color: transparent;
+            border-radius: 50px;
+            padding: 16px 24px;
+            border: 1px solid #0E3E13;
+            font-family: General Sans;
+            font-weight: 500;
+            font-size: 18px;
+            color: #0E3E13;
+        }
+    }
+
+    .cart-header {
+        background: white;
+        // padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+
+        h2 {
+            font-family: General Sans;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 105%;
+            letter-spacing: -2%;
+            background: linear-gradient(90deg, rgba(115, 137, 51, 1) 0%, rgba(6, 44, 11, 1) 12%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+        }
+    }
+
+    @media(max-width: 576px) {
+        .address-form {
+            padding-right: 0rem !important;
+            padding-left: 0 !important;
+
+        }
+
+        .checkout-card {
+            margin-top: 2rem;
+        }
+
+        .address {
+            padding: 1rem;
+        }
+    }
+          @media(max-width:991px){
+    
+        
+         .checkout-card{
+            margin-top: 1rem;
+         }
+       
+    }
+
+}

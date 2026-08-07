@@ -1,0 +1,740 @@
+.Order-complete-main-wrapper {
+
+    min-height: 100vh;
+    background-color: #f9fafb;
+
+
+    .order-contents {
+        padding-top: 7rem;
+
+        // Main Content
+        .main-content-order {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+
+            @media (min-width: 640px) {
+                padding: 2rem 1.5rem;
+            }
+
+            @media (min-width: 1024px) {
+                padding: 2rem 2rem;
+            }
+
+            // Orders List
+            .orders-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+
+
+
+                // Add these styles to your OrderComplete.scss file
+
+                .status-processing {
+                    background-color: #F4E9B5 !important;
+                    color: #5A5530 !important; // Darker text for better contrast
+                    padding: 4px 12px;
+                    border-radius: 6px;
+                    leading-trim: NONE;
+                    letter-spacing: 0%;
+                    text-align: center;
+                    border: 1px solid #C7BD90;
+                }
+
+                .status-transit {
+                    border: 1px solid #D6E8F4;
+                    color: #2B47B7 !important;
+                    background-color: #D6E8F4 !important;
+                    // Darker text for better contrast
+                    padding: 7px 12px;
+                    border-radius: 6px;
+
+
+                }
+
+                .status-delivered {
+                    background-color: #A3D8A9 !important;
+                    color: #2D5A32 !important; // Darker text for better contrast
+                    padding: 4px 12px;
+                    border-radius: 6px;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+
+
+                .delivery-actionss {
+                    padding: 1rem 1rem 0 0;
+                    display: flex;
+                    gap: 0.5rem;
+                    justify-content: flex-end;
+
+                    .btn-suppoprts {
+                        padding: 12px 22px;
+                        border-radius: 78px;
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-style: Medium;
+                        font-size: 14px;
+                        leading-trim: NONE;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+
+                    }
+
+                    .btn-again {
+                        padding: 12px 22px;
+                        background-color: #16a34a;
+                        border: none;
+                        color: white;
+                        border-radius: 78px;
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-style: Medium;
+                        font-size: 14px;
+                        leading-trim: NONE;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+
+
+                    }
+
+                    .btn-suppoprts {
+
+                        padding: 12px 22px;
+                        background-color: #16a34a;
+                        border: none;
+                        color: #0E3E13;
+                        border-radius: 6px;
+                        border: 1px solid #0E3E13;
+                        background-color: white;
+                        border-radius: 78px;
+                        font-size: 14px;
+
+                    }
+                }
+
+                .order-card {
+                    background: white;
+                    border-radius: 0.5rem;
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                    border: 1px solid #e5e7eb;
+                    overflow: hidden;
+                    padding-bottom: 2rem;
+
+                    // Progress Bar Section - NEW
+                    .progress-section {
+                        padding: 1rem 1.5rem 0 1.5rem;
+
+                        .progress-bar {
+                            width: 100%;
+                            height: 6px;
+                            background-color: #e5e7eb;
+                            border-radius: 3px;
+                            overflow: hidden;
+                            position: relative;
+
+                            .progress-fill {
+                                height: 100%;
+                                background: linear-gradient(90deg, #16a34a 0%, #22c55e 100%);
+                                border-radius: 3px;
+                                transition: width 0.1s ease-in-out;
+                                position: relative;
+
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    width: 1px;
+                                    height: 100%;
+                                    background: rgba(255, 255, 255, 0.3);
+                                    animation: shimmer 2s infinite;
+                                }
+                            }
+                        }
+                    }
+
+                    @keyframes shimmer {
+                        0% {
+                            opacity: 0;
+                        }
+
+                        50% {
+                            opacity: 1;
+                        }
+
+                        100% {
+                            opacity: 0;
+                        }
+                    }
+
+
+                    // Order Header
+                    .order-header {
+                        padding: 1rem 1.5rem;
+                        border-bottom: 1px solid #e5e7eb;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+
+                        @media (min-width: 640px) {
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+
+                        .order-info {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+
+                            @media (min-width: 640px) {
+                                flex-direction: row;
+                                align-items: center;
+                            }
+
+                            .order-details {
+                                .order-id {
+                                    font-weight: 500;
+                                    color: #111827;
+                                    margin: 0;
+                                }
+
+                                .order-date {
+                                    font-size: 0.875rem;
+                                    color: #6b7280;
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 0.25rem;
+                                    margin: 0.25rem 0 0 0;
+
+                                    .ordered-date {
+                                        font-family: General Sans;
+                                        font-weight: 400;
+                                        font-style: Regular;
+                                        font-size: 14px;
+                                        leading-trim: NONE;
+                                        line-height: 140%;
+                                        letter-spacing: -2%;
+                                        color: #4F595F;
+
+                                        .date {
+                                            font-family: General Sans;
+                                            font-weight: 400;
+                                            font-style: Regular;
+                                            font-size: 14px;
+                                            leading-trim: NONE;
+                                            line-height: 140%;
+                                            letter-spacing: -2%;
+
+                                        }
+
+                                    }
+
+                                    .grand-total {
+                                        font-family: General Sans;
+                                        font-weight: 600;
+                                        font-style: Semibold;
+                                        font-size: 16px;
+                                        leading-trim: NONE;
+                                        line-height: 130%;
+                                        letter-spacing: -2%;
+                                        color: #1b1919;
+                                        margin-left: 12px;
+
+                                        .total {
+                                            font-family: General Sans;
+                                            font-weight: 400;
+                                            font-style: Regular;
+                                            font-size: 16px;
+                                            leading-trim: NONE;
+                                            line-height: 130%;
+                                            letter-spacing: -2%;
+                                        }
+
+                                    }
+
+                                    .date-icon {
+                                        width: 1rem;
+                                        height: 1rem;
+                                    }
+                                }
+                            }
+                        }
+
+                        .order-status-wrapper {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+                            flex-wrap: wrap;
+                            justify-content: flex-end;
+
+                            @media (max-width: 640px) {
+                                justify-content: space-between;
+                                width: 100%;
+                            }
+
+                            .tracking-link {
+                                color: #4caf50;
+                                font-size: 14px;
+                                font-weight: 500;
+                                text-decoration: underline;
+                            }
+
+                            .invoice-btn {
+                                // color: #3DAE4A;
+                                font-size: 14px;
+                                font-weight: 500;
+                                background: none;
+                                border: none;
+                                cursor: pointer;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 6px;
+                                text-decoration: underline;
+                                padding: 0;
+                            }
+
+                            .status-badge {
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 0.25rem;
+                                padding: 0.25rem 0.75rem;
+                                border-radius: 9999px;
+                                font-size: 0.875rem;
+                                font-weight: 500;
+                                background-color: #F4E9B5;
+                                white-space: nowrap;
+
+                                .status-icon {
+                                    width: 1rem;
+                                    height: 1rem;
+                                }
+
+                                &.processing {
+                                    background-color: #fef3c7;
+                                    color: #92400e;
+                                }
+
+                                &.dispatched {
+                                    background-color: #dbeafe;
+                                    color: #1e40af;
+                                }
+
+                                &.delivered {
+                                    background-color: #dcfce7;
+                                    color: #166534;
+                                }
+                            }
+                        }
+                    }
+
+                    // Order Items
+                    .order-items {
+                        padding: 1rem 1.5rem;
+
+
+
+                        .order-item {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+
+                            .item-image {
+                                width: 4rem;
+                                height: 4rem;
+                                background-color: #E3EFE4;
+                                border-radius: 0.375rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                flex-shrink: 0;
+
+                                .placeholder-icon {
+                                    width: 1.5rem;
+                                    height: 2rem;
+                                    color: #9ABA9E;
+
+
+                                }
+                            }
+
+                            .item-details {
+                                flex: 1;
+
+                                .item-name {
+                                    font-family: General Sans;
+                                    font-weight: 600;
+                                    font-style: Semibold;
+                                    font-size: 16px;
+                                    leading-trim: NONE;
+                                    line-height: 130%;
+                                    letter-spacing: -2%;
+                                    color: #111827;
+                                    margin: 0;
+                                }
+
+                                .item-description {
+                                    font-family: General Sans;
+                                    font-weight: 400;
+                                    font-style: Regular;
+                                    font-size: 16px;
+                                    leading-trim: NONE;
+                                    line-height: 130%;
+                                    letter-spacing: -2%;
+                                    color: #1B1919;
+
+                                }
+                            }
+
+                            .item-price {
+                                text-align: right;
+
+                                .price-link {
+                                    font-family: General Sans;
+                                    font-weight: 500;
+                                    font-style: Medium;
+                                    font-size: 15px;
+                                    leading-trim: NONE;
+                                    line-height: 100%;
+                                    letter-spacing: 0%;
+                                    text-decoration: underline;
+                                    text-decoration-style: solid;
+                                    text-decoration-offset: 0%;
+                                    text-decoration-thickness: 0%;
+                                    color: #0E3E13;
+                                    cursor: pointer;
+
+
+                                    &:hover {
+                                        color: #15803d;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .delivery-detail-main {
+                        .delivery-title-Delivered {
+                            font-family: General Sans;
+                            font-weight: 500;
+                            font-style: Medium;
+                            font-size: 16px;
+                            leading-trim: NONE;
+                            line-height: 110.00000000000001%;
+                            letter-spacing: 0%;
+                            margin-left: 22px !important;
+                            color: #000000;
+                            margin-top: 12px !important;
+
+
+                        }
+
+
+
+
+
+
+
+                        .delivery-title {
+
+                            font-family: General Sans;
+                            font-weight: 500;
+                            font-style: Medium;
+                            font-size: 16px;
+                            leading-trim: NONE;
+                            line-height: 110.00000000000001%;
+                            letter-spacing: 0%;
+                            margin-top: 1rem;
+                            margin-left: 22px !important;
+                            color: #000000;
+
+                        }
+
+
+                        .delivery-details {
+                            padding: 1rem 1.5rem;
+                            border-top: 1px solid #e5e7eb;
+                            background-color: #F6F6F6;
+
+                            .delivery-grid {
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                gap: 1rem;
+                                font-size: 0.875rem;
+                                font-family: General Sans, sans-serif;
+
+                                @media (min-width: 768px) {
+                                    grid-template-columns: 1fr 1fr;
+                                }
+
+                                .delivery-info {
+                                    font-family: General Sans, sans-serif;
+
+
+                                    .delivery-address {
+                                        color: #6b7280;
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0.25rem;
+                                        margin: 0 0 0.25rem 0;
+
+                                        .address-icon {
+                                            width: 1rem;
+                                            height: 1rem;
+                                        }
+                                    }
+
+                                    .delivery-date,
+                                    .delivery-by {
+
+                                        .delivery-tax {
+                                            font-family: General Sans;
+                                            font-weight: 400;
+                                            font-style: Regular;
+                                            font-size: 16px;
+                                            leading-trim: NONE;
+                                            line-height: 130%;
+                                            letter-spacing: -2%;
+
+                                        }
+
+                                        font-family: General Sans;
+                                        font-weight: 500;
+                                        font-style: Regular;
+                                        font-size: 16px;
+                                        leading-trim: NONE;
+                                        line-height: 130%;
+                                        letter-spacing: -2%;
+                                        color: #1B1919;
+
+                                    }
+                                }
+
+
+                            }
+                        }
+
+                    }
+
+                    // Delivery Details
+
+
+                    // Order Actions
+                    .order-actions {
+                        padding: 1rem 1.5rem;
+                        border-top: 1px solid #e5e7eb;
+                        display: flex;
+                        justify-content: flex-end;
+                        gap: 0.5rem;
+
+                        .btn {
+                            padding: 12px 16px;
+                            border-radius: 0.375rem;
+                            font-size: 0.875rem;
+                            font-weight: 500;
+                            cursor: pointer;
+                            transition: all 0.2s;
+                            border: none;
+
+                            &.btn-secondary {
+                                background: white;
+                                border: 1px solid #d1d5db;
+                                color: #374151;
+
+                                &:hover {
+                                    background-color: #f9fafb;
+                                }
+                            }
+
+                            &.btn-primary {
+                                background-color: #16a34a;
+                                color: white;
+
+                                &:hover {
+                                    background-color: #15803d;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Empty State
+            .empty-state {
+                text-align: center;
+                padding: 3rem 0;
+
+                .empty-icon {
+                    width: 4rem;
+                    height: 4rem;
+                    color: #d1d5db;
+                    margin: 0 auto 1rem;
+                }
+
+                .empty-title {
+                    font-size: 1.125rem;
+                    font-weight: 500;
+                    color: #111827;
+                    margin: 0 0 0.5rem 0;
+                }
+
+                .empty-description {
+                    color: #6b7280;
+                    margin: 0;
+                }
+            }
+        }
+
+
+
+
+
+        .Head-n-filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2.5rem;
+
+            .head-my-order {
+                h3 {
+                    font-family: General Sans;
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 105%;
+                    letter-spacing: -2%;
+                    background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 85.03%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    color: transparent;
+
+                }
+
+            }
+
+            .filter-order {
+                display: flex;
+                gap: 1.5rem;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .filters-section-orders {
+                    font-family: General Sans;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 130%;
+                    letter-spacing: -2%;
+
+
+                    select {
+                        font-family: General Sans;
+                        font-weight: 430;
+                        font-size: 16px;
+                        line-height: 130%;
+                        letter-spacing: -2%;
+                        border: none;
+                        width: 105px;
+
+
+                    }
+
+                }
+
+                .search-order {
+
+                    font-family: General Sans;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 130%;
+                    letter-spacing: -2%;
+                    border: none;
+
+                    .search-placeholder {
+                        font-family: General Sans;
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 130%;
+                        letter-spacing: -2%;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        cursor: pointer;
+
+                    }
+
+                    .search-input {
+                        padding: 0.2rem 0.4rem;
+                        font-size: 16px;
+                        font-family: General Sans;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        width: 150px;
+                        // border: none;
+                        outline: none;
+                        // background: transparent;
+
+                    }
+
+                    .icons-search {
+                        font-weight: 500;
+                        // color: red;
+                        font-size: 23px;
+                        margin-left: 3px;
+                    }
+
+
+
+                }
+
+            }
+        }
+
+
+
+
+    }
+
+    @media (max-width: 768px) {
+        .Head-n-filter {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0 1rem;
+
+            .head-my-order {
+                width: 100%;
+            }
+
+            .filter-order {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+
+                .search-order {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .filters-section-orders {
+                    width: 100%;
+
+                    select {
+                        width: 100%;
+                    }
+                }
+
+            }
+        }
+    }
+
+
+    @media (max-width: 640px) {
+        .main-content {}
+
+    }
+}

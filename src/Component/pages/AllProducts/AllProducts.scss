@@ -1,0 +1,739 @@
+.exclusivewrapper {
+
+    .mainrow{
+        padding-bottom: 30px;
+    }
+
+    .exclu-prod{
+        text-decoration: none;
+    }
+
+
+    .exclusive-content {
+        padding: 5rem 2rem;
+
+
+        .breadcrumb-section {
+            margin-top: 1px;
+        }
+
+        .heading-section {
+            padding: 2rem 5.5rem;
+            // margin-bottom: 2rem;
+            // width: 146;
+            // height: 23;
+            // top: 213px;
+            // left: 104px;
+
+
+            h3 {
+                font-family: Nohemi;
+                font-weight: 600;
+                font-size: 32px;
+                line-height: 105%;
+                letter-spacing: -2%;
+                background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 85.03%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                /* Optional for better compatibility */
+                background-clip: text;
+                color: transparent;
+
+                /* text-align: center; */
+                /* Uncomment if needed */
+            }
+
+            .choose-section {
+                width: 146;
+                height: 23;
+                top: 213px;
+                left: 104px;
+
+
+                p {
+                    font-family: General Sans;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 130%;
+                    letter-spacing: 0%;
+                    color: #1B1919;
+
+                }
+
+            }
+
+        }
+
+        .three-cards {
+
+            .product-card {
+                width: 294.6700134277344px;
+                height: 314px;
+                background-color: #F6F6F6;
+                // background-color: #f8f4f4;
+                // border: 1px solid #ddd;
+                border-radius: 6px;
+                // margin-bottom: 6rem;
+                margin: auto;
+                margin-bottom: 6rem !important;
+
+
+
+                .product-card-img-btn {
+                    position: relative;
+                    text-align: center;
+                    padding: 1rem;
+                    top: 25px;
+                    left: 1px;
+                    overflow: hidden;
+                    border-radius: 8px;
+
+
+                    img {
+                        max-width: 100%;
+                        // height: auto;
+                        height: 234.90020751953125PX;
+                        object-fit: cover;
+                        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    }
+
+                    &:hover img {
+                        transform: scale(1.15);
+                    }
+
+                    .button-main {
+                        display: flex;
+                        justify-content: end;
+                        align-items: center;
+
+                        .btn-main {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 50%;
+                            border: 1px solid black;
+                            background-color: white; // Optional background
+
+                            .add-btn {
+                                background-color: transparent;
+                                border: none;
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                height: 100%;
+                                cursor: pointer;
+
+
+                            }
+                        }
+                    }
+
+
+
+
+                }
+
+                .product-details {
+                    padding: 3.5rem 0.1rem;
+
+                    h6 {
+                        font-family: General Sans;
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 120%;
+                        letter-spacing: 0%;
+                        color: #1B1919;
+
+
+                    }
+
+                    .availability {
+                        font-family: General Sans;
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+                        color: #666666;
+
+
+                        .volume {
+                            font-family: General Sans;
+                            font-weight: 600;
+                            font-size: 15px;
+                            line-height: 130%;
+                            letter-spacing: 0%;
+                            color: #3DAE4A;
+
+                        }
+
+                        //////
+                    }
+
+                    .price {
+
+                        font-family: General Sans;
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+                        color: #1B1919;
+
+                    }
+
+
+                }
+            }
+
+        }
+
+        .merchanise-banner {
+                background-color: rgb(10, 107, 47);
+                height: 370px;
+                margin: auto;
+                width: 90%;
+                margin-top: 6rem;
+                border-radius: 24px;
+
+
+                .merchanise-banner-sub {
+                    display: flex;
+                    position: relative;
+                    height: auto;
+                    // flex-direction: row;
+                    flex-wrap: wrap;
+
+
+
+                    .text-section {
+                        position: absolute;
+                        top: 59px;
+                        left: 64px;
+                        gap: 40px;
+                        padding: 1rem 0rem;
+
+                        p {
+                            font-family: Nohemi;
+                            font-weight: 400;
+                            font-size: 22px;
+                            line-height: 105%;
+                            letter-spacing: -2%;
+                            color: #ffff;
+                        }
+
+                        h2 {
+                            font-family: Nohemi;
+                            font-weight: 600;
+                            font-size: 56px;
+                            line-height: 105%;
+                            letter-spacing: -2%;
+                            text-transform: capitalize;
+                            color: #BEFC88;
+
+
+                        }
+
+                        .explore-btn {
+                            // margin-top: 1rem;
+                            width: 30.625px;
+                            height: 30.625px;
+                            top: 227.19px;
+                            left: 9.19px;
+                            background-color: #3DAE4A;
+                            color: #fff;
+                            border-radius: 24px;
+                            border: none;
+
+                            // .ICons-arrow{
+                            //     font-size: 19px;
+                            // }
+
+
+
+                        }
+
+
+
+                    }
+
+                    .background-shapes {
+                        width: 100%;
+                        height: 370px;
+                        pointer-events: none;
+                        position: relative;
+                        // background-color: red;
+                        overflow: hidden;
+
+
+
+                        .light-img {
+                            position: absolute;
+                            width: 528px;
+                            height: 408px;
+                            max-width: 100%;
+                            left: 632px;
+                            top: -1px;
+
+
+                        }
+
+                        .dark-img {
+                            height: 400px;
+                            position: absolute;
+                            width: 536px;
+                            left: 700px;
+                            top: -10px;
+                        }
+
+                        .child-img {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            z-index: 666;
+                        }
+
+                        .shirt-img {
+                            position: absolute;
+                            left: 340px;
+                            width: 254px;
+                            max-width: 100%;
+                            top: 133px;
+                        }
+
+                        .Cap-img {
+                            position: absolute;
+                            left: 485px;
+                            width: 223px;
+                            max-width: 100%;
+                            top: 123px;
+
+
+                        }
+
+                        .White-shirt-img {
+                            position: absolute;
+                            left: 635px;
+                            width: 155px;
+                            max-width: 100%;
+                            top: 110px;
+                            overflow: hidden;
+
+                        }
+
+                    }
+
+
+
+                }
+
+
+            }
+
+        
+
+
+
+
+
+
+
+
+    }
+
+    @media(max-width:575.98px) {
+     .mainrow{
+        padding-bottom: 0px;
+    }
+        .exclusive-content {
+            padding-left: 2rem;
+            padding-top: 2rem;
+            padding-right: 2rem;
+            padding-top: 0.1rem;
+
+            .breadcrumb-section {
+                margin-top: 21px;
+                margin-left: 0.5rem;
+
+               
+            }
+
+            .heading-section {
+
+                padding: 0.3rem 2rem 1rem 1rem !important;
+
+                h3 {
+                    font-size: 24px !important;
+                    width: 289px;
+                    height: 56px;
+                }
+            }
+
+            .three-cards {
+                .product-card {
+                    margin-bottom: 8.5rem !important;
+                }
+            }
+
+
+            .merchanise-banner {
+                width: 100% !important;
+                height: 448px !important;
+
+                .merchanise-banner-sub {
+                    .text-section {
+                        padding: 2rem 0rem;
+                        top: 20px !important;
+                        left: 21px !important;
+
+                        p {
+                            font-size: 18px !important;
+                        }
+
+                        h2 {
+                            font-size: 34px !important;
+                        }
+
+
+                    }
+
+                    .background-shapes {
+                        height: 448px !important;
+
+                        .light-img {
+                            position: absolute;
+                            width: 400px !important;
+                            height: 408px;
+                            left: 28px !important;
+                            top: 96px !important;
+
+
+                        }
+
+                        .dark-img {
+                            height: 400px;
+                            position: absolute;
+                            width: 332px !important;
+                            left: 81px !important;
+                            top: 116px !important;
+                        }
+
+                        .child-img {
+                            position: absolute;
+                            right: -64px !important;
+                            top: 282px !important;
+                            z-index: 666;
+                            width: 200px !important;
+                        }
+
+                        .shirt-img {
+                            position: absolute;
+                            left: -44px !important;
+                            width: 143px !important;
+                            top: 302px !important;
+                        }
+
+                        .Cap-img {
+                            position: absolute;
+                            left: 40px !important;
+                            width: 122px !important;
+                            max-width: 100%;
+                            z-index: 333;
+                            top: 303px !important;
+
+
+                        }
+
+                        .White-shirt-img {
+                            position: absolute;
+                            left: 122px !important;
+                            width: 85.99px !important;
+                            top: 300px !important;
+
+                        }
+
+                    }
+
+
+
+                }
+
+
+            }
+
+
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 768px) {
+      .mainrow{
+        padding-bottom: 20px;
+    }
+
+        .three-cards {
+
+            .product-card {
+                // background-color: red !important;
+                margin-bottom: 7rem !important;
+
+            }
+        }
+
+        .merchanise-banner {
+            width: 100% !important;
+            height: 448px !important;
+
+            .merchanise-banner-sub {
+
+
+                .explore-btn {
+                    // margin-top: 1rem;
+                    width: 40.625px !important;
+                    height: 40.625px !important;
+                    top: 227.19px;
+                    left: 9.19px;
+                    background-color: #3DAE4A;
+                    color: #fff;
+                    border-radius: 24px;
+                    border: none;
+
+                }
+
+                .text-section {
+                    padding: 2rem 0rem;
+                    top: 20px !important;
+                    left: 21px !important;
+
+                    p {
+                        font-family: Nohemi;
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 105%;
+                        letter-spacing: -2%;
+
+                    }
+
+                    h2 {
+                        font-family: Nohemi;
+                        font-weight: 600;
+                        font-size: 32px;
+                        line-height: 105%;
+                        letter-spacing: -2%;
+                        text-transform: capitalize;
+
+                    }
+
+
+                }
+
+                .background-shapes {
+                    height: 448px !important;
+
+                    .light-img {
+                        position: absolute;
+                        width: 400px !important;
+                        height: 408px;
+                        left: 302px !important;
+                        top: 96px !important;
+
+
+                    }
+
+                    .dark-img {
+                        height: 400px;
+                        position: absolute;
+                        width: 332px !important;
+                        left: 375px !important;
+                        top: 116px !important;
+                    }
+
+                    .child-img {
+                        position: absolute;
+                        right: -64px !important;
+                        top: 242px !important;
+                        z-index: 666;
+                        width: 255px !important;
+                    }
+
+                    .shirt-img {
+                        position: absolute;
+                        left: -22px !important;
+                        width: 243px !important;
+                        top: 235px !important;
+                    }
+
+                    .Cap-img {
+                        position: absolute;
+                        left: 130px !important;
+                        width: 222px !important;
+                        max-width: 100%;
+                        z-index: 333;
+                        top: 230px !important;
+
+
+                    }
+
+                    .White-shirt-img {
+                        position: absolute;
+                        left: 300px !important;
+                        width: 215.99px !important;
+                        top: 219px !important;
+
+                    }
+
+                }
+
+
+
+            }
+
+
+        }
+
+    }
+
+
+    @media (min-width: 768px) and (max-width: 992px) {
+      .mainrow{
+        padding-bottom: 20px;
+    }
+
+        .three-cards {
+
+            .product-card {
+                // background-color: red !important;
+                margin-bottom: 7rem !important;
+
+            }
+        }
+
+        .merchanise-banner {
+            width: 100% !important;
+            height: 448px !important;
+
+            .merchanise-banner-sub {
+
+
+                .explore-btn {
+                    // margin-top: 1rem;
+                    width: 40.625px !important;
+                    height: 40.625px !important;
+                    top: 227.19px;
+                    left: 9.19px;
+                    background-color: #3DAE4A;
+                    color: #fff;
+                    border-radius: 24px;
+                    border: none;
+
+                }
+
+                .text-section {
+                    padding: 2rem 0rem;
+                    top: 20px !important;
+                    left: 21px !important;
+
+                    p {
+                        font-family: Nohemi;
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 105%;
+                        letter-spacing: -2%;
+
+                    }
+
+                    h2 {
+                        font-family: Nohemi;
+                        font-weight: 600;
+                        font-size: 32px;
+                        line-height: 105%;
+                        letter-spacing: -2%;
+                        text-transform: capitalize;
+
+                    }
+
+
+                }
+
+                .background-shapes {
+                    height: 448px !important;
+
+                    .light-img {
+                        position: absolute;
+                        width: 400px !important;
+                        height: 408px;
+                        left: 505px !important;
+                        top: 76px !important;
+
+
+                    }
+
+                    .dark-img {
+                        height: 400px;
+                        position: absolute;
+                        width: 332px !important;
+                        left: 578px !important;
+                        top: 116px !important;
+                    }
+
+                    .child-img {
+                        position: absolute;
+                        right: -14px !important;
+                        top: 242px !important;
+                        z-index: 666;
+                        width: 255px !important;
+                    }
+
+                    .shirt-img {
+                        position: absolute;
+                        left: -22px !important;
+                        width: 243px !important;
+                        top: 235px !important;
+                    }
+
+                    .Cap-img {
+                        position: absolute;
+                        left: 130px !important;
+                        width: 222px !important;
+                        max-width: 100%;
+                        z-index: 333;
+                        top: 230px !important;
+
+
+                    }
+
+                    .White-shirt-img {
+                        position: absolute;
+                        left: 300px !important;
+                        width: 215.99px !important;
+                        top: 219px !important;
+
+                    }
+
+                }
+
+
+
+            }
+
+
+        }
+
+    }
+
+
+
+
+
+    // 576to768
+    // 768to991
+    // 992to1199
+
+
+
+
+
+
+}

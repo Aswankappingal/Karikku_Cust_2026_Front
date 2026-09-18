@@ -11,7 +11,7 @@ const AddressForm = ({onClose}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({});
   const [formData, setFormData] = useState({
-    fullName: 'James Jacobe',
+    fullName: '',
     addressLine1: '',
     addressLine2: '',
     city: '',
@@ -48,8 +48,8 @@ const AddressForm = ({onClose}) => {
       return 'Phone number is required';
     }
     const cleanPhone = phoneNumber.replace(/[\s\-\(\)\+]/g, '');
-    if (cleanPhone.length !== 12) {
-      return 'Phone number must be exactly 12 digits';
+    if (cleanPhone.length < 10) {
+      return '';
     }
     if (!/^\d+$/.test(cleanPhone)) {
       return 'Phone number can only contain digits';
@@ -166,8 +166,8 @@ const AddressForm = ({onClose}) => {
   };
 
   const handlePhoneChange = (value) => {
-    // Truncate to 12 digits
-    const truncatedValue = value.slice(0, 12);
+    // Truncate to 15 digits
+    const truncatedValue = value.slice(0, 15);
     setPhone(truncatedValue);
 
     // Validate phone on change
@@ -276,6 +276,7 @@ const AddressForm = ({onClose}) => {
               value={formData.fullName}
               onChange={handleInputChange}
               placeholder='Enter Full name here'
+              autoComplete="nope"
               disabled={isLoading}
               required
             />
@@ -295,14 +296,15 @@ const AddressForm = ({onClose}) => {
               value={phone}
               onChange={handlePhoneChange}
               enableSearch={true} 
-              disableCountryCode={true}
+              disableCountryCode={false}
               disableDropdown={false}
               disabled={isLoading}
-              masks={{ in: '............' }}
+              masks={{ in: '..........' }}
               inputProps={{
                 name: 'phone',
                 required: true,
-                autoFocus: false
+                autoFocus: false,
+                autoComplete: 'nope'
               }}
               containerClass={`custom-phone-container ${fieldErrors.phone ? 'is-invalid' : ''}`}
               inputClass={`custom-phone-input ${fieldErrors.phone ? 'is-invalid' : ''}`}

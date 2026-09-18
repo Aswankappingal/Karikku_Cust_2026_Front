@@ -122,7 +122,7 @@ const ContactSupport = () => {
 
         const cleanPhone = formData.phone.replace(/[\s\-\(\)\+]/g, '');
         if (cleanPhone.length !== 12) {
-            setSubmitStatus({ type: 'error', message: 'Phone number must be exactly 12 digits' });
+            setSubmitStatus({ type: 'error', message: 'Phone number must be exactly 10 digits' });
             return;
         }
 
@@ -277,7 +277,7 @@ const ContactSupport = () => {
                                 <input 
                                     type="text" 
                                     name="fullName"
-                                    placeholder="James Jacobe" 
+                                    placeholder="Enter your name " 
                                     value={formData.fullName}
                                     onChange={handleInputChange}
                                     required
@@ -286,10 +286,11 @@ const ContactSupport = () => {
                             <div className="form-group">
                                 <label>Phone *</label>
                                 <PhoneInput 
-                                    country={'us'}
+                                    country={'in'}
+                                    onlyCountries={['in']}
                                     value={formData.phone}
                                     onChange={handlePhoneChange}
-                                    masks={{ us: '............', in: '............' }}
+                                    masks={{ in: '..........' }}
                                     inputProps={{
                                         name: 'phone',
                                         required: true,

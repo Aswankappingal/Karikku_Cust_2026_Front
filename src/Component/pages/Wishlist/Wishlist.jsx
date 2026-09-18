@@ -309,7 +309,7 @@ const Wishlist = () => {
                                 color: '#555',
                                 marginLeft: '1.8rem'
                             }}>You haven't added any products to your wishlist yet.</p> */}
-                            <Link to={'/'}><button>Continue Shopping
+                            <Link to={'/products'}><button>Continue Shopping
 
                                 {/* <span id='about-us'>about us</span>  */}
                                 <BsArrowUpRightCircleFill className='btn-icon' />

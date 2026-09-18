@@ -15,8 +15,10 @@
   .modal-content {
     background: white;
     border-radius: 21px;
-    width: 34%;
-    height: 91vh;
+    width: 90%;
+    max-width: 450px;
+    height: auto;
+    max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     animation: modalFadeIn 0.3s ease-out;
@@ -27,7 +29,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 3.8rem;
+      padding: 18px 2rem 10px 2rem;
       text-align: center;
       border-radius: 22px;
       margin-top: 10px !important;
@@ -72,15 +74,17 @@
       font-style: Regular;
       font-size: 16px;
       leading-trim: NONE;
-      line-height: 100%;
+      line-height: 140%;
       letter-spacing: -2%;
       color: #1B1919;
-      text-align: start;
-      margin-left: 3.6rem;
+      text-align: center;
+      margin-left: 0;
+      padding: 0 2rem;
+      margin-bottom: 20px;
     }
 
     .modal-body {
-      padding: 1rem 33px 1px 3.8rem;
+      padding: 0 2rem 2rem 2rem;
 
       .input-group {
         margin-bottom: 20px;
@@ -104,6 +108,7 @@
           border: 1px solid #ddd;
           border-radius: 8px !important;
           font-size: 16px;
+          text-align: left;
           transition: border-color 0.2s, box-shadow 0.2s;
           outline: none;
           font-family: inherit;

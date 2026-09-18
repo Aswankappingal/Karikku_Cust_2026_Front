@@ -1,232 +1,402 @@
-.LoginModalMainWrapper {
+// ==============================
+// LoginModal2 — Login to your account
+// Matches the design image exactly
+// ==============================
+
+.LoginModal2Wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.52);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 10000;
+    padding: 16px;
 
-    .modal-content {
-        background: white;
+    .lm2-content {
+        background: #ffffff;
         border-radius: 21px;
-        width: 34%;
-        height: 91vh;
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        max-height: 92vh;
         overflow-y: auto;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        animation: modalFadeIn 0.3s ease-out;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+        animation: lm2FadeIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+        position: relative;
 
-        .modal-header {
+        // ---- Header ----
+        .lm2-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 3.8rem;
-            text-align: center;
-            border-radius: 22px;
-            margin-top: 1rem;
+            padding: 22px 2rem 6px 2rem;
 
             h3 {
-                font-family: Nohemi;
-                font-weight: 600;
-                font-style: Semi Bold;
-                font-size: 28px;
-                leading-trim: NONE;
-                line-height: 105%;
-                letter-spacing: -2%;
+                font-family: Nohemi, 'General Sans', sans-serif;
+                font-weight: 700;
+                font-size: 26px;
+                line-height: 110%;
+                letter-spacing: -0.5px;
                 background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 99.03%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin: 0;
             }
 
-
-
-            .close-button {
+            .lm2-close-btn {
                 background: none;
                 border: none;
-                font-size: 2.2rem;
-                padding-left: 2rem !important;
-                padding-bottom: 1.1rem !important;
+                font-size: 2rem;
+                line-height: 1;
                 cursor: pointer;
-                color: #666;
-                padding: 0;
-                width: 30px;
-                height: 30px;
+                color: #888;
+                width: 32px;
+                height: 32px;
                 display: flex;
                 align-items: center;
-                justify-content: flex-start;
+                justify-content: center;
                 border-radius: 50%;
-                transition: background-color 0.2s;
+                transition: background-color 0.2s, color 0.2s;
+                flex-shrink: 0;
+                padding: 0;
+                margin-bottom: 8px;
 
-
-
+                &:hover {
+                    background-color: #f0f0f0;
+                    color: #333;
+                }
             }
         }
 
-        .acc-para {
-            font-family: General Sans;
+        // ---- Subtitle ----
+        .lm2-subtitle {
+            font-family: 'General Sans', sans-serif;
             font-weight: 400;
-            font-style: Regular;
-            font-size: 16px;
-            leading-trim: NONE;
-            line-height: 130%;
-            letter-spacing: -2%;
+            font-size: 15px;
+            line-height: 140%;
             color: #1B1919;
             text-align: left;
-           
-
-
+            padding: 0 2rem;
+            margin: 0 0 16px 0;
         }
 
-        .modal-body {
-            padding: 1rem 33px 1px 3.8rem;
+        // ---- Signup-success banner (shown after signup → auto-open login) ----
+        .lm2-signup-banner {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            border: 1px solid #86EFAC;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 0 2rem 18px 2rem;
+            font-family: 'General Sans', sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: #166534;
+            line-height: 1.45;
+            animation: lm2BannerSlide 0.35s ease;
 
-            .input-group {
+            .lm2-banner-icon {
+                font-size: 18px;
+                flex-shrink: 0;
+                margin-top: 1px;
+            }
+        }
+
+        @keyframes lm2BannerSlide {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        // ---- Form Body ----
+        .lm2-body {
+            padding: 0 2rem 2rem 2rem;
+
+            // Error banner (Redux level)
+            .lm2-error-banner {
+                background: #FFF1F2;
+                border: 1px solid #FECDD3;
+                color: #9F1239;
+                padding: 11px 16px;
+                border-radius: 10px;
+                margin-bottom: 16px;
+                font-size: 14px;
+                font-weight: 500;
+                font-family: 'General Sans', sans-serif;
+            }
+
+            // ---- Input Group ----
+            .lm2-input-group {
                 margin-bottom: 20px;
-                display: block;
 
+                &.has-error label {
+                    color: #DC2626;
+                }
 
                 label {
                     display: block;
-                    font-family: General Sans;
+                    font-family: 'General Sans', sans-serif;
                     font-weight: 500;
-                    font-style: Medium;
-                    font-size: 16px;
-                    leading-trim: NONE;
-                    line-height: 110.00000000000001%;
-                    letter-spacing: 0%;
+                    font-size: 15px;
                     color: #242323;
-                    margin-bottom: 9px;
-
+                    margin-bottom: 8px;
+                    line-height: 1;
                 }
 
-                .email-input,
-                .name-input,
-                .password-input {
-                    width: 100%;
-                    padding: 14px 16px;
-                    border: 1px solid #ddd;
-                    border-radius: 8px !important;
-                    font-size: 16px;
-                    transition: border-color 0.2s, box-shadow 0.2s;
-                    outline: none;
-                    font-family: inherit;
+                // Password wrapper (relative for eye icon)
+                .lm2-password-wrapper {
+                    position: relative;
 
+                    .lm2-eye-btn {
+                        position: absolute;
+                        right: 12px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        color: #999;
+                        display: flex;
+                        align-items: center;
+                        padding: 4px;
+                        transition: color 0.2s;
+
+                        &:hover {
+                            color: #555;
+                        }
+                    }
+                }
+
+                .lm2-input {
+                    width: 100%;
+                    padding: 12px 16px;
+                    border: 1px solid #DCDCDC;
+                    border-radius: 8px !important;
+                    font-size: 15px;
+                    font-family: 'General Sans', sans-serif;
+                    color: #1B1919;
+                    outline: none;
+                    transition: border-color 0.2s, box-shadow 0.2s;
+                    background: #fff;
 
                     &::placeholder {
-                        color: #999;
+                        color: #BDBDBD;
                     }
 
+                    &:focus {
+                        border-color: #4CAF50;
+                        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+                    }
 
+                    &.input-error {
+                        border-color: #EF4444;
+                        background: #FFFBFB;
+                        animation: lm2Shake 0.38s ease;
+
+                        &:focus {
+                            border-color: #EF4444;
+                            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+                        }
+                    }
+
+                    &:disabled {
+                        background-color: #F5F5F5;
+                        cursor: not-allowed;
+                        opacity: 0.65;
+                    }
+                }
+
+                .lm2-field-error {
+                    display: block;
+                    font-size: 12.5px;
+                    font-weight: 500;
+                    color: #DC2626;
+                    margin-top: 5px;
+                    line-height: 1.3;
+                    font-family: 'General Sans', sans-serif;
                 }
             }
 
-            .Login-btn {
+            // ---- Forgot Password ----
+            .lm2-forgot-password {
+                margin-top: -8px;
+                margin-bottom: 20px;
+
+                span {
+                    font-family: 'General Sans', sans-serif;
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #444;
+                    cursor: pointer;
+                    transition: color 0.2s;
+
+                    &:hover {
+                        color: #4CAF50;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            // ---- Login Button ----
+            .lm2-login-btn {
                 width: 100%;
-                padding: 14px;
+                padding: 13px;
                 background-color: #4CAF50;
                 color: white;
                 border: none;
                 border-radius: 78px;
-                font-family: General Sans;
-                font-weight: 500;
-                font-style: Medium;
-                font-size: 18px;
-                leading-trim: NONE;
-                line-height: 130%;
-                letter-spacing: 0%;
+                font-family: 'General Sans', sans-serif;
+                font-weight: 600;
+                font-size: 17px;
+                line-height: 1;
                 cursor: pointer;
-                margin-top: 8px;
-                transition: background-color 0.2s, opacity 0.2s;
-                margin-bottom: 14px;
+                margin-top: 2px;
+                margin-bottom: 8px;
+                transition: background-color 0.25s, opacity 0.2s, transform 0.15s;
                 position: relative;
 
-                &:hover {
-                    background-color: #45a049;
-                    transition: .5s;
+                &:hover:not(:disabled) {
+                    background-color: #43A047;
+                    transform: translateY(-1px);
+                }
+
+                &:active:not(:disabled) {
+                    transform: translateY(0);
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                    opacity: 0.75;
+                }
+
+                .lm2-btn-loader {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+
+                    .lm2-spinner {
+                        width: 17px;
+                        height: 17px;
+                        border: 2.5px solid rgba(255, 255, 255, 0.35);
+                        border-top-color: #fff;
+                        border-radius: 50%;
+                        animation: lm2Spin 0.75s linear infinite;
+                    }
                 }
             }
 
-
-
-            .footer-links {
-                font-family: General Sans;
-                font-weight: 500;
-                font-style: Medium;
-                font-size: 14px;
-                leading-trim: NONE;
-                line-height: 110.00000000000001%;
-                letter-spacing: 0%;
+            // ---- Footer ----
+            .lm2-footer {
                 text-align: left;
+                margin-top: 10px;
 
                 p {
-                    margin-bottom: 8px;
-                    margin-top: 1rem !important;
+                    font-family: 'General Sans', sans-serif;
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #333;
+                    margin: 0;
                 }
 
-                .Signup-link {
+                .lm2-signup-link {
                     color: #4CAF50;
-                    cursor: pointer;
-                    font-family: General Sans;
                     font-weight: 600;
-                    font-style: Semibold;
                     font-size: 14px;
-                    leading-trim: NONE;
-                    line-height: 110.00000000000001%;
-                    letter-spacing: 0%;
-                    text-decoration: underline;
-                    text-decoration-style: solid;
-                    text-decoration-offset: 0%;
-                    text-decoration-thickness: 0%;
-                    text-decoration: none;
+                    cursor: pointer;
                     margin-left: 4px;
+                    transition: text-decoration 0.2s;
+                    font-family: 'General Sans', sans-serif;
 
                     &:hover {
                         text-decoration: underline;
                     }
                 }
             }
-
-            .Forgot-password {
-                font-family: General Sans;
-                font-weight: 500;
-                font-style: Medium;
-                font-size: 14px;
-                leading-trim: NONE;
-                line-height: 110.00000000000001%;
-                letter-spacing: 0%;
-                text-align: left;
-
-                p {
-                    margin-bottom: 8px;
-                    margin-top: 1rem !important;
-                }
-            }
-
         }
     }
 
-    @keyframes modalFadeIn {
+    // ---- Animations ----
+    @keyframes lm2FadeIn {
         from {
             opacity: 0;
-            transform: scale(0.8);
+            transform: scale(0.82) translateY(18px);
         }
-
         to {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    @keyframes lm2Shake {
+        0%, 100% { transform: translateX(0); }
+        20%       { transform: translateX(-5px); }
+        40%       { transform: translateX(5px); }
+        60%       { transform: translateX(-4px); }
+        80%       { transform: translateX(4px); }
+    }
+
+    @keyframes lm2Spin {
+        to { transform: rotate(360deg); }
+    }
+}
+
+// ---- Responsive ----
+@media (max-width: 767.98px) {
+    .LoginModal2Wrapper {
+        padding: 12px;
+        align-items: center;
+
+        .lm2-content {
+            max-width: 100%;
+            border-radius: 18px;
+
+            .lm2-header {
+                padding: 18px 1.4rem 4px 1.4rem;
+
+                h3 {
+                    font-size: 22px;
+                }
+            }
+
+            .lm2-subtitle {
+                padding: 0 1.4rem;
+                font-size: 14px;
+            }
+
+            .lm2-body {
+                padding: 0 1.4rem 1.6rem 1.4rem;
+
+                .lm2-input-group label {
+                    font-size: 14px;
+                }
+
+                .lm2-input {
+                    font-size: 16px; // Prevents iOS zoom
+                    padding: 12px 14px;
+                }
+
+                .lm2-login-btn {
+                    font-size: 16px;
+                    padding: 14px;
+                }
+            }
         }
     }
 }
 
-// Responsive design for mobile
-@media (max-width: 768px) {
-    .LoginModalMainWrapper {
-        .modal-content {
-            width: 95%;
-            margin: 10px;
+@media (max-width: 400px) {
+    .LoginModal2Wrapper {
+        .lm2-content {
+            .lm2-header h3 {
+                font-size: 19px;
+            }
         }
     }
 }

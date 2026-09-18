@@ -28,7 +28,6 @@
             border-radius: 22px;
             margin-top: 1rem;
 
-
             h3 {
                 font-family: Nohemi;
                 font-weight: 600;
@@ -41,7 +40,6 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
-
 
             .close-button {
                 background: none;
@@ -59,11 +57,7 @@
                 justify-content: flex-start;
                 border-radius: 50%;
                 transition: background-color 0.2s;
-
-
-
             }
-
         }
 
         .acc-para-otp {
@@ -77,19 +71,15 @@
             color: #1B1919;
             text-align: start;
             margin-left: 3.6rem;
-
-
         }
 
         .otp-modal-body {
             padding: 1rem 44px 1px 3.8rem;
 
             .input-group-otp {
-
                 margin-top: 8px;
 
                 .inputs-otp {
-
                     width: 57.5px;
                     height: 58px;
                     font-size: 18px;
@@ -118,9 +108,7 @@
                     letter-spacing: 0%;
                     color: #242323;
                     margin-bottom: 9px;
-
                 }
-
             }
 
             .continue-btn-otp {
@@ -146,73 +134,6 @@
                 &:hover {
                     background-color: #45a049;
                     transition: .5s;
-                }
-            }
-
-            .divider-otp {
-                text-align: center;
-                margin: 8px 0;
-                position: relative;
-                margin-bottom: 1.5rem !important;
-
-                span {
-                    font-family: General Sans;
-                    font-weight: 600;
-                    font-style: Semibold;
-                    font-size: 11px;
-                    leading-trim: NONE;
-                    line-height: 100%;
-                    letter-spacing: 0%;
-                    text-align: center;
-                    color: #c4c4c4;
-
-
-                }
-            }
-
-            .social-login-otp {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                margin-bottom: 24px;
-
-                .google-btn,
-                .facebook-btn {
-                    width: 100%;
-                    padding: 12px 16px;
-                    border: 1px solid #CACACB;
-                    border-radius: 78px;
-                    background-color: white;
-                    cursor: pointer;
-                    font-family: General Sans;
-                    font-weight: 500;
-                    font-style: Medium;
-                    font-size: 14px;
-                    leading-trim: NONE;
-                    line-height: 110.00000000000001%;
-                    letter-spacing: 0%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 12px;
-                    transition: border-color 0.2s, box-shadow 0.2s;
-
-                    &:hover:not(:disabled) {
-                        border-color: #ccc;
-                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                    }
-
-                    &:disabled {
-                        opacity: 0.6;
-                        cursor: not-allowed;
-                    }
-
-                    .google-icon,
-                    .facebook-icon {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
                 }
             }
 
@@ -255,101 +176,63 @@
             }
         }
     }
+}
 
-
-
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 // Responsive design for mobile
 @media (max-width: 597.98px) {
     .otp-LoginModalMainWrapper {
-
+        align-items: flex-start;
 
         .otp-modal-content {
-            width: 95%;
-            margin: 10px;
-
-            .acc-para-otp {
-                margin-left: 2.8rem;
-            }
-
-
-            .otp-modal-body {
-
-                padding: 1rem 44px 1px 2.8rem;
-
-
-                .continue-btn-otp {
-                    width: 100%;
-                    padding: 6px !important;
-                    background-color: #4CAF50;
-                    color: white;
-                    border: none;
-                    border-radius: 78px;
-                    font-family: General Sans;
-                    font-weight: 500;
-                    font-style: Medium;
-                    font-size: 18px;
-                    leading-trim: NONE;
-                    line-height: 130%;
-                    letter-spacing: 0%;
-                    cursor: pointer;
-                    margin-top: 2rem;
-                    transition: background-color 0.2s, opacity 0.2s;
-                    margin-bottom: 4px;
-                    position: relative;
-
-                    &:hover {
-                        background-color: #45a049;
-                        transition: .5s;
-                    }
-                }
-
-
-                .input-group-otp {
-
-
-
-                    .inputs-otp {
-
-                        width: 47.5px;
-                        height: 58px;
-
-                    }
-
-                }
-
-
-
-            }
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            margin-top: 10vh;
+            max-height: calc(100vh - 40px);
 
             .otp-modal-header {
-                padding: 18px 2.6rem;
+                padding: 18px 1.5rem 10px 1.5rem;
 
                 h3 {
-                    font-family: Nohemi;
-                    font-weight: 600;
-                    font-style: Semi Bold;
-                    font-size: 22px;
-                    line-height: 100%;
+                    font-size: 20px;
+                }
+            }
 
+            .otp-modal-body {
+                padding: 0 1.5rem 1.5rem 1.5rem;
+
+                .input-group-otp {
+                    .otp-input-wrapper {
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 8px;
+
+                        .inputs-otp {
+                            flex: 1;
+                            height: 50px;
+                            font-size: 18px;
+                            max-width: 70px;
+                            margin-left: 0;
+                        }
+                    }
                 }
 
-
-
+                .continue-btn-otp {
+                    padding: 12px;
+                    font-size: 16px;
+                }
             }
         }
     }
-}
-
-// Responsive design for mobile
-@media (min-width: 598px) and (max-width: 768px) {
-
-    .otp-LoginModalMainWrapper {
-        .otp-modal-content {
-            width: 95%;
-            margin: 10px;
-        }
-    }
-
 }

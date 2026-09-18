@@ -1,5 +1,5 @@
 import './App.css'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import HomePage from './Component/HomePage/HomePage'
 import PageNotFound from './Component/common/PageNotFound/PageNotFound'
 import Productsidebar from './Component/Theme/ProductSidebar/Productsidebar'
@@ -23,8 +23,7 @@ import PaymentSuccess from './Component/common/PaymentSuccess/PaymentSuccess'
 import PaymentFailed from './Component/common/PaymentFailed/PaymentFailed'
 import FaqSection from './Component/pages/Blogs/FaqSection/FaqSection'
 import EmptyCart from './Component/pages/EmptyCart/EmptyCart'
-import { Provider } from 'react-redux'
-import store from './store/store'
+
 import OrderComplete from './Component/pages/OrderComplete/OrderComplete'
 import OrderDetails from './Component/pages/OrderDetails/OrderDetails'
 import CancelOrder from './Component/pages/CancelOrder/CancelOrder'
@@ -41,8 +40,7 @@ function App() {
 
   return (
     <>
-      <HashRouter>
-        <Provider store={store}>
+    
           <Routes>
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
             <Route path='/refund-policy' element={<RefundPolicy />} />
@@ -81,12 +79,9 @@ function App() {
 
 
 
+
+
           </Routes>
-
-        </Provider>
-
-
-        {/* <WhatsAppFloat /> */}
         <ToastContainer
           position="top-right"
           autoClose={3000}
@@ -100,7 +95,7 @@ function App() {
           theme="light"
         />
 
-      </HashRouter>
+
     </>
   )
 }

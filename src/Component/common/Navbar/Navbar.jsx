@@ -22,6 +22,8 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
   const [LoginModal2IsOpen, setLoginModal2IsOpen] = useState(false);
   const [logoutConfirmModalIsOpen, setLogoutConfirmModalIsOpen] = useState(false);
   const [emailModalIsOpen, setEmailModalIsOpen] = useState(false);
+  // Email pre-filled in LoginModal2 when opened automatically after signup
+  const [prefillSignupEmail, setPrefillSignupEmail] = useState('');
 
 
   // Add state for OTP session data
@@ -225,6 +227,18 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
 
   const closeLoginModal2 = () => {
     setLoginModal2IsOpen(false);
+    setPrefillSignupEmail(''); // Clear pre-filled email when modal is closed
+  };
+
+  // ✅ Opens LoginModal2 after successful signup, pre-filling the registered email
+  const openLoginAfterSignup = (signedUpEmail) => {
+    if (!combinedAuthState) {
+      setPrefillSignupEmail(signedUpEmail || '');
+      setLoginModal2IsOpen(true);
+      setSignupModalIsOpen(false);
+      setLoginModalIsOpen(false);
+      setOtpModalIsOpen(false);
+    }
   };
 
   // Handle successful login - Updated with better error handling and forced Redux update
@@ -398,7 +412,7 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
           {/* Center Logo */}
           <div className="Nav-logo mx-auto position-absolute start-50 translate-middle-x">
             <Link className="navbar-brand" to="/">
-              <img src="./Images/Karikku logo 2.svg" alt="Karikku Logo" style={{ height: '40px' }} />
+              <img src="/Images/Karikku logo 2.svg" alt="Karikku Logo" style={{ height: '40px' }} />
             </Link>
           </div>
 
@@ -458,7 +472,7 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
         <nav className="navbar bg-white  mobile-fixed-top">
           <div className='navbar-logo'>
             <Link className="navbar-brand" to="/">
-              <img src="./Images/Karikku-Nav-logo-mobile.svg" alt="Karikku" width="55" />
+              <img src="/Images/Karikku-Nav-logo-mobile.svg" alt="Karikku" width="55" />
             </Link>
           </div>
 
@@ -470,7 +484,7 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
               data-bs-target="#offcanvasRight"
               aria-controls="offcanvasRight"
             >
-              <img src="./Images/Menu icons.svg" alt="Menu" />
+              <img src="/Images/Menu icons.svg" alt="Menu" />
             </button>
           </div>
         </nav>
@@ -483,12 +497,12 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
           aria-labelledby="offcanvasRightLabel"
         >
           <img
-            src="./Images/img_greenleafe.svg"
+            src="/Images/img_greenleafe.svg"
             alt="Palm Leaf"
             className="palm-leaf-overlay"
           />
           <img
-            src="./Images/Vector.svg"
+            src="/Images/Vector.svg"
             alt="Bottom Leaf"
             className="leaf-bottom"
           />
@@ -505,7 +519,7 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
             <ul className="navbar flex-column gap-4 mt-0.5" style={{ listStyle: 'none' }}>
               <li>
                 <Link to="/" className="text-white text-decoration-none offcanvas-link">
-                  <img className='off-image' src="./Images/Karikku logo (1) 1.png" alt="Logo" />
+                  <img className='off-image' src="/Images/Karikku logo (1) 1.png" alt="Logo" />
                 </Link>
               </li>
               <li>
@@ -600,20 +614,21 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
         />
       )}
 
-      {/* Signup Modal - Only render when not authenticated */}
+      {/* Signup Modal — opens Login modal after successful signup */}
       {SignupModalIsOpen && !combinedAuthState && (
         <SignupLoginModal
           onClose={closeSignupModal}
-          onLogin={openLoginpModal2}
+          onLogin={openLoginAfterSignup}
           onSignupSuccess={handleLoginSuccess}
         />
       )}
 
-      {/* LoginModal2 - Only render when not authenticated */}
+      {/* LoginModal2 — email+password login, opened after signup or manually */}
       {LoginModal2IsOpen && !combinedAuthState && (
         <LoginModal2
           onClose={closeLoginModal2}
           onSignup={openSignupModal}
+          prefillEmail={prefillSignupEmail}
         />
       )}
 

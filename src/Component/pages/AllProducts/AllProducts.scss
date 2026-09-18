@@ -1,10 +1,10 @@
 .exclusivewrapper {
 
-    .mainrow{
+    .mainrow {
         padding-bottom: 30px;
     }
 
-    .exclu-prod{
+    .exclu-prod {
         text-decoration: none;
     }
 
@@ -24,6 +24,8 @@
             // height: 23;
             // top: 213px;
             // left: 104px;
+
+            
 
 
             h3 {
@@ -139,7 +141,7 @@
                 }
 
                 .product-details {
-                    padding: 3.5rem 0.1rem;
+                    padding: 2rem 0.1rem;
 
                     h6 {
                         font-family: General Sans;
@@ -192,137 +194,67 @@
         }
 
         .merchanise-banner {
-                background-color: rgb(10, 107, 47);
-                height: 370px;
-                margin: auto;
-                width: 90%;
-                margin-top: 6rem;
-                border-radius: 24px;
+            background-color: rgb(10, 107, 47);
+            height: 370px;
+            margin: auto;
+            width: 90%;
+            margin-top: 6rem;
+            border-radius: 24px;
 
 
-                .merchanise-banner-sub {
-                    display: flex;
-                    position: relative;
-                    height: auto;
-                    // flex-direction: row;
-                    flex-wrap: wrap;
-
-
-
-                    .text-section {
-                        position: absolute;
-                        top: 59px;
-                        left: 64px;
-                        gap: 40px;
-                        padding: 1rem 0rem;
-
-                        p {
-                            font-family: Nohemi;
-                            font-weight: 400;
-                            font-size: 22px;
-                            line-height: 105%;
-                            letter-spacing: -2%;
-                            color: #ffff;
-                        }
-
-                        h2 {
-                            font-family: Nohemi;
-                            font-weight: 600;
-                            font-size: 56px;
-                            line-height: 105%;
-                            letter-spacing: -2%;
-                            text-transform: capitalize;
-                            color: #BEFC88;
-
-
-                        }
-
-                        .explore-btn {
-                            // margin-top: 1rem;
-                            width: 30.625px;
-                            height: 30.625px;
-                            top: 227.19px;
-                            left: 9.19px;
-                            background-color: #3DAE4A;
-                            color: #fff;
-                            border-radius: 24px;
-                            border: none;
-
-                            // .ICons-arrow{
-                            //     font-size: 19px;
-                            // }
+            .merchanise-banner-sub {
+                display: flex;
+                position: relative;
+                height: auto;
+                // flex-direction: row;
+                flex-wrap: wrap;
 
 
 
-                        }
+                .text-section {
+                    position: absolute;
+                    top: 59px;
+                    left: 64px;
+                    gap: 40px;
+                    padding: 1rem 0rem;
 
+                    p {
+                        font-family: Nohemi;
+                        font-weight: 400;
+                        font-size: 22px;
+                        line-height: 105%;
+                        letter-spacing: -2%;
+                        color: #ffff;
+                    }
+
+                    h2 {
+                        font-family: Nohemi;
+                        font-weight: 600;
+                        font-size: 56px;
+                        line-height: 105%;
+                        letter-spacing: -2%;
+                        text-transform: capitalize;
+                        color: #BEFC88;
 
 
                     }
 
-                    .background-shapes {
-                        width: 100%;
-                        height: 370px;
-                        pointer-events: none;
-                        position: relative;
-                        // background-color: red;
-                        overflow: hidden;
+                    .explore-btn {
+                        // margin-top: 1rem;
+                        width: 30.625px;
+                        height: 30.625px;
+                        top: 227.19px;
+                        left: 9.19px;
+                        background-color: #3DAE4A;
+                        color: #fff;
+                        border-radius: 24px;
+                        border: none;
+
+                        // .ICons-arrow{
+                        //     font-size: 19px;
+                        // }
 
 
-
-                        .light-img {
-                            position: absolute;
-                            width: 528px;
-                            height: 408px;
-                            max-width: 100%;
-                            left: 632px;
-                            top: -1px;
-
-
-                        }
-
-                        .dark-img {
-                            height: 400px;
-                            position: absolute;
-                            width: 536px;
-                            left: 700px;
-                            top: -10px;
-                        }
-
-                        .child-img {
-                            position: absolute;
-                            bottom: 0;
-                            right: 0;
-                            z-index: 666;
-                        }
-
-                        .shirt-img {
-                            position: absolute;
-                            left: 340px;
-                            width: 254px;
-                            max-width: 100%;
-                            top: 133px;
-                        }
-
-                        .Cap-img {
-                            position: absolute;
-                            left: 485px;
-                            width: 223px;
-                            max-width: 100%;
-                            top: 123px;
-
-
-                        }
-
-                        .White-shirt-img {
-                            position: absolute;
-                            left: 635px;
-                            width: 155px;
-                            max-width: 100%;
-                            top: 110px;
-                            overflow: hidden;
-
-                        }
 
                     }
 
@@ -330,10 +262,80 @@
 
                 }
 
+                .background-shapes {
+                    width: 100%;
+                    height: 370px;
+                    pointer-events: none;
+                    position: relative;
+                    // background-color: red;
+                    overflow: hidden;
+
+
+
+                    .light-img {
+                        position: absolute;
+                        width: 528px;
+                        height: 408px;
+                        max-width: 100%;
+                        left: 632px;
+                        top: -1px;
+
+
+                    }
+
+                    .dark-img {
+                        height: 400px;
+                        position: absolute;
+                        width: 536px;
+                        left: 700px;
+                        top: -10px;
+                    }
+
+                    .child-img {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        z-index: 666;
+                    }
+
+                    .shirt-img {
+                        position: absolute;
+                        left: 340px;
+                        width: 254px;
+                        max-width: 100%;
+                        top: 133px;
+                    }
+
+                    .Cap-img {
+                        position: absolute;
+                        left: 485px;
+                        width: 223px;
+                        max-width: 100%;
+                        top: 123px;
+
+
+                    }
+
+                    .White-shirt-img {
+                        position: absolute;
+                        left: 635px;
+                        width: 155px;
+                        max-width: 100%;
+                        top: 110px;
+                        overflow: hidden;
+
+                    }
+
+                }
+
+
 
             }
 
-        
+
+        }
+
+
 
 
 
@@ -345,9 +347,10 @@
     }
 
     @media(max-width:575.98px) {
-     .mainrow{
-        padding-bottom: 0px;
-    }
+        .mainrow {
+            padding-bottom: 0px;
+        }
+
         .exclusive-content {
             padding-left: 2rem;
             padding-top: 2rem;
@@ -358,7 +361,7 @@
                 margin-top: 21px;
                 margin-left: 0.5rem;
 
-               
+
             }
 
             .heading-section {
@@ -469,9 +472,9 @@
     }
 
     @media (min-width: 576px) and (max-width: 768px) {
-      .mainrow{
-        padding-bottom: 20px;
-    }
+        .mainrow {
+            padding-bottom: 20px;
+        }
 
         .three-cards {
 
@@ -597,9 +600,9 @@
 
 
     @media (min-width: 768px) and (max-width: 992px) {
-      .mainrow{
-        padding-bottom: 20px;
-    }
+        .mainrow {
+            padding-bottom: 20px;
+        }
 
         .three-cards {
 

@@ -3,8 +3,9 @@ import axios from 'axios';
 import './SignupLoginModal.scss';
 import { useNavigate, Link } from 'react-router-dom';
 import baseUrl from '../../../baseUrl';
+import { toast } from 'react-toastify';
 
-const SignupLoginModal = ({ onClose, onLogin }) => {
+const SignupLoginModal = ({ onClose, onLogin, onSignupSuccess }) => {
     const navigate = useNavigate();
 
     // Form state
@@ -18,20 +19,52 @@ const SignupLoginModal = ({ onClose, onLogin }) => {
 
     // UI state
     const [isLoading, setIsLoading] = useState(false);
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([]); // Used for server-side errors
+    const [fieldErrors, setFieldErrors] = useState({});
+    const [touched, setTouched] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
+
+    // Validate a single field
+    const validateField = (name, value) => {
+        switch (name) {
+            case 'name':
+                if (!value.trim()) return 'Name is required';
+                if (value.trim().length < 2) return 'Name must be at least 2 characters';
+                return '';
+            case 'email':
+                if (!value.trim()) return 'Email address is required';
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) return 'Please enter a valid email address';
+                return '';
+            case 'password':
+                if (!value) return 'Password is required';
+                if (value.length < 6) return 'Password must be at least 6 characters';
+                return '';
+            case 'agreeToTerms':
+                if (!value) return 'You must agree to the Terms and Conditions';
+                return '';
+            default:
+                return '';
+        }
+    };
 
     // Handle input changes
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
+        const fieldValue = type === 'checkbox' ? checked : value;
         setFormData(prev => ({
             ...prev,
-            [name]: type === 'checkbox' ? checked : value
+            [name]: fieldValue
         }));
 
-        // Clear errors when user starts typing
+        // Clear server errors
         if (errors.length > 0) {
             setErrors([]);
+        }
+
+        // Validate field in real-time if it was already touched
+        if (touched[name]) {
+            const error = validateField(name, fieldValue);
+            setFieldErrors(prev => ({ ...prev, [name]: error }));
         }
 
         // Clear success message when user makes changes
@@ -40,51 +73,52 @@ const SignupLoginModal = ({ onClose, onLogin }) => {
         }
     };
 
-    // Client-side validation
-    const validateForm = () => {
-        const validationErrors = [];
-
-        // Trim whitespace for validation
-        const trimmedName = formData.name.trim();
-        const trimmedEmail = formData.email.trim();
-
-        if (!trimmedName || trimmedName.length < 2) {
-            validationErrors.push('Name must be at least 2 characters');
-        }
-
-        if (!trimmedEmail) {
-            validationErrors.push('Email is required');
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
-            validationErrors.push('Please enter a valid email address');
-        }
-
-        if (!formData.password) {
-            validationErrors.push('Password is required');
-        } else if (formData.password.length < 6) {
-            validationErrors.push('Password must be at least 6 characters');
-        }
-
-        if (!formData.agreeToTerms) {
-            validationErrors.push('You must agree to the Terms and Conditions');
-        }
-
-        return validationErrors;
+    const handleBlur = (e) => {
+        const { name, value, type, checked } = e.target;
+        const fieldValue = type === 'checkbox' ? checked : value;
+        setTouched(prev => ({ ...prev, [name]: true }));
+        const error = validateField(name, fieldValue);
+        setFieldErrors(prev => ({ ...prev, [name]: error }));
     };
 
     // Handle form submission
     const handleSignup = async (e) => {
         e.preventDefault();
+        
+        // Touch all fields to show validation errors
+        const newTouched = {
+            name: true,
+            email: true,
+            password: true,
+            agreeToTerms: true
+        };
+        setTouched(newTouched);
+
+        // Run validation on all fields
+        const validationErrors = {};
+        let hasErrors = false;
+        Object.keys(formData).forEach(key => {
+            if (key === 'subscribeToEmails') return;
+            const err = validateField(key, formData[key]);
+            if (err) {
+                validationErrors[key] = err;
+                hasErrors = true;
+            }
+        });
+
+        setFieldErrors(validationErrors);
+
+        if (hasErrors) {
+            // Focus first field with error
+            const firstErrorField = Object.keys(validationErrors)[0];
+            const el = document.getElementById(firstErrorField);
+            if (el) el.focus();
+            return;
+        }
+
         setIsLoading(true);
         setErrors([]);
         setSuccessMessage('');
-
-        // Client-side validation
-        const validationErrors = validateForm();
-        if (validationErrors.length > 0) {
-            setErrors(validationErrors);
-            setIsLoading(false);
-            return;
-        }
 
         try {
             // Prepare data with trimmed values
@@ -111,27 +145,20 @@ const SignupLoginModal = ({ onClose, onLogin }) => {
             console.log('Signup response:', response.data);
 
             if (response.data.success) {
-                setSuccessMessage('Account created successfully! Welcome to Karikku!');
+                toast.success('🎉 Account created! Please log in to continue.');
+                setSuccessMessage('Account created successfully! Please log in to continue.');
 
-                // Store user data and token
-                if (response.data.user) {
-                    localStorage.setItem('userData', JSON.stringify(response.data.user));
-                    localStorage.setItem('user', JSON.stringify(response.data.user));
-                }
-                if (response.data.token) {
-                    localStorage.setItem('authToken', response.data.token);
-                    localStorage.setItem('token', response.data.token);
-                }
+                // ✅ DO NOT store token/user — force user to log in manually
+                // This ensures authentication only happens after explicit login
 
-                // Close modal after success
+                // After a short delay, close signup and open login modal
                 setTimeout(() => {
                     onClose();
-                    // Optional: Call onLogin callback or navigate
+                    // Open Login modal, optionally pre-filling the email the user just signed up with
                     if (onLogin && typeof onLogin === 'function') {
-                        onLogin(response.data.user);
+                        onLogin(formData.email.trim().toLowerCase());
                     }
-                    // navigate('/dashboard');
-                }, 2000);
+                }, 1800);
             } else {
                 // Handle case where success is false but no error was thrown
                 setErrors([response.data.message || 'Failed to create account. Please try again.']);
@@ -218,7 +245,7 @@ const SignupLoginModal = ({ onClose, onLogin }) => {
                             </div>
                         )}
 
-                        <div className='input-group'>
+                        <div className={`input-group ${fieldErrors.name && touched.name ? 'has-error' : ''}`}>
                             <label htmlFor='name'>Name</label>
                             <input
                                 type='text'
@@ -226,15 +253,19 @@ const SignupLoginModal = ({ onClose, onLogin }) => {
                                 name='name'
                                 value={formData.name}
                                 onChange={handleInputChange}
+                                onBlur={handleBlur}
                                 placeholder='Type here...'
-                                className='name-input'
+                                className={`name-input ${fieldErrors.name && touched.name ? 'input-error' : ''}`}
                                 disabled={isLoading}
                                 required
                                 maxLength={100}
                             />
+                            {fieldErrors.name && touched.name && (
+                                <span className='field-error-message'>{fieldErrors.name}</span>
+                            )}
                         </div>
 
-                        <div className='input-group'>
+                        <div className={`input-group ${fieldErrors.email && touched.email ? 'has-error' : ''}`}>
                             <label htmlFor='email'>Email address</label>
                             <input
                                 type='email'
@@ -242,16 +273,20 @@ const SignupLoginModal = ({ onClose, onLogin }) => {
                                 name='email'
                                 value={formData.email}
                                 onChange={handleInputChange}
+                                onBlur={handleBlur}
                                 placeholder='Type here...'
-                                className='email-input'
+                                className={`email-input ${fieldErrors.email && touched.email ? 'input-error' : ''}`}
                                 autoComplete="email"
                                 disabled={isLoading}
                                 required
                                 maxLength={255}
                             />
+                            {fieldErrors.email && touched.email && (
+                                <span className='field-error-message'>{fieldErrors.email}</span>
+                            )}
                         </div>
 
-                        <div className='input-group'>
+                        <div className={`input-group ${fieldErrors.password && touched.password ? 'has-error' : ''}`}>
                             <label htmlFor='password'>Password</label>
                             <input
                                 type='password'
@@ -259,29 +294,38 @@ const SignupLoginModal = ({ onClose, onLogin }) => {
                                 name='password'
                                 value={formData.password}
                                 onChange={handleInputChange}
+                                onBlur={handleBlur}
                                 placeholder='Type here...'
-                                className='password-input'
+                                className={`password-input ${fieldErrors.password && touched.password ? 'input-error' : ''}`}
                                 autoComplete="new-password"
                                 disabled={isLoading}
                                 required
                                 minLength={6}
                                 maxLength={128}
                             />
+                            {fieldErrors.password && touched.password && (
+                                <span className='field-error-message'>{fieldErrors.password}</span>
+                            )}
                         </div>
 
-                        <div className='checkbox-group'>
+                        <div className={`checkbox-group ${fieldErrors.agreeToTerms && touched.agreeToTerms ? 'has-error' : ''}`}>
                             <label>
                                 <input
                                     className='checkbox'
                                     type="checkbox"
                                     name='agreeToTerms'
+                                    id='agreeToTerms'
                                     checked={formData.agreeToTerms}
                                     onChange={handleInputChange}
+                                    onBlur={handleBlur}
                                     disabled={isLoading}
                                     required
                                 />
                                 By signing up, I agree to <Link to={'/terms-of-service'} className='Terms-and-conditions'>Terms and Conditions</Link>
                             </label>
+                            {fieldErrors.agreeToTerms && touched.agreeToTerms && (
+                                <span className='field-error-message checkbox-error-message'>{fieldErrors.agreeToTerms}</span>
+                            )}
                         </div>
 
                         <div className='checkbox-group'>
@@ -301,7 +345,7 @@ const SignupLoginModal = ({ onClose, onLogin }) => {
                         <button
                             type='submit'
                             className='Signup-btn'
-                            disabled={isLoading || !formData.agreeToTerms}
+                            disabled={isLoading}
                         >
                             {isLoading ? 'Creating Account...' : 'Sign up'}
                         </button>

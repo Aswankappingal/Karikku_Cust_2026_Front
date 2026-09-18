@@ -41,6 +41,7 @@ const FaqSection = () => {
 
   const [activeCategory, setActiveCategory] = useState('');
   const [expandedItems, setExpandedItems] = useState({});
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Get 3 random FAQs - memoized to only change on page reload
   const randomFaqs = useMemo(() => {
@@ -92,6 +93,22 @@ const FaqSection = () => {
       [itemId]: !prev[itemId]
     }));
   };
+
+  const filteredFaqs = useMemo(() => {
+    if (!searchQuery.trim()) return null;
+    
+    const lowerQuery = searchQuery.toLowerCase();
+    const results = [];
+    
+    Object.keys(formattedFaqData).forEach(category => {
+      formattedFaqData[category].forEach(faq => {
+        if (faq.question.toLowerCase().includes(lowerQuery) || faq.answer.toLowerCase().includes(lowerQuery)) {
+          results.push(faq);
+        }
+      });
+    });
+    return results;
+  }, [searchQuery, formattedFaqData]);
 
   // Show loading state
   if (loading) {
@@ -161,7 +178,12 @@ const FaqSection = () => {
           <h1>Hello, How Can</h1>
           <h1>We Help?</h1>
           <div className="search-bar">
-            <input type="text" placeholder='Search help topics' />
+            <input 
+              type="text" 
+              placeholder='Search help topics' 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
             <div className="search-icon">
               <IoSearch style={{ color: "#ffffff" }} />
             </div>
@@ -207,30 +229,51 @@ const FaqSection = () => {
         <h1 className='faq-heading'>Frequently asked <br /> questions!</h1>
 
         {categories.length > 0 ? (
-          <>
-            <div className="categories-wrapper">
-              {categories.map((category) => (
-                <div
-                  key={category}
-                  className={`category-item ${activeCategory === category ? 'active-category' : ''}`}
-                  onClick={() => handleCategoryClick(category)}
-                >
-                  {category}
-                </div>
-              ))}
-            </div>
+          searchQuery.trim() ? (
             <div className="questian-section-wrapper">
-              {formattedFaqData[activeCategory]?.map((item) => (
-                <FaqItem
-                  key={item.id}
-                  question={item.question}
-                  answer={item.answer}
-                  isExpanded={expandedItems[item.id] || false}
-                  onToggle={() => toggleItem(item.id)}
-                />
-              ))}
+              <h3 style={{marginBottom: '20px', color: '#333'}}>Search Results for "{searchQuery}"</h3>
+              {filteredFaqs.length > 0 ? (
+                filteredFaqs.map((item) => (
+                  <FaqItem
+                    key={item.id}
+                    question={item.question}
+                    answer={item.answer}
+                    isExpanded={expandedItems[item.id] || false}
+                    onToggle={() => toggleItem(item.id)}
+                  />
+                ))
+              ) : (
+                <div style={{ textAlign: 'center', padding: '20px', color: '#666' }}>
+                  No results found for "{searchQuery}".
+                </div>
+              )}
             </div>
-          </>
+          ) : (
+            <>
+              <div className="categories-wrapper">
+                {categories.map((category) => (
+                  <div
+                    key={category}
+                    className={`category-item ${activeCategory === category ? 'active-category' : ''}`}
+                    onClick={() => handleCategoryClick(category)}
+                  >
+                    {category}
+                  </div>
+                ))}
+              </div>
+              <div className="questian-section-wrapper">
+                {formattedFaqData[activeCategory]?.map((item) => (
+                  <FaqItem
+                    key={item.id}
+                    question={item.question}
+                    answer={item.answer}
+                    isExpanded={expandedItems[item.id] || false}
+                    onToggle={() => toggleItem(item.id)}
+                  />
+                ))}
+              </div>
+            </>
+          )
         ) : (
           <div style={{
             textAlign: 'center',

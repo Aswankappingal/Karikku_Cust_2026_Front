@@ -18,7 +18,8 @@ const PaymentSummary = ({
     onTotalUpdate, // Callback to pass total to parent
     isCODSelected = false, // Prop to indicate if COD payment method is selected
     isProcessing = false, // Prop for loading state
-    buttonText = 'Proceed to checkout' // Prop for button label
+    buttonText = 'Proceed to checkout', // Prop for button label
+    isButtonDisabled = false // Prop to manually disable the button
 }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -121,6 +122,7 @@ const PaymentSummary = ({
     // Update summary with standardized values
     const updatedSummary = {
         ...summary,
+        totalMRP: result.totalMrp || result.totalMRP || summary.totalMRP,
         totalMRPExcludingGST: result.basePrice,
         gst: result.gstAmount,
         delivery: result.delivery,
@@ -220,7 +222,7 @@ const PaymentSummary = ({
                         <tbody>
                             <tr className='table-row'>
                                 <td className='left-side'>Subtotal </td>
-                                <td className='right-side'>₹{formatPrice(updatedSummary.totalMRPExcludingGST)}</td>
+                                <td className='right-side'>₹{formatPrice(updatedSummary.totalMRP > 0 ? updatedSummary.totalMRP : (updatedSummary.totalMRPExcludingGST || updatedSummary.total))}</td>
                             </tr>
 
                             {updatedSummary.discount > 0 && (
@@ -312,10 +314,10 @@ const PaymentSummary = ({
                 <div className="checkout-btn">
                     <button
                         onClick={handleCheckout}
-                        disabled={updatedSummary.total <= 0 || shippingLoading || isProcessing}
+                        disabled={updatedSummary.total <= 0 || shippingLoading || isProcessing || isButtonDisabled}
                         style={{
-                            opacity: (updatedSummary.total <= 0 || shippingLoading || isProcessing) ? 0.5 : 1,
-                            cursor: (updatedSummary.total <= 0 || shippingLoading || isProcessing) ? 'not-allowed' : 'pointer',
+                            opacity: (updatedSummary.total <= 0 || shippingLoading || isProcessing || isButtonDisabled) ? 0.5 : 1,
+                            cursor: (updatedSummary.total <= 0 || shippingLoading || isProcessing || isButtonDisabled) ? 'not-allowed' : 'pointer',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',

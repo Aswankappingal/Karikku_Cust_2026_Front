@@ -245,7 +245,8 @@ const Cart = ({ openModal, closeModal }) => {
       coinSavings: appliedCoins,
       gst: result.gstAmount,
       totalItems: cartItems.reduce((sum, item) => sum + (item.quantity || 1), 0),
-      subtotal: result.taxableValue,
+      subtotal: result.totalMrp,
+      taxableValue: result.taxableValue,
       items: cartItems // CRITICAL: This allows PaymentSummary.jsx to perform its own calculation
     };
   }, [cartItems, couponDiscount, appliedCoins, filteredShippingRates, actualCodCharge, shippingLoading]);

@@ -12,10 +12,17 @@ const GreenBanner = () => {
     dots: true,
     infinite: true,
     autoplay: true,
-    speed: 500,
+    autoplaySpeed: 4000,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false
+    arrows: false,
+    pauseOnHover: false,
+    pauseOnFocus: false,
+    pauseOnDotsHover: false,
+    waitForAnimate: false,
+    fade: true,
+    cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)'
   };
 
   return (

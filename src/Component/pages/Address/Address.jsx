@@ -244,7 +244,7 @@ const Address = () => {
       coinSavings: appliedCoins,
       gst: result.gstAmount,
       totalItems: itemsToCalculate.reduce((sum, item) => sum + (item.quantity || 1), 0),
-      subtotal: result.basePrice, // UNDISCOUNTED subtotal for coupon calculation
+      subtotal: result.totalMrp,
       taxableValue: result.taxableValue, // DISCOUNTED subtotal for GST
       items: itemsToCalculate // CRITICAL for PaymentSummary.jsx
     };
@@ -664,7 +664,6 @@ const Address = () => {
               )}
             </div>
             <div className="col-lg-4 checkout-card">
-              {addresses && addresses.length > 0 && (
                 <PaymentSummary
                   onCheckout={handleNavigatetoPayment}
                   onApplyClick={handleApplyClick}
@@ -677,8 +676,8 @@ const Address = () => {
                   onCoinRemove={handleCoinRemove}
                   useShippingRates={useShippingRates}
                   onTotalUpdate={handleTotalUpdate}
+                  isButtonDisabled={!selectedAddressId}
                 />
-              )}
             </div>
           </div>
         </div>

@@ -7,50 +7,115 @@
         padding: 30px 0px;
         position: relative;
 
-        .banner-img {
-            width: 100%;
+        /* Skeleton loader styling */
+        .banner-skeleton {
+            width: 97%;
             height: 95vh;
-            overflow: hidden;
-
-            position: relative !important;
-
-            img {
-                width: 97%;
-                margin: auto;
-                backdrop-filter: black;
-                height: 100%;
-                border-radius: 20px;
-                object-fit: cover;
-            }
-
-            .banner-txt {
-                position: absolute !important;
-                bottom: 18%;
-                width: 30%;
-                left: 7%;
-
-
-                h1 {
-                    font-weight: 500;
-                    font-family: Nohemi;
-                    font-weight: 500;
-                    line-height: 120%;
-                    letter-spacing: -3%;
-                    font-style: Medium;
-                    font-size: 48px !important;
-                }
-
-                /* Gradient text */
-                background: linear-gradient(93.31deg, #AEFF5D 0.94%, #FFD94E 28.42%, #FFFFED 54.17%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                /* For Firefox */
-                color: transparent;
-            }
-
+            margin: auto;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: bannerSkeletonShimmer 1.5s infinite;
         }
 
+        /* Slick Slider base layout fixes for smooth transitions */
+        .slick-slider {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            user-select: none;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .slick-list {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .slick-track {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .slick-slide {
+            height: 100%;
+            outline: none;
+            
+            > div {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .banner-img {
+                width: 100%;
+                height: 95vh;
+                overflow: hidden;
+                position: relative !important;
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 97%;
+                    height: 100%;
+                    border-radius: 20px;
+                    object-fit: cover;
+                    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+                    will-change: transform;
+                }
+
+                .banner-txt {
+                    position: absolute !important;
+                    bottom: 18%;
+                    width: 30%;
+                    left: 7%;
+                    z-index: 5;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+                    h1 {
+                        font-weight: 500;
+                        font-family: Nohemi, sans-serif;
+                        line-height: 120%;
+                        letter-spacing: -3%;
+                        font-size: 48px !important;
+                    }
+
+                    /* Gradient text */
+                    background: linear-gradient(93.31deg, #AEFF5D 0.94%, #FFD94E 28.42%, #FFFFED 54.17%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    color: transparent;
+                }
+            }
+
+            &.slick-active {
+                .banner-img {
+                    img {
+                        transform: scale(1.02);
+                    }
+
+                    .banner-txt {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
 
         // Custom Slick Dots Styling
         .slick-dots {
@@ -84,14 +149,9 @@
                     margin: 0;
                     font-size: 0;
                     line-height: 0;
-                    transition: all 0.3s ease;
+                    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease, box-shadow 0.4s ease;
                     backdrop-filter: blur(10px);
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-                    // &:hover {
-                    //     background-color: rgba(255, 255, 255, 0.8);
-                    //     transform: scale(1.2);
-                    // }
 
                     &:before {
                         display: none;
@@ -100,15 +160,13 @@
 
                 &.slick-active {
                     button {
+                        width: 38px;
                         background-color: #B2FF06;
                         box-shadow: 0 0 15px #B2FF06;
-                        transform: scale(1.6);
                     }
                 }
             }
         }
-
-
     }
 
     // Responsive adjustments
@@ -116,16 +174,22 @@
         .banner-sub-wrapper {
             padding: 15px;
 
-            .banner-img {
+            .banner-skeleton {
                 height: 60vh;
+                width: 100%;
+            }
 
-                .banner-txt {
-                    bottom: 9% !important;
-                    width: 50% !important;
+            .slick-slide {
+                .banner-img {
+                    height: 60vh;
 
-                    h1 {
-                        font-size: 20px !important;
+                    .banner-txt {
+                        bottom: 9% !important;
+                        width: 50% !important;
 
+                        h1 {
+                            font-size: 24px !important;
+                        }
                     }
                 }
             }
@@ -134,25 +198,16 @@
                 bottom: 30px;
                 gap: 10px;
                 left: 12%;
-
-                li button {
-                    // width: 10px;
-                    // height: 10px;
-                }
-            }
-
-            .slick-arrow {
-                width: 40px;
-                height: 40px;
-
-                &.slick-prev {
-                    left: 20px;
-                }
-
-                &.slick-next {
-                    right: 20px;
-                }
             }
         }
+    }
+}
+
+@keyframes bannerSkeletonShimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
     }
 }

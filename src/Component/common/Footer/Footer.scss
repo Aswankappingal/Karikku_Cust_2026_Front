@@ -55,59 +55,101 @@
 
         .newsletter-form {
             display: flex;
-            width: 45%;
-            margin: auto;
             align-items: center;
-            padding: 5px 0px 6px 20px;
-            height: 50px;
-            border-radius: 25px;
-            justify-content: space-between;
-            background-color: white;
+            width: 50%;
+            max-width: 520px;
+            margin: auto;
+            height: 52px;
+            padding: 4px 4px 4px 18px;
+            border-radius: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
 
-
+            &:focus-within {
+                box-shadow: 0 4px 25px rgba(46, 125, 50, 0.15);
+                border-color: #2E7D32;
+            }
 
             .email {
-                width: 40%;
+                flex: 1;
+                height: 100%;
+                display: flex;
+                align-items: center;
 
+                .newsletter-input {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    background: transparent;
+                    padding: 0 12px 0 4px;
+                    font-size: 15px;
+                    color: #1B1B1B;
+                    outline: none;
+
+                    &::placeholder {
+                        color: #888888;
+                    }
+
+                    &:focus {
+                        outline: none !important;
+                        box-shadow: none !important;
+                        background: transparent !important;
+                    }
+                }
             }
 
             .subscribe-btn {
-                width: 20%;
-                margin-left: 1rem;
+                height: 100%;
+                display: flex;
+                align-items: center;
+
+                .newsletter-btn {
+                    height: 100%;
+                    padding: 0 24px;
+                    background: linear-gradient(135deg, #3DAE4A 0%, #3DAE4A 100%);
+                    color: #ffffff;
+                    border: none;
+                    border-radius: 25px;
+                    font-weight: 600;
+                    font-size: 14px;
+                    letter-spacing: 0.3px;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.25);
+                    margin: 0 !important;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #388E3C 0%, #2E7D32 100%);
+                        transform: translateY(-1px);
+                        box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
+                    }
+
+                    &:active {
+                        transform: translateY(0);
+                    }
+                }
             }
+        }
 
-            .newsletter-input {
-                border: 1px solid #ddd;
-                border-radius: 25px;
-                padding: 10px 20px;
-                width: 100%;
-                border: none;
-                font-size: 14px;
-
-                &::placeholder {
-                    color: #999;
-                }
-
-                &:focus {
-                    outline: none !important;
-                    box-shadow: none !important;
-                    border-color: #ddd !important;
-                }
+        .validation-message {
+            margin-top: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            font-family: General Sans;
+            
+            &.error {
+                color: #d32f2f;
             }
-
-            .newsletter-btn {
-                background-color: #4CAF50;
-                border: none;
-                width: 80%;
-                border-radius: 25px;
-                padding: 10px 10px;
-                margin-left: 1rem;
-                font-weight: 500;
-                font-size: 14px;
-
-                &:hover {
-                    background-color: #45a049;
-                }
+            
+            &.success {
+                color: #2E7D32;
             }
         }
 
@@ -207,7 +249,14 @@
                     leading-trim: NONE;
                     line-height: 130%;
                     letter-spacing: 0%;
+                    transition: all 0.3s ease;
 
+                    &:hover,
+                    &:active {
+                        color: #2E7D32 !important;
+                        text-decoration: underline;
+                        text-underline-offset: 4px;
+                    }
                 }
             }
         }
@@ -422,84 +471,90 @@
 }
 
 // Responsive adjustments
+@media (max-width: 876px) {
+    .FootermainWrapper .footer {
+        padding: 0px 0 2rem !important;
+
+        .newsletter-form {
+            width: 85% !important;
+            max-width: 480px;
+            height: 48px;
+            padding: 3px 3px 3px 14px;
+
+            .email {
+                flex: 1;
+
+                .newsletter-input {
+                    font-size: 13px !important;
+                    padding: 0 8px 0 2px !important;
+                }
+            }
+
+            .subscribe-btn {
+                width: auto !important;
+
+                .newsletter-btn {
+                    padding: 0 20px !important;
+                    margin-left: 0 !important;
+                    font-size: 13px !important;
+                }
+            }
+        }
+
+        .footer-heading {
+            font-size: 1rem;
+        }
+
+        .footer-text,
+        .footer-links a {
+            font-size: 0.85rem;
+        }
+
+        .quick-links {
+            margin-left: .1rem;
+        }
+    }
+}
+
 @media (max-width: 576px) {
     .FootermainWrapper .footer {
         padding: 40px 0 30px;
 
         .newsletter-form {
-            padding-right: 2rem;
-            width: 100% !important;
-
-            .row {
-                --bs-gutter-x: 0.5rem;
-            }
-
-            .newsletter-input,
-            .newsletter-btn {
-                font-size: 11px !important;
-                padding: 10px 30px;
-            }
-
-            .newsletter-btn {
-                padding: 20px 60px 10px 10px;
-                margin-left: 1rem;
-
-            }
-        }
-
-        .footer-heading {
-            font-size: 1rem;
-        }
-
-        .footer-text,
-        .footer-links a {
-            font-size: 0.85rem;
-        }
-
-        .quick-links {
-            margin-left: .1rem;
-        }
-
-        .subscribe-btn {
-            width: 40%;
-        }
-
-        .email {
-            width: 60%;
-        }
-    }
-}
-
-@media (max-width: 876px) {
-    .FootermainWrapper .footer {
-        padding: 0px 0 2rem !important;
-
-
-        .newsletter-form {
-            padding-right: 2rem;
+            width: 95% !important;
+            height: 46px;
+            padding: 3px 3px 3px 12px;
 
             .email {
-                width: 60%;
+                flex: 1;
+
+                .newsletter-input {
+                    font-size: 12px !important;
+                    padding: 0 6px 0 0 !important;
+                }
             }
 
-            .row {
-                --bs-gutter-x: 0.5rem;
-            }
+            .subscribe-btn {
+                width: auto !important;
 
-            .newsletter-input {
-                font-size: 13px !important;
-                padding: 10px 0px !important;
-            }
-
-            .newsletter-btn {
-                padding: 10px 60px 10px 10px;
-                margin-left: .5rem;
-
+                .newsletter-btn {
+                    padding: 0 16px !important;
+                    margin-left: 0 !important;
+                    font-size: 12px !important;
+                }
             }
         }
 
         .footer-heading {
-            font-size: 1rem;
+            font-family: General Sans;
+            font-weight: 600;
+            font-style: Semibold;
+            font-size: 16px;
+            leading-trim: NONE;
+            line-height: 130%;
+            color: #1B1B1B;
+            letter-spacing: 0%;
+
         }
 
         .footer-text,
@@ -509,14 +564,6 @@
 
         .quick-links {
             margin-left: .1rem;
-        }
-
-        .subscribe-btn {
-            width: 40%;
-        }
-
-        .email {
-            width: 60%;
         }
     }
 }

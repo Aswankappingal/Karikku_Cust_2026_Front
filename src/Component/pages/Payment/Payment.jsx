@@ -238,7 +238,7 @@ const Payment = () => {
             coinSavings: appliedCoins,
             gst: result.gstAmount, // Compatibility
             totalItems: itemsToCalculate.reduce((sum, item) => sum + (item.quantity || 1), 0),
-            subtotal: result.basePrice, // UNDISCOUNTED subtotal for coupon calculation
+            subtotal: result.totalMrp,
             taxableValue: result.taxableValue, // DISCOUNTED subtotal for GST
             items: itemsToCalculate // CRITICAL for PaymentSummary.jsx
         };

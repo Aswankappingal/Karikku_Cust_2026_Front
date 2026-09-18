@@ -1,107 +1,106 @@
 import React, { useState, useEffect } from 'react';
 import './LoginModal2.scss';
-import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../../../store/hook/useUser'; // Adjust path as needed
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../store/hook/useUser';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { setAuthFromStorage } from '../../../store/slice/userSlice';
 
-const LoginModal2 = ({ onClose, onSignup }) => {
+/**
+ * LoginModal2 — Email/Password Login Modal
+ *
+ * Props:
+ *   onClose       — closes this modal
+ *   onSignup      — switches back to the signup modal
+ *   prefillEmail  — email pre-filled after signup (passed from Navbar)
+ */
+const LoginModal2 = ({ onClose, onSignup, prefillEmail }) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const { login, isLoading, error, clearError, isAuthenticated } = useAuth();
 
-    // Form state
+    // Form state — pre-fill email if coming from signup
     const [formData, setFormData] = useState({
-        email: '',
+        email: prefillEmail || '',
         password: ''
     });
 
-    // Form validation state
+    // If prefillEmail arrives after mount (async), sync it
+    useEffect(() => {
+        if (prefillEmail) {
+            setFormData(prev => ({ ...prev, email: prefillEmail }));
+        }
+    }, [prefillEmail]);
+
+    // Validation + UI state
     const [formErrors, setFormErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
+    const [touched, setTouched] = useState({});
 
-    // Clear errors when component mounts or form changes
+    // Clear Redux errors whenever the user types
     useEffect(() => {
-        if (error) {
-            clearError();
-        }
+        if (error) clearError();
     }, [formData]);
 
-    // Check for token expiry on component mount
-    useEffect(() => {
-        const checkTokenExpiry = () => {
-            const tokenExpiry = localStorage.getItem('tokenExpiry');
-            const currentTime = new Date().getTime();
-
-            // If the current time is greater than the token expiry time, remove the token
-            if (tokenExpiry && currentTime > tokenExpiry) {
-                localStorage.removeItem('authToken');
-                localStorage.removeItem('tokenExpiry');
-                console.log('Token has expired and is removed');
-            }
-        };
-
-        checkTokenExpiry();
-    }, []); // Runs on component mount
-
-    // Close modal if user gets authenticated
+    // Close modal once Redux says the user is authenticated
     useEffect(() => {
         if (isAuthenticated) {
             onClose();
-            // Optionally navigate to dashboard or profile
-            // navigate('/dashboard');
         }
-    }, [isAuthenticated, onClose, navigate]);
+    }, [isAuthenticated, onClose]);
 
-    // Handle input changes
+    // ---- Validation ----
+    const validateField = (name, value) => {
+        switch (name) {
+            case 'email':
+                if (!value.trim()) return 'Mobile number or email is required';
+                if (!value.includes('@') && !/^\d{10}$/.test(value.trim())) {
+                    return 'Please enter a valid mobile number (10 digits) or email';
+                }
+                if (value.includes('@') && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
+                    return 'Please enter a valid email address';
+                }
+                return '';
+            case 'password':
+                if (!value) return 'Password is required';
+                if (value.length < 6) return 'Password must be at least 6 characters';
+                return '';
+            default:
+                return '';
+        }
+    };
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-
-        // Clear specific field error when user starts typing
-        if (formErrors[name]) {
-            setFormErrors(prev => ({
-                ...prev,
-                [name]: ''
-            }));
+        setFormData(prev => ({ ...prev, [name]: value }));
+        if (touched[name]) {
+            setFormErrors(prev => ({ ...prev, [name]: validateField(name, value) }));
         }
     };
 
-    // Form validation
-    const validateForm = () => {
-        const errors = {};
-
-        // Email validation
-        if (!formData.email.trim()) {
-            errors.email = 'Email or mobile number is required';
-        } else if (
-            !formData.email.includes('@') &&
-            !/^\d{10}$/.test(formData.email.trim())
-        ) {
-            // Check if it's not an email and not a 10-digit mobile number
-            if (!formData.email.includes('@')) {
-                errors.email = 'Please enter a valid mobile number (10 digits)';
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-                errors.email = 'Please enter a valid email address';
-            }
-        }
-
-        // Password validation
-        if (!formData.password) {
-            errors.password = 'Password is required';
-        } else if (formData.password.length < 6) {
-            errors.password = 'Password must be at least 6 characters long';
-        }
-
-        setFormErrors(errors);
-        return Object.keys(errors).length === 0;
+    const handleBlur = (e) => {
+        const { name, value } = e.target;
+        setTouched(prev => ({ ...prev, [name]: true }));
+        setFormErrors(prev => ({ ...prev, [name]: validateField(name, value) }));
     };
 
-    // Handle form submission
+    // ---- Submit ----
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!validateForm()) {
+        // Touch all fields to reveal errors
+        setTouched({ email: true, password: true });
+
+        const errors = {};
+        ['email', 'password'].forEach(key => {
+            const err = validateField(key, formData[key]);
+            if (err) errors[key] = err;
+        });
+        setFormErrors(errors);
+
+        if (Object.keys(errors).length > 0) {
+            const firstEl = document.getElementById(Object.keys(errors)[0]);
+            if (firstEl) firstEl.focus();
             return;
         }
 
@@ -112,169 +111,189 @@ const LoginModal2 = ({ onClose, onSignup }) => {
             });
 
             if (result.success) {
-                console.log('Login successful:', result.data);
-                
-                // Set token expiry - 1 hour from now
+                // ✅ Store auth data — this is the ONLY place authentication is established
                 const currentTime = new Date().getTime();
-                const tokenExpiry = currentTime + 3600000; // 1 hour (3600000 milliseconds)
+                const tokenExpiry = currentTime + 24 * 60 * 60 * 1000; // 24 h
 
-                // Store the token (assuming it comes from result.data.token)
-                if (result.data.token) {
+                if (result.data?.token) {
                     localStorage.setItem('authToken', result.data.token);
-                    localStorage.setItem('tokenExpiry', tokenExpiry);
+                    localStorage.setItem('token', result.data.token);
+                    localStorage.setItem('tokenExpiry', String(tokenExpiry));
+                }
+                if (result.data?.user) {
+                    localStorage.setItem('userData', JSON.stringify(result.data.user));
+                    localStorage.setItem('user', JSON.stringify(result.data.user));
                 }
 
-                // onClose will be called automatically due to useEffect watching isAuthenticated
+                // Force Redux state to sync with localStorage
+                dispatch(setAuthFromStorage());
+
+                toast.success('✅ Logged in! Welcome to Karikku!');
+
+                setTimeout(() => {
+                    onClose();
+                    window.location.reload();
+                }, 900);
             } else {
-                // Error is already handled by the Redux store
-                console.error('Login failed:', result.error);
+                toast.error(result.error || 'Invalid credentials. Please try again.');
             }
         } catch (err) {
             console.error('Login error:', err);
+            toast.error('An unexpected error occurred. Please try again.');
         }
     };
 
-    // Handle clicking outside the modal to close it
+    // Overlay click closes modal
     const handleOverlayClick = (e) => {
-        if (e.target === e.currentTarget) {
-            onClose();
-        }
+        if (e.target === e.currentTarget) onClose();
     };
 
-    // Toggle password visibility
-    const togglePasswordVisibility = () => {
-        setShowPassword(prev => !prev);
-    };
+    const togglePasswordVisibility = () => setShowPassword(prev => !prev);
 
     return (
-        <div className='LoginModalMainWrapper' onClick={handleOverlayClick}>
-            <div className='modal-content'>
-                <div className='modal-header'>
+        <div className='LoginModal2Wrapper' onClick={handleOverlayClick}>
+            <div className='lm2-content'>
+
+                {/* ---- Header ---- */}
+                <div className='lm2-header'>
                     <h3>Login to your account!</h3>
-                    <button className='close-button' onClick={onClose}>
+                    <button
+                        className='lm2-close-btn'
+                        onClick={onClose}
+                        type="button"
+                        aria-label="Close modal"
+                    >
                         ×
                     </button>
                 </div>
 
-                <p className='acc-para'>
-                    Your account for everything Karikku!
-                </p>
+                <p className='lm2-subtitle'>Your account for everything Karikku!</p>
 
-                <form className='modal-body' onSubmit={handleSubmit}>
-                    {/* Display general error */}
+                {/* ---- Signup success banner ---- */}
+                {prefillEmail && (
+                    <div className='lm2-signup-banner'>
+                        <span className='lm2-banner-icon'>🎉</span>
+                        <span>
+                            Account created! Log in with your new credentials to continue.
+                        </span>
+                    </div>
+                )}
+
+                {/* ---- Form ---- */}
+                <form className='lm2-body' onSubmit={handleSubmit} noValidate>
+
+                    {/* Redux-level error */}
                     {error && (
-                        <div className='error-message' style={{
-                            color: '#e74c3c',
-                            marginBottom: '15px',
-                            padding: '10px',
-                            backgroundColor: '#fdf2f2',
-                            border: '1px solid #fecaca',
-                            borderRadius: '4px',
-                            fontSize: '14px'
-                        }}>
-                            {error}
-                        </div>
+                        <div className='lm2-error-banner'>{error}</div>
                     )}
 
-                    <div className='input-group'>
-                        <label htmlFor='email'>Enter Mobile Number / Email*</label>
+                    {/* Email / Mobile */}
+                    <div className={`lm2-input-group ${formErrors.email && touched.email ? 'has-error' : ''}`}>
+                        <label htmlFor='lm2-email'>Enter Mobile Number / Email*</label>
                         <input
                             type='text'
-                            id='email'
+                            id='lm2-email'
                             name='email'
                             value={formData.email}
                             onChange={handleInputChange}
+                            onBlur={handleBlur}
                             placeholder='Type here...'
-                            className={`email-input ${formErrors.email ? 'error' : ''}`}
+                            className={`lm2-input ${formErrors.email && touched.email ? 'input-error' : ''}`}
                             autoComplete="email"
                             disabled={isLoading}
                         />
-                        {formErrors.email && (
-                            <span className='field-error' style={{
-                                color: '#e74c3c',
-                                fontSize: '12px',
-                                marginTop: '5px',
-                                display: 'block'
-                            }}>
-                                {formErrors.email}
-                            </span>
+                        {formErrors.email && touched.email && (
+                            <span className='lm2-field-error'>{formErrors.email}</span>
                         )}
                     </div>
 
-                    <div className='input-group'>
-                        <label htmlFor='password'>Password*</label>
-                        <div style={{ position: 'relative' }}>
+                    {/* Password */}
+                    <div className={`lm2-input-group ${formErrors.password && touched.password ? 'has-error' : ''}`}>
+                        <label htmlFor='lm2-password'>Password</label>
+                        <div className='lm2-password-wrapper'>
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                id='password'
+                                id='lm2-password'
                                 name='password'
                                 value={formData.password}
                                 onChange={handleInputChange}
+                                onBlur={handleBlur}
                                 placeholder='Type here...'
-                                className={`password-input ${formErrors.password ? 'error' : ''}`}
+                                className={`lm2-input ${formErrors.password && touched.password ? 'input-error' : ''}`}
                                 autoComplete="current-password"
                                 disabled={isLoading}
                             />
                             <button
                                 type="button"
+                                className='lm2-eye-btn'
                                 onClick={togglePasswordVisibility}
-                                style={{
-                                    position: 'absolute',
-                                    right: '10px',
-                                    top: '50%',
-                                    transform: 'translateY(-50%)',
-                                    background: 'none',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                    fontSize: '14px',
-                                    color: '#666'
-                                }}
+                                tabIndex={-1}
+                                aria-label={showPassword ? 'Hide password' : 'Show password'}
                             >
-                                {showPassword ? '👁️' : '👁️‍🗨️'}
+                                {showPassword ? (
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
+                                        <line x1="1" y1="1" x2="23" y2="23" />
+                                    </svg>
+                                ) : (
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                )}
                             </button>
                         </div>
-                        {formErrors.password && (
-                            <span className='field-error' style={{
-                                color: '#e74c3c',
-                                fontSize: '12px',
-                                marginTop: '5px',
-                                display: 'block'
-                            }}>
-                                {formErrors.password}
-                            </span>
+                        {formErrors.password && touched.password && (
+                            <span className='lm2-field-error'>{formErrors.password}</span>
                         )}
                     </div>
 
-                    <div className='Forgot-password'>
-                        <p>
-                            Forgot Your password?
-                        </p>
+                    {/* Forgot password */}
+                    <div className='lm2-forgot-password'>
+                        <span
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => toast.info('Password reset feature coming soon!')}
+                            onKeyPress={(e) => { if (e.key === 'Enter') toast.info('Password reset feature coming soon!'); }}
+                        >
+                            Forgot your password?
+                        </span>
                     </div>
 
+                    {/* Login Button */}
                     <button
-                        type="submit"
-                        className='Login-btn'
+                        type='submit'
+                        className='lm2-login-btn'
                         disabled={isLoading}
-                        style={{
-                            opacity: isLoading ? 0.7 : 1,
-                            cursor: isLoading ? 'not-allowed' : 'pointer'
-                        }}
                     >
-                        {isLoading ? 'Logging in...' : 'Login'}
+                        {isLoading ? (
+                            <span className='lm2-btn-loader'>
+                                <span className='lm2-spinner'></span>
+                                Logging in...
+                            </span>
+                        ) : 'Login'}
                     </button>
 
-                    <div className='footer-links'>
+                    {/* Footer */}
+                    <div className='lm2-footer'>
                         <p>
                             Don't have an account?{' '}
                             <span
-                                className='Signup-link'
-                                onClick={onSignup}
-
+                                className='lm2-signup-link'
+                                onClick={!isLoading ? onSignup : undefined}
+                                role="button"
+                                tabIndex={0}
+                                onKeyPress={(e) => {
+                                    if ((e.key === 'Enter' || e.key === ' ') && !isLoading) {
+                                        onSignup?.();
+                                    }
+                                }}
                             >
                                 Signup
                             </span>
                         </p>
                     </div>
+
                 </form>
             </div>
         </div>

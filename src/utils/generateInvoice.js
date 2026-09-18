@@ -299,7 +299,7 @@ export const generateInvoice = async (order, returnBlob = false) => {
 
             if (itemSpecificPricing) {
                 // Use exact values calculated at time of order
-                unitPriceExGst = safeNum(itemSpecificPricing.unitSellingPrice || itemSpecificPricing.unitMrp) / (1 + (itemGstRate / 100));
+                unitPriceExGst = safeNum(itemSpecificPricing.unitMrp || itemSpecificPricing.unitSellingPrice);
                 totalItemDiscount = safeNum(itemSpecificPricing.mrpDiscount) + safeNum(itemSpecificPricing.discount);
                 taxableValue = safeNum(itemSpecificPricing.taxableValue);
                 cgst = safeNum(itemSpecificPricing.cgst);
@@ -310,8 +310,8 @@ export const generateInvoice = async (order, returnBlob = false) => {
                 const sellingPrice = safeNum(item.price || item.unitPrice || item.productDetails?.price || 0);
                 
                 const itemTotalMrp = mrp * qty;
-                const unitMrpExt = mrp / (1 + (itemGstRate / 100));
-                unitPriceExGst = sellingPrice / (1 + (itemGstRate / 100));
+                const unitMrpExt = mrp;
+                unitPriceExGst = sellingPrice;
                 
                 let itemMrpDiscount = 0;
                 if (pricing.mrpDiscount > 0) {

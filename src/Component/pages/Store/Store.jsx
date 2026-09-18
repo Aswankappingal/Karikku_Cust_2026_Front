@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Breadcrumb from '../../common/BreadCrumb/BreadCrumb'
 import Navbar from '../../common/Navbar/Navbar';
 import './Store.scss'
@@ -39,7 +39,7 @@ const Store = () => {
             address: 'KARIKKU VENTURES PRIVATE LIMITED, PERINTHALMANNA, KERALA, INDIA, 679322',
             email: 'sales@karikku.co',
             phone: '+91 8589 8585 44/22/88',
-            direction: '#'
+            direction: 'https://maps.app.goo.gl/9WLAtLamQ3Nn6nwM7'
         }
         // {
         //     id: 4,
@@ -60,6 +60,13 @@ const Store = () => {
         //     direction: '#'
         // }
     ];
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const filteredBranches = branches.filter((branch) =>
+        branch.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        branch.address.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     // Working hours data
     const workingHours = [
@@ -93,19 +100,23 @@ const Store = () => {
                     </div>
                     <div className="our-branches">
                         <div className="branch-header">
-                            <h3>Branches & Major Stores <span className='our-branches-span'>-</span><br />always close to you!</h3>
+                            <h3>Our Branches  <span className='our-branches-span'>-</span><br />always close to you!</h3>
                         </div>
                         <img className='palm' src="/Images/palm-vector.svg" alt="" />
                         <div className="branch-para">
-                            <p>Visit a Store Near You for Exceptional Service
-                                With locations in India, Qatar, and the UAE, we’re dedicated to providing you with unmatched convenience, quality, and excellence. </p>
+                            <p>Find an Advanced Motors branch near you and experience top-tier service, expert guidance, and a premium selection of vehicles. With five locations across Saudi Arabia, we are committed to bringing you convenience, quality, and excellence in every visit. Step into any of our branches and drive away with confidence!</p>
                         </div>
                     </div>
 
                     <div className="sub-head">
                         <h3>Branches & Major Stores</h3>
                         <div className="search-bar">
-                            <input type="text" placeholder='Search for store by code' />
+                            <input
+                                type="text"
+                                placeholder='Search for store by name or address'
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
                             <div className="search-icon">
                                 <IoSearch style={{ color: "#ffffff" }} />
                             </div>
@@ -117,7 +128,7 @@ const Store = () => {
                 <div className="branches">
                     <div className="container-fluid">
                         <div className="row">
-                            {branches.map((branch) => (
+                            {filteredBranches.map((branch) => (
                                 <div key={branch.id} className="col-lg-4 col-md-6 col-sm-6 col-12">
                                     <div className="cards">
                                         <div className="card-image">
@@ -128,7 +139,7 @@ const Store = () => {
                                             <div className="label-para">
                                                 <p>{branch.address}</p>
                                             </div>
-                                            <a className='direction' href={branch.direction}>Get direction</a>
+                                            <a className='direction' href={branch.direction} target="_blank" rel="noopener noreferrer">Get direction</a>
                                             <div className='contact-wp-icon'>
                                                 <div className="contact">
                                                     <p>Mail: {branch.email}</p>

@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Footer.scss'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa'
 
 const Footer = () => {
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [isError, setIsError] = useState(false);
+
+    const handleSubscribe = () => {
+        if (!email) {
+            setMessage('Please enter an email address.');
+            setIsError(true);
+            return;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setMessage('Please enter a valid email address.');
+            setIsError(true);
+            return;
+        }
+
+        setMessage('Subscribed successfully!');
+        setIsError(false);
+        setEmail('');
+    };
+
     return (
         <div className='FootermainWrapper'>
             <img className='vector' src="./Images/footer-vector cr.png" alt="" />
@@ -21,14 +44,28 @@ const Footer = () => {
                             </h3>
                             <div className="newsletter-form">
                                 <div className="email">
-                                    <input type="email" className="form-control newsletter-input" placeholder='Your email' />
+                                    <input 
+                                        type="email" 
+                                        className="form-control newsletter-input" 
+                                        placeholder='Your email'
+                                        value={email}
+                                        onChange={(e) => {
+                                            setEmail(e.target.value);
+                                            setMessage(''); // clear message on typing
+                                        }}
+                                    />
 
                                 </div>
                                 <div className="subscribe-btn">
-                                    <button className="btn btn-success newsletter-btn">Subscribe</button>
+                                    <button className="btn btn-success newsletter-btn" onClick={handleSubscribe}>Subscribe</button>
 
                                 </div>
                             </div>
+                            {message && (
+                                <div className={`validation-message ${isError ? 'error' : 'success'}`}>
+                                    {message}
+                                </div>
+                            )}
 
 
                         </div>
@@ -64,7 +101,7 @@ const Footer = () => {
                                 <ul className="footer-links">
                                     <li><Link to="/products">Our products</Link></li>
                                     <li><Link to="/about-us">About us</Link></li>
-                                    <li><Link to="/contact-us">Stores</Link></li>
+                                    <li><Link to="/store">Stores</Link></li>
                                     {/* <li><Link to="/terms-of-service">Terms of service</Link></li> */}
                                     {/* <li><Link to="/blogs">Blog</Link></li> */}
                                     {/* <li><Link to="/process">Our process</Link></li> */}

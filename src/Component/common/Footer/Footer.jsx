@@ -29,14 +29,14 @@ const Footer = () => {
 
     return (
         <div className='FootermainWrapper'>
-            <img className='vector' src="./Images/footer-vector cr.png" alt="" />
+            <img className='vector' src="/Images/footer-vector cr.png" alt="" />
             <div className="footer">
                 <div className="container-fluid px-4">
                     {/* Newsletter Section */}
                     <div className="row justify-content-center mb-5">
                         <div className="col-12 col-md-8 col-lg-6 text-center newsletter-outer-line">
                             <div className="karikku-logo mb-3">
-                                <img src="./Images/Karikku-footer-logo.svg" alt="Karikku" className="logo" />
+                                <img src="/Images/Karikku-footer-logo.svg" alt="Karikku" className="logo" />
                             </div>
                             <h3 className="newsletter-title mb-4">
                                 Subscribe to Karikku for<br />

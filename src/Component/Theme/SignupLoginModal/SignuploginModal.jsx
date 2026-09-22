@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './SignupLoginModal.scss';
 import { useNavigate, Link } from 'react-router-dom';
 import baseUrl from '../../../baseUrl';
@@ -23,6 +24,7 @@ const SignupLoginModal = ({ onClose, onLogin, onSignupSuccess }) => {
     const [fieldErrors, setFieldErrors] = useState({});
     const [touched, setTouched] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     // Validate a single field
     const validateField = (name, value) => {
@@ -288,21 +290,29 @@ const SignupLoginModal = ({ onClose, onLogin, onSignupSuccess }) => {
 
                         <div className={`input-group ${fieldErrors.password && touched.password ? 'has-error' : ''}`}>
                             <label htmlFor='password'>Password</label>
-                            <input
-                                type='password'
-                                id='password'
-                                name='password'
-                                value={formData.password}
-                                onChange={handleInputChange}
-                                onBlur={handleBlur}
-                                placeholder='Type here...'
-                                className={`password-input ${fieldErrors.password && touched.password ? 'input-error' : ''}`}
-                                autoComplete="new-password"
-                                disabled={isLoading}
-                                required
-                                minLength={6}
-                                maxLength={128}
-                            />
+                            <div className="password-input-wrapper">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    id='password'
+                                    name='password'
+                                    value={formData.password}
+                                    onChange={handleInputChange}
+                                    onBlur={handleBlur}
+                                    placeholder='Type here...'
+                                    className={`password-input ${fieldErrors.password && touched.password ? 'input-error' : ''}`}
+                                    autoComplete="new-password"
+                                    disabled={isLoading}
+                                    required
+                                    minLength={6}
+                                    maxLength={128}
+                                />
+                                <span 
+                                    className="password-toggle-icon"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </span>
+                            </div>
                             {fieldErrors.password && touched.password && (
                                 <span className='field-error-message'>{fieldErrors.password}</span>
                             )}

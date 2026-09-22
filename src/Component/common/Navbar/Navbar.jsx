@@ -210,6 +210,7 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
       setLoginModal2IsOpen(false);
     }
   };
+ 
 
   const closeSignupModal = () => {
     setSignupModalIsOpen(false);

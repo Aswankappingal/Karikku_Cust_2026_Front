@@ -11,7 +11,9 @@
     line-height: 130%;
     letter-spacing: -0.02em;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    padding: 8px 12px;
 
     &.active {
       color: #3DAE4A !important; // Add !important if needed
@@ -21,6 +23,11 @@
     &:hover:not(.active) {
       color: #666666;
       background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    &:active {
+      background-color: rgba(0, 0, 0, 0.1);
+      transform: scale(0.96);
     }
   }
 
@@ -38,6 +45,8 @@
     text-decoration-style: solid;
     text-decoration-offset: 0%;
     text-decoration-thickness: 0%;
+    display: inline-block;
+    transition: all 0.2s ease;
 
 
     &.active-link {
@@ -46,6 +55,11 @@
 
     &:hover {
       color: #2ecc71;
+    }
+    
+    &:active {
+      transform: scale(0.95);
+      color: #1a9c51;
     }
   }
 

@@ -15,6 +15,7 @@ import { LinearProgress, CircularProgress } from '@mui/material';
 import { toast } from 'react-toastify';
 import { FaCheck } from 'react-icons/fa';
 import LoginModal from '../../Theme/LoginModal/LoginModal';
+import OtpLoginModal from '../../Theme/OtpLoginModal/OtpLoginModal';
 
 const processDataByCategory = {
     'Food & Beverages': {
@@ -146,6 +147,13 @@ const ProductPage = () => {
     const [selectedVariantId, setSelectedVariantId] = useState(null);
     const [quantity, setQuantity] = useState(1);
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showOtpModal, setShowOtpModal] = useState(false);
+    const [otpSessionData, setOtpSessionData] = useState({
+        otpSession: null,
+        mobileNumber: null,
+        userExists: false,
+        isNewUser: false
+    });
     const [otherCartLoading, setOtherCartLoading] = useState({});
     const { id } = useParams();
     const navigate = useNavigate();
@@ -633,10 +641,28 @@ const ProductPage = () => {
             {showLoginModal && (
                 <LoginModal
                     onClose={() => setShowLoginModal(false)}
-                    onContinue={() => {
-                        // After successful login, the modal navigates to '/' or reloads.
-                        // Here we just close it and let the user click again or handle it.
+                    onContinue={(data) => {
+                        setOtpSessionData(data);
                         setShowLoginModal(false);
+                        setShowOtpModal(true);
+                    }}
+                />
+            )}
+            
+            {showOtpModal && (
+                <OtpLoginModal
+                    onClose={() => setShowOtpModal(false)}
+                    otpSession={otpSessionData.otpSession}
+                    mobileNumber={otpSessionData.mobileNumber}
+                    onLoginSuccess={(data) => {
+                        localStorage.setItem("authToken", data.token);
+                        localStorage.setItem("user", JSON.stringify(data.user));
+                        localStorage.setItem("userData", JSON.stringify(data.user));
+                        setShowOtpModal(false);
+                        window.location.reload();
+                    }}
+                    onSignupRequired={() => {
+                        setShowOtpModal(false);
                     }}
                 />
             )}

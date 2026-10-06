@@ -14,6 +14,7 @@ import useShippingRates from '../../../store/hook/useShippingRates';
 import { LinearProgress } from '@mui/material';
 import { toast } from 'react-toastify';
 import LoginModal from '../../Theme/LoginModal/LoginModal';
+import OtpLoginModal from '../../Theme/OtpLoginModal/OtpLoginModal';
 import { Edit2, Trash2 } from 'lucide-react';
 import { calculateCartTotals } from '../../../utils/pricing';
 
@@ -107,6 +108,13 @@ const Address = () => {
   const [isUpdatingAddress, setIsUpdatingAddress] = useState(false);
   const [isDeletingAddress, setIsDeletingAddress] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otpSessionData, setOtpSessionData] = useState({
+    otpSession: null,
+    mobileNumber: null,
+    userExists: false,
+    isNewUser: false
+  });
 
   // Coupon and discount states
   const [appliedCoupon, setAppliedCoupon] = useState(null);
@@ -685,9 +693,28 @@ const Address = () => {
       {showLoginModal && (
         <LoginModal
           onClose={() => setShowLoginModal(false)}
-          onContinue={() => {
+          onContinue={(data) => {
+            setOtpSessionData(data);
             setShowLoginModal(false);
-            refreshAddresses(); // Refresh addresses after login
+            setShowOtpModal(true);
+          }}
+        />
+      )}
+
+      {showOtpModal && (
+        <OtpLoginModal
+          onClose={() => setShowOtpModal(false)}
+          otpSession={otpSessionData.otpSession}
+          mobileNumber={otpSessionData.mobileNumber}
+          onLoginSuccess={(data) => {
+            localStorage.setItem("authToken", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user));
+            localStorage.setItem("userData", JSON.stringify(data.user));
+            setShowOtpModal(false);
+            refreshAddresses();
+          }}
+          onSignupRequired={() => {
+            setShowOtpModal(false);
           }}
         />
       )}

@@ -16,14 +16,32 @@ const PrivacyPolicy = () => {
       </style>
       <Navbar/>
       <ScrollToTopOnMount/>
+      
+      <div style={{ padding: '1rem 2.8rem' }}>
+        <h3 style={{
+            marginTop: '5rem',
+            fontFamily: '"General Sans", sans-serif',
+            fontWeight: 600,
+            fontSize: '24px',
+            lineHeight: '105%',
+            background: 'linear-gradient(90deg, #738933 18%, rgba(3, 36, 7, 0.793) 44%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            color: 'transparent'
+        }}>
+            Privacy Policy
+        </h3>
+      </div>
     <div className="max-w-3xl mx-auto px-6 py-12 bg-white font-inter mt-10 mb-20">
       <div className="mb-16">
-        <h1 className="text-3xl md:text-4xl font-normal text-black mb-3 tracking-tight">Privacy Policy</h1>
+        {/* <h1 className="text-3xl md:text-4xl font-normal text-black mb-3 tracking-tight">Privacy Policy</h1> */}
         <p className="text-sm text-gray-400">Last updated: 04/05/2025</p>
       </div>
 
       <div className="space-y-12 text-base leading-relaxed text-gray-600 font-light">
         <section>
+          <h2 className="text-xl md:text-2xl font-normal text-black mb-4">Introduction</h2>
           <p>
             This Privacy Policy describes how <strong className="text-black font-medium">Karikku store</strong> (the "Site", "we", "us", or "our") 
             collects, uses, and discloses your personal information when you visit, use our services, or make a 

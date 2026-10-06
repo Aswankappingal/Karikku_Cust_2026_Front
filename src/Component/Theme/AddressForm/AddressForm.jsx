@@ -48,8 +48,8 @@ const AddressForm = ({onClose}) => {
       return 'Phone number is required';
     }
     const cleanPhone = phoneNumber.replace(/[\s\-\(\)\+]/g, '');
-    if (cleanPhone.length < 10) {
-      return '';
+    if (cleanPhone.length < 12) {
+      return 'Please enter a valid 10-digit phone number';
     }
     if (!/^\d+$/.test(cleanPhone)) {
       return 'Phone number can only contain digits';

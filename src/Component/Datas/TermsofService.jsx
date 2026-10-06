@@ -16,6 +16,23 @@ const TermsOfService = () => {
       </style>
       <Navbar/>
       <ScrollToTopOnMount/>
+      
+      <div style={{ padding: '1rem 2.8rem' }}>
+        <h3 style={{
+            marginTop: '5rem',
+            fontFamily: '"General Sans", sans-serif',
+            fontWeight: 600,
+            fontSize: '24px',
+            lineHeight: '105%',
+            background: 'linear-gradient(90deg, #738933 18%, rgba(3, 36, 7, 0.793) 44%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            color: 'transparent'
+        }}>
+            Terms of Service
+        </h3>
+      </div>
 
       <div className="max-w-4xl mx-auto p-6 bg-white text-gray-800 font-inter px-3 mt-5">
         <div className="mb-8 py-4">

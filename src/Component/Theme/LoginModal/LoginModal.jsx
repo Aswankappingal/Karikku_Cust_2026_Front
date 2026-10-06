@@ -106,7 +106,7 @@ const LoginModal = ({ onClose, onContinue, onSignup }) => {
         // Store both the token and the expiration time in localStorage
         localStorage.setItem('authToken', res.data.token);
         localStorage.setItem('tokenExpiry', tokenExpiry);
-        
+
         // Ensure user data is stored for the Navbar state logic
         if (res.data.user) {
           localStorage.setItem('userData', JSON.stringify(res.data.user));
@@ -239,7 +239,7 @@ const LoginModal = ({ onClose, onContinue, onSignup }) => {
 
           <div className='modal-body'>
             <div className='input-group'>
-              <label htmlFor='email'>Enter Mobile Number / Email*</label>
+              <label htmlFor='email'>Enter Mobile Number</label>
               <input
                 type='text'
                 id='email'

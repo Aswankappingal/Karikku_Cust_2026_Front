@@ -197,6 +197,9 @@
         }
 
         .cart-prod-detail {
+          display: flex;
+          flex-direction: column;
+
           .quantity {
             border: 1px solid #C7BD90;
             background-color: #F4E9B5;
@@ -235,6 +238,7 @@
           }
 
           .buttons {
+            margin-top: auto;
             padding-top: 10px;
             display: flex;
             gap: 20px;

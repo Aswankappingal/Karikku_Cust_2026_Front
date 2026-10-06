@@ -21,14 +21,23 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         animation: modalFadeIn 0.3s ease-out;
 
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+
         .modal-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 18px 2rem 10px 2rem;
             text-align: center;
             border-radius: 22px;
             margin-top: 3px;
+            position: relative;
 
             h3 {
                 font-family: Nohemi;
@@ -42,19 +51,21 @@
             }
 
             .close-button {
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
                 background: none;
                 border: none;
                 font-size: 2.2rem;
-                padding-left: 2rem !important;
-                padding-bottom: 1.1rem !important;
+                padding: 0 !important;
                 cursor: pointer;
                 color: #666;
-                padding: 0;
                 width: 30px;
                 height: 30px;
                 display: flex;
                 align-items: center;
-                justify-content: flex-start;
+                justify-content: center;
                 border-radius: 50%;
                 transition: background-color 0.2s;
             }

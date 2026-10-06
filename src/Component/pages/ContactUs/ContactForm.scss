@@ -156,10 +156,7 @@
                     flex: 1;
                 }
 
-                /* Error state: label turns red */
-                &.has-error label {
-                    color: #DC2626;
-                }
+                /* Error state removed from label as per request */
             }
 
             /* ─── Inline Field Error Message ─── */

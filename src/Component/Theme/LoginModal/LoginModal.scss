@@ -18,70 +18,81 @@
     width: 90%;
     max-width: 450px;
     height: auto;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    animation: modalFadeIn 0.3s ease-out;
-    // Prevent modal from being affected by viewport changes
-    position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        animation: modalFadeIn 0.3s ease-out;
+        // Prevent modal from being affected by viewport changes
+        position: relative;
 
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 2rem 10px 2rem;
-      text-align: center;
-      border-radius: 22px;
-      margin-top: 10px !important;
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
 
-      h3 {
-        font-family: Nohemi;
-        font-weight: 600;
-        font-style: Semi Bold;
-        font-size: 24px !important;
-        leading-trim: NONE;
-        line-height: 100%;
-        letter-spacing: -2%;
-        background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 99.03%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+        .modal-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 18px 2rem 10px 2rem;
+            text-align: center;
+            border-radius: 22px;
+            margin-top: 10px !important;
+            position: relative;
 
-      .close-button {
-        background: none;
-        border: none;
-        font-size: 2.2rem;
-        padding-left: 2rem !important;
-        padding-bottom: 1.1rem !important;
-        cursor: pointer;
-        color: #666;
-        padding: 0;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        border-radius: 50%;
-        transition: background-color 0.2s;
-        // Ensure close button is always clickable
-        pointer-events: all;
-      }
-    }
+            h3 {
+                font-family: Nohemi;
+                font-weight: 600;
+                font-style: Semi Bold;
+                font-size: 24px !important;
+                leading-trim: NONE;
+                line-height: 100%;
+                letter-spacing: -2%;
+                background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 99.03%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
 
-    .acc-para {
-      font-family: General Sans;
-      font-weight: 400;
-      font-style: Regular;
-      font-size: 16px;
-      leading-trim: NONE;
-      line-height: 140%;
-      letter-spacing: -2%;
-      color: #1B1919;
-      text-align: center;
-      margin-left: 0;
-      padding: 0 2rem;
-      margin-bottom: 20px;
-    }
+            .close-button {
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                font-size: 2.2rem;
+                padding: 0 !important;
+                cursor: pointer;
+                color: #666;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: background-color 0.2s;
+                // Ensure close button is always clickable
+                pointer-events: all;
+            }
+        }
+
+        .acc-para {
+            font-family: General Sans;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 16px;
+            leading-trim: NONE;
+            line-height: 140%;
+            letter-spacing: -2%;
+            color: #1B1919;
+            text-align: center;
+            margin-left: 0;
+            padding: 0 2rem;
+            margin-bottom: 20px;
+        }
 
     .modal-body {
       padding: 0 2rem 2rem 2rem;

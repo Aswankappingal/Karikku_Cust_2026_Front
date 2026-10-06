@@ -248,7 +248,7 @@ const SignupLoginModal = ({ onClose, onLogin, onSignupSuccess }) => {
                         )}
 
                         <div className={`input-group ${fieldErrors.name && touched.name ? 'has-error' : ''}`}>
-                            <label htmlFor='name'>Name</label>
+                            <label htmlFor='name'>Name <span style={{ color: '#DC2626' }}>*</span></label>
                             <input
                                 type='text'
                                 id='name'
@@ -268,7 +268,7 @@ const SignupLoginModal = ({ onClose, onLogin, onSignupSuccess }) => {
                         </div>
 
                         <div className={`input-group ${fieldErrors.email && touched.email ? 'has-error' : ''}`}>
-                            <label htmlFor='email'>Email address</label>
+                            <label htmlFor='email'>Email address <span style={{ color: '#DC2626' }}>*</span></label>
                             <input
                                 type='email'
                                 id='email'
@@ -289,7 +289,7 @@ const SignupLoginModal = ({ onClose, onLogin, onSignupSuccess }) => {
                         </div>
 
                         <div className={`input-group ${fieldErrors.password && touched.password ? 'has-error' : ''}`}>
-                            <label htmlFor='password'>Password</label>
+                            <label htmlFor='password'>Password <span style={{ color: '#DC2626' }}>*</span></label>
                             <div className="password-input-wrapper">
                                 <input
                                     type={showPassword ? 'text' : 'password'}

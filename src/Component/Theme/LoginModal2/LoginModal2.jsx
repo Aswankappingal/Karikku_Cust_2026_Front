@@ -189,7 +189,7 @@ const LoginModal2 = ({ onClose, onSignup, prefillEmail }) => {
 
                     {/* Email / Mobile */}
                     <div className={`lm2-input-group ${formErrors.email && touched.email ? 'has-error' : ''}`}>
-                        <label htmlFor='lm2-email'>Enter Mobile Number / Email*</label>
+                        <label htmlFor='lm2-email'>Enter Mobile Number / Email <span style={{ color: '#DC2626' }}>*</span></label>
                         <input
                             type='text'
                             id='lm2-email'
@@ -209,7 +209,7 @@ const LoginModal2 = ({ onClose, onSignup, prefillEmail }) => {
 
                     {/* Password */}
                     <div className={`lm2-input-group ${formErrors.password && touched.password ? 'has-error' : ''}`}>
-                        <label htmlFor='lm2-password'>Password</label>
+                        <label htmlFor='lm2-password'>Password <span style={{ color: '#DC2626' }}>*</span></label>
                         <div className='lm2-password-wrapper'>
                             <input
                                 type={showPassword ? 'text' : 'password'}

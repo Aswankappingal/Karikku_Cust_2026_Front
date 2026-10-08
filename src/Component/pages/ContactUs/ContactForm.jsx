@@ -42,9 +42,9 @@ const ContactForm = () => {
         if (value.trim().length < 2) return 'Name must be at least 2 characters';
         return '';
       case 'phone':
-        if (!value) return 'Please enter your phone number';
+        if (!value || value === '91' || value === '+91') return 'Please enter your phone number';
         const cleanPhone = value.replace(/[\s\-\(\)\+]/g, '');
-        if (cleanPhone.length < 10) return '';
+        if (cleanPhone.length < 12) return 'Please enter a valid 10-digit number';
         return '';
       case 'email':
         if (!value.trim()) return 'Please enter your email address';
@@ -208,6 +208,7 @@ const ContactForm = () => {
                 value={formData.phone}
                 onChange={handlePhoneChange}
                 masks={{ in: '..........' }}
+                countryCodeEditable={false}
                 inputProps={{
                   name: 'phone',
                   id: 'phone',

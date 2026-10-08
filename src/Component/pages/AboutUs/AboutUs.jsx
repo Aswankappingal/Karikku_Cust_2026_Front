@@ -88,7 +88,6 @@ const AboutUs = () => {
                         <h2>Our promise</h2>
                         <p>At Karikku, our promises go beyond products — <br className="d-none d-md-block" />they reflect our values. From purity and quality to <br className="d-none d-md-block" />sustainability and care, we’re committed to <br className="d-none d-md-block" /> delivering the best of nature with every drop.</p>
                     </div>
-                    <img className='promise-bottle' src="/Images/promise-bottles.svg" alt="" />
 
                     <div className=" commitment-features">
                         <div className="row">

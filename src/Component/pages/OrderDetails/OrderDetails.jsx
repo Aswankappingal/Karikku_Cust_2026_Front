@@ -273,7 +273,7 @@ const OrderDetails = () => {
 
     const handleFilterChange = (value) => {
         if (value === 'all') {
-            updateFilters({ status: 'all' });
+            updateFilters({ status: 'all', sortBy: 'newest' });
         } else if (value === 'lowToHigh') {
             updateFilters({ sortBy: 'amount_low' });
         } else if (value === 'highToLow') {
@@ -366,7 +366,7 @@ const OrderDetails = () => {
                             <select
                                 id="sortDropdown"
                                 className="sort-dropdown"
-                                value={filters.status === 'all' ? 'all' : filters.sortBy || 'all'}
+                                value={filters.sortBy === 'amount_low' ? 'lowToHigh' : (filters.sortBy === 'amount_high' ? 'highToLow' : 'all')}
                                 onChange={(e) => handleFilterChange(e.target.value)}
                             >
                                 <option value="all">All orders</option>

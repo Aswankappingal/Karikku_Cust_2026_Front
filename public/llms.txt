@@ -1,0 +1,11 @@
+# Karikku
+> Karikku sells packaged tender coconut water and
+> double-filtered coconut oil from Kerala, India.
+
+## Products
+- [Our products](https://karikku.co/products)
+
+## Company
+- [About us](https://karikku.co/about-us)
+- [FAQ](https://karikku.co/faq)
+- [Contact](https://karikku.co/contact-us)

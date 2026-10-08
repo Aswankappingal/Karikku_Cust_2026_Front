@@ -71,7 +71,7 @@ function App() {
             <Route path='/payment-success' element={<ProtectedRoute><PaymentSuccess /></ProtectedRoute>} />
             <Route path='/payment-failed' element={<ProtectedRoute><PaymentFailed /></ProtectedRoute>} />
             <Route path='/Empty' element={<EmptyCart />} />
-            <Route path='/Faq' element={<FaqSection />} />
+            <Route path='/faq' element={<FaqSection />} />
             <Route path='/Contact-support' element={<ContactSupport />} />
 
 

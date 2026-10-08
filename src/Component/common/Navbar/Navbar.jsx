@@ -438,8 +438,8 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
             ) : (
               <>
                 {/* <Link
-                  className={`nav-link mx-2 ${activeNavItem === '/Faq' ? 'active' : ''}`}
-                  to="/Faq"
+                  className={`nav-link mx-2 ${activeNavItem === '/faq' ? 'active' : ''}`}
+                  to="/faq"
                 >
                   FAQ
                 </Link> */}

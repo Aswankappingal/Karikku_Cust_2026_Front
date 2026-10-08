@@ -78,11 +78,9 @@ const ContactSupport = () => {
     };
 
     const handlePhoneChange = (phone) => {
-        // Truncate to 12 digits
-        const truncatedPhone = phone.slice(0, 12);
         setFormData(prev => ({
             ...prev,
-            phone: truncatedPhone
+            phone: phone
         }));
     };
 
@@ -121,8 +119,8 @@ const ContactSupport = () => {
         }
 
         const cleanPhone = formData.phone.replace(/[\s\-\(\)\+]/g, '');
-        if (cleanPhone.length !== 12) {
-            setSubmitStatus({ type: 'error', message: 'Phone number must be exactly 10 digits' });
+        if (cleanPhone.length < 10) {
+            setSubmitStatus({ type: 'error', message: 'Please enter a valid phone number' });
             return;
         }
 
@@ -291,6 +289,7 @@ const ContactSupport = () => {
                                     value={formData.phone}
                                     onChange={handlePhoneChange}
                                     masks={{ in: '..........' }}
+                                    countryCodeEditable={false}
                                     inputProps={{
                                         name: 'phone',
                                         required: true,

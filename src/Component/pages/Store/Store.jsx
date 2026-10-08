@@ -128,45 +128,50 @@ const Store = () => {
                 <div className="branches">
                     <div className="container-fluid">
                         <div className="row">
-                            {filteredBranches.map((branch) => (
-                                <div key={branch.id} className="col-lg-4 col-md-6 col-sm-6 col-12">
-                                    <div className="cards">
-                                        <div className="card-image">
-                                            <img src={branch.image} alt={branch.name} />
-                                        </div>
-                                        <div className="labels">
-                                            <h4>{branch.name}</h4>
-                                            <div className="label-para">
-                                                <p>{branch.address}</p>
-                                            </div>
-                                            <a className='direction' href={branch.direction} target="_blank" rel="noopener noreferrer">Get direction</a>
-                                            <div className='contact-wp-icon'>
-                                                <div className="contact">
-                                                    <p>Mail: {branch.email}</p>
-                                                    <p className='call'>Call Us: <span className='call-num'>{branch.phone}</span></p>
+                            {filteredBranches.length > 0 ? (
+                                <>
+                                    {filteredBranches.map((branch) => (
+                                        <div key={branch.id} className="col-lg-4 col-md-6 col-sm-6 col-12">
+                                            <div className="cards">
+                                                <div className="card-image">
+                                                    <img src={branch.image} alt={branch.name} />
                                                 </div>
-                                                <a href="https://wa.me/918589858522" target="_blank" rel="noopener noreferrer">
-                                                    <div className="wp-icon">
-                                                        <img src="/Images/Wp logo.svg" alt="WhatsApp" />
+                                                <div className="labels">
+                                                    <h4>{branch.name}</h4>
+                                                    <div className="label-para">
+                                                        <p>{branch.address}</p>
                                                     </div>
-                                                </a>
+                                                    <a className='direction' href={branch.direction} target="_blank" rel="noopener noreferrer">Get direction</a>
+                                                    <div className='contact-wp-icon'>
+                                                        <div className="contact">
+                                                            <p>Mail: {branch.email}</p>
+                                                            <p className='call'>Call Us: <span className='call-num'>{branch.phone}</span></p>
+                                                        </div>
+                                                        <a href="https://wa.me/918589858522" target="_blank" rel="noopener noreferrer">
+                                                            <div className="wp-icon">
+                                                                <img src="/Images/Wp logo.svg" alt="WhatsApp" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                    ))}
+
+                                    <div className="Cards-down-section">
+                                        <h4>
+                                            Working Days : Monday - Saturday
+                                        </h4>
+                                        <p>
+                                            Time : 9:30 AM - 6:00 PM.
+                                        </p>
                                     </div>
+                                </>
+                            ) : (
+                                <div className="col-12 text-center my-5 w-100">
+                                    <h4 style={{ color: '#fff' }}>No stores found</h4>
                                 </div>
-                            ))}
-
-
-                            <div className="Cards-down-section">
-
-                                <h4>
-                                    Working Days : Monday - Saturday
-                                </h4>
-
-                                <p>
-                                    Time : 9:30 AM - 6:00 PM.
-                                </p>
-                            </div>
+                            )}
                         </div>
                     </div>
 

@@ -128,14 +128,15 @@
         font-size: 18px;
         cursor: pointer;
         margin-top: 8px;
-        transition: background-color 0.2s, opacity 0.2s;
+        transition: all 0.3s ease;
         margin-bottom: 14px;
         position: relative;
         pointer-events: all;
 
         &:hover:not(:disabled) {
           background-color: #45a049;
-          transition: .5s;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
         }
 
         &.skip-btn {
@@ -145,6 +146,8 @@
           
           &:hover:not(:disabled) {
             background-color: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           }
         }
 

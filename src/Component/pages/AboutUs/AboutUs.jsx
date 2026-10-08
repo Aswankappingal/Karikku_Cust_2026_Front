@@ -74,7 +74,9 @@ const AboutUs = () => {
                         <h3>Mission</h3>
                         <h2>Come, Taste <br className="d-none d-md-block" />  Kerala.</h2>
                         <p>Karikku isn’t just a brand and — it’s an experience. Whether <br className="d-none d-md-block" /> you’re sipping our tender coconut drink or using our <br className="d-none d-md-block" /> coconut oil, you’re connecting with something pure, <br className="d-none d-md-block" /> purposeful, and proudly local.</p>
-                        <ExploreBtn buttonText='Explore our products' />
+                        <Link to={'/products'}>
+                            <ExploreBtn buttonText='Explore our products' />
+                        </Link>
 
 
                     </div>

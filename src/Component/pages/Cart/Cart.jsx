@@ -423,6 +423,38 @@ const Cart = ({ openModal, closeModal }) => {
     }
   };
 
+  // API call to remove item from wishlist
+  const removeFromWishlistAPI = async (productId) => {
+    try {
+      const token = localStorage.getItem('authToken');
+
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        data: {
+          productId: productId
+        }
+      };
+
+      const response = await axios.delete(`${baseUrl}/remove-from-wishlist`, config);
+
+      return {
+        success: true,
+        data: response.data,
+        message: response.data.message || 'Item removed from wishlist successfully'
+      };
+
+    } catch (error) {
+      console.error('API Error removing from wishlist:', error);
+      return {
+        success: false,
+        error: error.response?.data?.message || error.message || 'Failed to remove item from wishlist'
+      };
+    }
+  };
+
   // Handle add to wishlist with variant combination
   const handleAddToWishlist = async (productId, variantCombination = null, productName = '') => {
     const itemKey = variantCombination
@@ -464,6 +496,41 @@ const Cart = ({ openModal, closeModal }) => {
       console.error('Unexpected error adding to wishlist:', error);
       toast.error('An unexpected error occurred. Please try again.');
 
+    } finally {
+      setWishlistItems(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(itemKey);
+        return newSet;
+      });
+    }
+  };
+
+  // Handle remove from wishlist
+  const handleRemoveFromWishlist = async (productId, variantCombination = null, productName = '') => {
+    const itemKey = variantCombination
+      ? `${productId}-${variantCombination.variantId}`
+      : `${productId}-default`;
+
+    try {
+      // Use the same loading state map
+      setWishlistItems(prev => new Set(prev.add(itemKey)));
+
+      const apiResult = await removeFromWishlistAPI(productId);
+
+      if (apiResult.success) {
+        setWishlistedItems(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(itemKey);
+          return newSet;
+        });
+        const itemName = productName || 'Item';
+        toast.success(`${itemName} removed from wishlist successfully!`);
+      } else {
+        toast.error(`Failed to remove from wishlist: ${apiResult.error}`);
+      }
+    } catch (error) {
+      console.error('Unexpected error removing from wishlist:', error);
+      toast.error('An unexpected error occurred. Please try again.');
     } finally {
       setWishlistItems(prev => {
         const newSet = new Set(prev);
@@ -840,11 +907,22 @@ const Cart = ({ openModal, closeModal }) => {
                           </p>
                           <div className="separator"></div>
                           <p
-                            onClick={() => !isDisabled && !itemAddingToWishlist && handleAddToWishlist(
-                              item.productId,
-                              item.variantCombination,
-                              item.productDetails?.name
-                            )}
+                            onClick={() => {
+                              if (isDisabled || itemAddingToWishlist) return;
+                              if (itemInWishlist) {
+                                handleRemoveFromWishlist(
+                                  item.productId,
+                                  item.variantCombination,
+                                  item.productDetails?.name
+                                );
+                              } else {
+                                handleAddToWishlist(
+                                  item.productId,
+                                  item.variantCombination,
+                                  item.productDetails?.name
+                                );
+                              }
+                            }}
                             className={`${isDisabled || itemAddingToWishlist ? 'disabled' : ''} ${itemInWishlist ? 'in-wishlist' : ''}`}
                             style={{
                               cursor: (isDisabled || itemAddingToWishlist) ? 'not-allowed' : 'pointer',
@@ -870,7 +948,7 @@ const Cart = ({ openModal, closeModal }) => {
                                 ) : (
                                   <GoHeart className='btn-icon' />
                                 )}
-                                {itemInWishlist ? 'In Wishlist' : 'Add to wishlist'}
+                                {itemInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
                               </>
                             )}
                           </p>

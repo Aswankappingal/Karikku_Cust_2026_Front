@@ -185,7 +185,9 @@ const LoginModal = ({ onClose, onContinue, onSignup }) => {
 
   // Handle input change
   const handleInputChange = (e) => {
-    const value = e.target.value;
+    let value = e.target.value;
+    // Remove alphabets
+    value = value.replace(/[a-zA-Z]/g, '');
     setMobileNumber(value);
 
     // Clear error when user starts typing

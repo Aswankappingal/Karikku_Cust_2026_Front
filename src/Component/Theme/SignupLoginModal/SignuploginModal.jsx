@@ -52,7 +52,16 @@ const SignupLoginModal = ({ onClose, onLogin, onSignupSuccess }) => {
     // Handle input changes
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
-        const fieldValue = type === 'checkbox' ? checked : value;
+        let fieldValue = type === 'checkbox' ? checked : value;
+
+        if (type !== 'checkbox') {
+            if (name.toLowerCase().includes('name') || name.toLowerCase().includes('firstname') || name.toLowerCase().includes('lastname')) {
+                fieldValue = value.replace(/[0-9]/g, '');
+            } else if (name.toLowerCase().includes('phone') || name.toLowerCase().includes('number') || name.toLowerCase().includes('zip') || name.toLowerCase().includes('pin')) {
+                fieldValue = value.replace(/[a-zA-Z]/g, '');
+            }
+        }
+
         setFormData(prev => ({
             ...prev,
             [name]: fieldValue

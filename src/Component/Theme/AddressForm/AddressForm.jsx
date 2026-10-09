@@ -151,14 +151,21 @@ const AddressForm = ({onClose}) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    let formattedValue = value;
+
+    if (name.toLowerCase().includes('name') || name.toLowerCase().includes('firstname') || name.toLowerCase().includes('lastname')) {
+      formattedValue = value.replace(/[0-9]/g, '');
+    } else if (name.toLowerCase().includes('phone') || name.toLowerCase().includes('number') || name.toLowerCase().includes('zip') || name.toLowerCase().includes('pin')) {
+      formattedValue = value.replace(/[a-zA-Z]/g, '');
+    }
     
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: formattedValue
     }));
 
     // Validate field on change
-    const fieldError = validateField(name, value);
+    const fieldError = validateField(name, formattedValue);
     setFieldErrors(prev => ({
       ...prev,
       [name]: fieldError

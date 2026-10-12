@@ -26,8 +26,43 @@ const ContactSupport = () => {
         attachments: []
     });
 
+    const [fieldErrors, setFieldErrors] = useState({});
+    const [touched, setTouched] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+    // Auto-dismiss general success message after 5 seconds
+    useEffect(() => {
+        if (submitStatus.message && submitStatus.type === 'success') {
+            const timer = setTimeout(() => setSubmitStatus({ type: '', message: '' }), 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [submitStatus]);
+
+    const validateField = (name, value) => {
+        switch (name) {
+            case 'fullName':
+                if (!value || !value.trim()) return 'Full name is required';
+                if (value.trim().length < 2) return 'Full name must be at least 2 characters';
+                return '';
+            case 'phone':
+                if (!value || value === '91' || value === '+91') return 'Phone number is required';
+                const cleanPhone = value.replace(/[\s\-\(\)\+]/g, '');
+                if (cleanPhone.length < 10) return 'Please enter a valid phone number';
+                return '';
+            case 'email':
+                if (!value || !value.trim()) return 'Email is required';
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value.trim())) return 'Please provide a valid email address';
+                return '';
+            case 'message':
+                if (!value || !value.trim()) return 'Message is required';
+                if (value.trim().length < 10) return 'Message must be at least 10 characters long';
+                return '';
+            default:
+                return '';
+        }
+    };
 
     // Fetch order details if not provided via state
     useEffect(() => {
@@ -63,12 +98,6 @@ const ContactSupport = () => {
         }
     }, [orderId, orderDetails, findOrderById, getOrderDetails]);
 
-//    useEffect(()=>{
-//     console.log("orderDetails", orderDetails);
-    
-//    },[orderDetails])
-    
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         let formattedValue = value;
@@ -83,6 +112,17 @@ const ContactSupport = () => {
             ...prev,
             [name]: formattedValue
         }));
+
+        setTouched(prev => ({ ...prev, [name]: true }));
+        const error = validateField(name, formattedValue);
+        setFieldErrors(prev => ({ ...prev, [name]: error }));
+    };
+
+    const handleBlur = (e) => {
+        const { name, value } = e.target;
+        setTouched(prev => ({ ...prev, [name]: true }));
+        const error = validateField(name, value);
+        setFieldErrors(prev => ({ ...prev, [name]: error }));
     };
 
     const handlePhoneChange = (phone) => {
@@ -90,6 +130,10 @@ const ContactSupport = () => {
             ...prev,
             phone: phone
         }));
+
+        setTouched(prev => ({ ...prev, phone: true }));
+        const error = validateField('phone', phone);
+        setFieldErrors(prev => ({ ...prev, phone: error }));
     };
 
     const handleFileChange = (e) => {
@@ -118,17 +162,37 @@ const ContactSupport = () => {
         }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        if (!formData.fullName || !formData.phone || !formData.email || !formData.message) {
-            setSubmitStatus({ type: 'error', message: 'Please fill in all required fields' });
-            return;
+    const validateAllFields = () => {
+        const errors = {};
+        let firstErrorField = null;
+
+        ['fullName', 'phone', 'email', 'message'].forEach(field => {
+            const error = validateField(field, formData[field]);
+            if (error) {
+                errors[field] = error;
+                if (!firstErrorField) firstErrorField = field;
+            }
+        });
+
+        setFieldErrors(errors);
+        setTouched({ fullName: true, phone: true, email: true, message: true });
+
+        if (firstErrorField) {
+            const el = document.getElementById(firstErrorField) || document.getElementsByName(firstErrorField)[0];
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                el.focus();
+            }
         }
 
-        const cleanPhone = formData.phone.replace(/[\s\-\(\)\+]/g, '');
-        if (cleanPhone.length < 10) {
-            setSubmitStatus({ type: 'error', message: 'Please enter a valid phone number' });
+        return Object.keys(errors).length === 0;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setSubmitStatus({ type: '', message: '' });
+
+        if (!validateAllFields()) {
             return;
         }
 
@@ -138,7 +202,6 @@ const ContactSupport = () => {
         }
 
         setIsSubmitting(true);
-        setSubmitStatus({ type: '', message: '' });
 
         try {
             const formDataToSend = new FormData();
@@ -183,11 +246,31 @@ const ContactSupport = () => {
                     message: '',
                     attachments: []
                 });
+                setFieldErrors({});
+                setTouched({});
             } else {
-                setSubmitStatus({ 
-                    type: 'error', 
-                    message: result.error || 'Failed to submit support request' 
-                });
+                const errMsg = result.error || 'Failed to submit support request';
+                const lower = errMsg.toLowerCase();
+
+                // Map field-specific error messages directly under the correct inputs
+                if (lower.includes('message')) {
+                    setFieldErrors(prev => ({ ...prev, message: errMsg }));
+                    setTouched(prev => ({ ...prev, message: true }));
+                } else if (lower.includes('name')) {
+                    setFieldErrors(prev => ({ ...prev, fullName: errMsg }));
+                    setTouched(prev => ({ ...prev, fullName: true }));
+                } else if (lower.includes('phone')) {
+                    setFieldErrors(prev => ({ ...prev, phone: errMsg }));
+                    setTouched(prev => ({ ...prev, phone: true }));
+                } else if (lower.includes('email')) {
+                    setFieldErrors(prev => ({ ...prev, email: errMsg }));
+                    setTouched(prev => ({ ...prev, email: true }));
+                } else {
+                    setSubmitStatus({ 
+                        type: 'error', 
+                        message: errMsg 
+                    });
+                }
             }
         } catch (error) {
             console.error('Error submitting support request:', error);
@@ -245,27 +328,11 @@ const ContactSupport = () => {
                                 You are contacting us about order <span>{formatOrderNumber(orderDetails)}</span>
                             </p>
                             <div className="order-details-summary">
-                                {/* <div className="order-detail">
-                                    <strong>Amount:</strong> {formatPrice(orderDetails)}
-                                </div> */}
-                                {/* <div className="order-detail">
-                                    <strong>Payment Method:</strong> {formatPaymentMethod(orderDetails)}
-                                </div> */}
-                                {/* <div className="order-detail">
-                                    <strong>Order Date:</strong> {new Date(orderDetails.createdAt).toLocaleDateString()}
-                                </div> */}
-                                {/* <div className="order-detail">
-                                    <strong>Status:</strong> {orderDetails.status || 'N/A'}
-                                </div> */}
                             </div>
                         </div>
                     ) : (
-                        // <p className="order-info">
-                        //     General Support Request
-                        // </p>
                     <p>
                         ....
-
                     </p>
                     )}
 
@@ -275,22 +342,27 @@ const ContactSupport = () => {
                         </div>
                     )}
 
-                    <form className="support-form" onSubmit={handleSubmit}>
+                    <form className="support-form" onSubmit={handleSubmit} noValidate>
                         {/* Name & Phone */}
                         <div className="form-row">
-                            <div className="form-group">
-                                <label>Your full name *</label>
+                            <div className={`form-group ${fieldErrors.fullName && touched.fullName ? 'has-error' : ''}`}>
+                                <label htmlFor="fullName">Your full name *</label>
                                 <input 
                                     type="text" 
+                                    id="fullName"
                                     name="fullName"
                                     placeholder="Enter your name " 
                                     value={formData.fullName}
                                     onChange={handleInputChange}
-                                    required
+                                    onBlur={handleBlur}
+                                    className={`form-input ${fieldErrors.fullName && touched.fullName ? 'input-error' : ''}`}
                                 />
+                                {fieldErrors.fullName && touched.fullName && (
+                                    <span className="field-error-message">{fieldErrors.fullName}</span>
+                                )}
                             </div>
-                            <div className="form-group">
-                                <label>Phone *</label>
+                            <div className={`form-group ${fieldErrors.phone && touched.phone ? 'has-error' : ''}`}>
+                                <label htmlFor="phone">Phone *</label>
                                 <PhoneInput 
                                     country={'in'}
                                     onlyCountries={['in']}
@@ -300,39 +372,53 @@ const ContactSupport = () => {
                                     countryCodeEditable={false}
                                     inputProps={{
                                         name: 'phone',
-                                        required: true,
-                                        autoFocus: false
+                                        id: 'phone',
+                                        autoFocus: false,
+                                        onBlur: () => {
+                                            setTouched(prev => ({ ...prev, phone: true }));
+                                            const error = validateField('phone', formData.phone);
+                                            setFieldErrors(prev => ({ ...prev, phone: error }));
+                                        }
                                     }}
-                                    containerClass="phone-input-container-new"
-                                    inputClass="phone-input-field"
+                                    containerClass={`phone-input-container-new ${fieldErrors.phone && touched.phone ? 'phone-error' : ''}`}
+                                    inputClass={`phone-input-field ${fieldErrors.phone && touched.phone ? 'input-error' : ''}`}
                                     buttonClass="country-selector-button"
                                     dropdownClass="country-dropdown"
                                     searchClass="country-search"
                                     placeholder="Enter phone number"
                                     className="us-phone"
                                 />
+                                {fieldErrors.phone && touched.phone && (
+                                    <span className="field-error-message">{fieldErrors.phone}</span>
+                                )}
                             </div>
                         </div>
 
                         {/* Email & Issue type */}
                         <div className="form-row">
-                            <div className="form-group">
-                                <label>Email *</label>
+                            <div className={`form-group ${fieldErrors.email && touched.email ? 'has-error' : ''}`}>
+                                <label htmlFor="email">Email *</label>
                                 <input 
                                     type="email" 
+                                    id="email"
                                     name="email"
                                     placeholder="Enter address here" 
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    required
+                                    onBlur={handleBlur}
+                                    className={`form-input ${fieldErrors.email && touched.email ? 'input-error' : ''}`}
                                 />
+                                {fieldErrors.email && touched.email && (
+                                    <span className="field-error-message">{fieldErrors.email}</span>
+                                )}
                             </div>
                             <div className="form-group">
-                                <label>Issue type</label>
+                                <label htmlFor="issueType">Issue type</label>
                                 <select 
+                                    id="issueType"
                                     name="issueType"
                                     value={formData.issueType}
-                                    onChange={handleInputChange}y
+                                    onChange={handleInputChange}
                                     className='issue-type-select'
                                 >
                                     <option value="">Select issue type</option>
@@ -340,22 +426,26 @@ const ContactSupport = () => {
                                     <option value="Order Issue">Order Issue</option>
                                     <option value="Payment Issue">Payment Issue</option>
                                     <option value="Delivery Issue">Delivery Issue</option>
-                                  
                                 </select>
                             </div>
                         </div>
 
                         {/* Message */}
-                        <div className="form-group full-width">
-                            <label>Message *</label>
+                        <div className={`form-group full-width ${fieldErrors.message && touched.message ? 'has-error' : ''}`}>
+                            <label htmlFor="message">Message *</label>
                             <textarea 
+                                id="message"
                                 name="message"
                                 placeholder="Please describe your issue in detail..."
                                 value={formData.message}
                                 onChange={handleInputChange}
-                                required
+                                onBlur={handleBlur}
                                 rows="5"
+                                className={`form-textarea ${fieldErrors.message && touched.message ? 'input-error' : ''}`}
                             />
+                            {fieldErrors.message && touched.message && (
+                                <span className="field-error-message">{fieldErrors.message}</span>
+                            )}
                         </div>
 
                         {/* Attachments */}

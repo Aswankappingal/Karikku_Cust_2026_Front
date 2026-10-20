@@ -118,12 +118,13 @@ const LoginModal = ({ onClose, onContinue, onSignup }) => {
         // Show success message
         setSuccess('Successfully signed in with Google!');
 
-        // Close modal and redirect
+        // Close modal and refresh current page to update auth state
         setTimeout(() => {
           if (typeof onClose === 'function') {
             onClose();
+          } else {
+            navigate(-1);
           }
-          navigate('/');
           window.location.reload();
         }, 1000);
 

@@ -128,6 +128,8 @@ const LoginModal = ({ onClose, onContinue, onSignup }) => {
           window.location.reload();
         }, 1000);
 
+        
+
       } else {
         console.error('Invalid response from server:', res.data);
         setError('Failed to authenticate with Google. Please try again.');

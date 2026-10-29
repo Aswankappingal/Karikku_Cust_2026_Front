@@ -5,7 +5,7 @@ import { setAuthFromStorage } from '../../../store/slice/userSlice';
 import './Navbar.scss';
 import { BsBasket3 } from 'react-icons/bs';
 import LoginModal from '../../Theme/LoginModal/LoginModal';
-import OtpLoginModal from '../../Theme/OTPLoginModal/OtpLoginModal';
+import OtpLoginModal from '../../Theme/OtpLoginModal/OtpLoginModal';
 import SignupLoginModal from '../../Theme/SignupLoginModal/SignuploginModal';
 import LoginModal2 from '../../Theme/LoginModal2/LoginModal2';
 import EmailModal from '../../Theme/EmailModal/EmailModal';
@@ -357,17 +357,22 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
   const closeMobileNavbar = () => {
     const offcanvasElement = document.getElementById('offcanvasRight');
     if (offcanvasElement) {
-      // Bootstrap 5 Offcanvas API
       const offcanvasInstance = window.bootstrap?.Offcanvas?.getInstance(offcanvasElement);
       if (offcanvasInstance) {
         offcanvasInstance.hide();
       } else {
-        // Fallback: manually hide if Bootstrap instance not found
         offcanvasElement.classList.remove('show');
         offcanvasElement.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('offcanvas-backdrop');
+        offcanvasElement.removeAttribute('aria-modal');
+        offcanvasElement.removeAttribute('role');
       }
     }
+    // Clean up any remaining backdrops and reset body style
+    setTimeout(() => {
+      document.body.classList.remove('offcanvas-backdrop');
+      document.body.style.overflow = 'unset';
+      document.querySelectorAll('.offcanvas-backdrop').forEach((el) => el.remove());
+    }, 150);
   };
 
 
@@ -395,69 +400,40 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
     <div className="NavbarMainWrapper">
       {/* Desktop Navbar */}
       <nav className={`navbar-desktop navbar-expand-lg fixed-top py-3 `} style={{ backgroundColor: bgColor, }}>
-        <div className="container-fluid d-flex justify-content-between align-items-center navbar-sub">
-          {/* Left Links */}
-          <div className="nav-item d-flex">
-            <Link className={`nav-link mx-2 ${activeNavItem === '/' ? 'active' : ''}`} to="/">Home</Link>
-            {/* <Link className={`nav-link mx-2 ${activeNavItem === '/about-us' ? 'active' : ''}`} to="/about-us">About Us</Link> */}
-            <Link className={`nav-link mx-2 ${activeNavItem === '/store' ? 'active' : ''}`} to="/store">Stores</Link>
-            {combinedAuthState && (
-              <>
-                <Link className={`nav-link mx-2 ${activeNavItem === '/order-details' ? 'active' : ''}`} to="/order-details">My Orders</Link>
-              </>
-            )}
-            {/* <Link className={`nav-link mx-2 ${activeNavItem === '/contact-us' ? 'active' : ''}`} to="/contact-us">Contact Us</Link> */}
-            <Link className={`nav-link mx-2 ${activeNavItem === '/blogs' ? 'active' : ''}`} to="/blogs">Blog</Link>
+        <div className="container-fluid d-flex justify-content-between align-items-center navbar-sub position-relative">
+          {/* Left Links (4 links) */}
+          <div className="nav-item d-flex align-items-center">
+            <Link className={`nav-link ${activeNavItem === '/' ? 'active' : ''}`} to="/">Home</Link>
+            <Link className={`nav-link ${activeNavItem === '/products' ? 'active' : ''}`} to="/products">Products</Link>
+            <Link className={`nav-link ${activeNavItem === '/store' ? 'active' : ''}`} to="/store">Store</Link>
+            <Link className={`nav-link ${activeNavItem === '/blogs' ? 'active' : ''}`} to="/blogs">Blogs</Link>
           </div>
 
           {/* Center Logo */}
-          <div className="Nav-logo mx-auto position-absolute start-50 translate-middle-x">
-            <Link className="navbar-brand" to="/">
-              <img src="/Images/Karikku logo 2.svg" alt="Karikku Logo" style={{ height: '40px' }} />
+          <div className="Nav-logo position-absolute start-50 top-50 translate-middle">
+            <Link className="navbar-brand m-0 p-0 d-flex align-items-center justify-content-center" to="/">
+              <img src="/Images/Karikku logo 2.svg" alt="Karikku Logo" />
             </Link>
           </div>
 
           {/* Right Links */}
           <div className="nav-item d-flex align-items-center">
-            <Link className={`nav-link mx-2 ${activeNavItem === '/products' ? 'active' : ''}`} to="/products">Our Products</Link>
-            {combinedAuthState ? (
+            <Link className={`nav-link ${activeNavItem === '/about-us' ? 'active' : ''}`} to="/about-us">About Us</Link>
+            <Link className={`nav-link ${activeNavItem === '/contact-us' ? 'active' : ''}`} to="/contact-us">Contact Us</Link>
+            {combinedAuthState && (
               <>
-                <Link
-                  className={`nav-link mx-2 ${activeNavItem === '/wishlist' ? 'active' : ''}`}
-                  to="/wishlist"
-                >
-                  Wishlist
-                </Link>
-                <Link
-                  className={`nav-link mx-2 ${activeNavItem === '/cart' ? 'active' : ''}`}
-                  to="/cart"
-                >
-                  Cart
-                </Link>
-              </>
-            ) : (
-              <>
-                {/* <Link
-                  className={`nav-link mx-2 ${activeNavItem === '/Faq' ? 'active' : ''}`}
-                  to="/Faq"
-                >
-                  FAQ
-                </Link> */}
-                <Link
-                  className={`nav-link mx-2 ${activeNavItem === '/about-us' ? 'active' : ''}`}
-                  to="/about-us"
-                >
-                  About Us
-                </Link>
+                <Link className={`nav-link ${activeNavItem === '/order-details' ? 'active' : ''}`} to="/order-details">My Orders</Link>
+                <Link className={`nav-link ${activeNavItem === '/wishlist' ? 'active' : ''}`} to="/wishlist">Wishlist</Link>
+                <Link className={`nav-link ${activeNavItem === '/cart' ? 'active' : ''}`} to="/cart">Cart</Link>
               </>
             )}
 
             <div
-              className={`ms-2 px-3 py-1 rounded-pill ${combinedAuthState ? 'btn btn-danger' : ''}`}
+              className={`btn-login-pill ms-2 px-3 py-1 rounded-pill ${combinedAuthState ? 'btn btn-danger' : ''}`}
               style={
                 !combinedAuthState
-                  ? { backgroundColor: "#3DAE4A", color: "#fff", cursor: "pointer" }
-                  : { cursor: "pointer" }
+                  ? { backgroundColor: "#3DAE4A", color: "#fff", cursor: "pointer", whiteSpace: "nowrap" }
+                  : { cursor: "pointer", whiteSpace: "nowrap" }
               }
               onClick={handleAuthButtonClick}
             >
@@ -470,16 +446,16 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
       {/* Mobile Navbar */}
       <div className="Mobile-Navbar">
         {/* Top navbar */}
-        <nav className="navbar bg-white  mobile-fixed-top">
-          <div className='navbar-logo'>
-            <Link className="navbar-brand" to="/">
-              <img src="/Images/Karikku-Nav-logo-mobile.svg" alt="Karikku" width="55" />
+        <nav className="navbar bg-white mobile-fixed-top">
+          <div className="navbar-logo">
+            <Link className="navbar-brand m-0 p-0 d-flex align-items-center" to="/">
+              <img src="/Images/Karikku-Nav-logo-mobile.svg" alt="Karikku" />
             </Link>
           </div>
 
-          <div className='btn-sections'>
+          <div className="btn-sections">
             <button
-              className="btn"
+              className="btn p-0 border-0 shadow-none"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasRight"
@@ -514,73 +490,77 @@ const Navbar = ({ bgColor = "#f9f9f9ff" }) => {
               className="btn-close btn-close-white"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
+              onClick={closeMobileNavbar}
             ></button>
           </div>
           <div className="offcanvas-body text-white d-flex flex-column justify-content-between p-4">
-            <ul className="navbar flex-column gap-4 mt-0.5" style={{ listStyle: 'none' }}>
+            <ul className="navbar flex-column gap-3 mt-0.5" style={{ listStyle: 'none' }}>
               <li>
-                <Link to="/" className="text-white text-decoration-none offcanvas-link">
-                  <img className='off-image' src="/Images/Karikku logo (1) 1.png" alt="Logo" />
+                <Link to="/" onClick={closeMobileNavbar} className="text-white text-decoration-none offcanvas-link">
+                  <img className="off-image" src="/Images/Karikku logo (1) 1.png" alt="Logo" />
                 </Link>
               </li>
               <li>
-                <NavLink to="/" className={({ isActive }) =>
+                <NavLink to="/" onClick={closeMobileNavbar} className={({ isActive }) =>
                   `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/store" className={({ isActive }) =>
+                <NavLink to="/products" onClick={closeMobileNavbar} className={({ isActive }) =>
                   `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
-                  Stores
+                  Products
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/store" onClick={closeMobileNavbar} className={({ isActive }) =>
+                  `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
+                  Store
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/blogs" onClick={closeMobileNavbar} className={({ isActive }) =>
+                  `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
+                  Blogs
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/about-us" onClick={closeMobileNavbar} className={({ isActive }) =>
+                  `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
+                  About Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact-us" onClick={closeMobileNavbar} className={({ isActive }) =>
+                  `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
+                  Contact Us
                 </NavLink>
               </li>
               {combinedAuthState && (
-                <li>
-                  <NavLink to="/order-details" className={({ isActive }) =>
-                    `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
-                    My Orders
-                  </NavLink>
-                </li>
-              )}
-              <li>
-                <NavLink to="/blogs" className={({ isActive }) =>
-                  `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
-                  Blog
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/products" className={({ isActive }) =>
-                  `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
-                  Our Products
-                </NavLink>
-              </li>
-              {combinedAuthState ? (
                 <>
                   <li>
-                    <NavLink to="/wishlist" className={({ isActive }) =>
+                    <NavLink to="/order-details" onClick={closeMobileNavbar} className={({ isActive }) =>
+                      `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
+                      My Orders
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/wishlist" onClick={closeMobileNavbar} className={({ isActive }) =>
                       `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
                       Wishlist
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/cart" className={({ isActive }) =>
+                    <NavLink to="/cart" onClick={closeMobileNavbar} className={({ isActive }) =>
                       `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
                       Cart
                     </NavLink>
                   </li>
                 </>
-              ) : (
-                <li>
-                  <NavLink to="/about-us" className={({ isActive }) =>
-                    `offcanvas-link ${isActive ? "active-link" : "text-white"}`}>
-                    About Us
-                  </NavLink>
-                </li>
               )}
             </ul>
 
-            <div className="text-center mt-4">
+            <div className="text-center mt-3 pb-3">
               <div
                 className={`btn-login-reg rounded-pill px-4 ${combinedAuthState ? 'btn-danger text-white' : 'btn-light text-success'
                   }`}

@@ -87,8 +87,8 @@ const GreenBanner = () => {
                 <div className="banner-label">
                   <h3>Love to hear from you!</h3>
                   <p>Whether you have questions about our products, need assistance, or are interested in collaborations, feel free to reach out</p>
-                  <Link to={'/contact-us'} className="banner-image-link">
-                    <ExploreBtn buttonText='Contact us today' btnBgColor='white' borderColor='white' />
+                  <Link to={'/contact-us'} className="banner-image-link" title="contact karikku">
+                    <ExploreBtn buttonText='contact karikku' btnBgColor='white' borderColor='white' />
                   </Link>
                 </div>
 

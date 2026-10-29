@@ -15,6 +15,8 @@ import useProducts from '../../../store/hook/useProduct';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+import { getProductSeo, SEO_PAGES } from '../../../utils/seoConfig';
+
 const AllProducts = () => {
     const breadcrumbItems = [
         { label: 'Homepage', path: '/' },
@@ -146,7 +148,7 @@ const AllProducts = () => {
                 </div>
 
                 <div className="heading-section">
-                    <h3>Pick from our exclusive collection</h3>
+                    <h1>Buy Tender Coconut Water Online</h1>
                     <div className="choose-section">
                         <p>Choose products ({exclusiveProducts.length} available)</p>
                     </div>
@@ -174,7 +176,7 @@ const AllProducts = () => {
                                 </div>
 
                                 <div className="background-shapes">
-                                    <img src="/Images/Yellow-light.svg" alt="Yellow Light" className="light-img" />
+                                    <img src="/Images/Yellow-light.svg" alt="Buy tender coconut water online: Karikku pack range" className="light-img" />
                                     <br />
                                     <img src="/Images/Yelllow-line.svg" alt="Yellow Arc" className="dark-img" />
                                     <img src="/Images/child-image.svg" alt="child Arc" className="child-img" />
@@ -202,6 +204,34 @@ const AllProducts = () => {
                     </>
                 )}
 
+                {/* Below Product Grid SEO Internal Links */}
+                <div className="container-fluid my-5 p-4 rounded-4" style={{ backgroundColor: '#F6FAF5', border: '1px solid #E2ECE0' }}>
+                    <div className="row g-4 align-items-center">
+                        <div className="col-md-6">
+                            <h4 style={{ fontFamily: 'General Sans', fontWeight: 600, color: '#072C0B', fontSize: '18px', marginBottom: '8px' }}>
+                                Find Karikku in Retail Outlets
+                            </h4>
+                            <p style={{ color: '#4a5568', margin: 0, fontSize: '15px' }}>
+                                Looking to purchase in person? Visit our store locator:{' '}
+                                <Link to="/store" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                                    where to buy karikku coconut water
+                                </Link>
+                            </p>
+                        </div>
+                        <div className="col-md-6">
+                            <h4 style={{ fontFamily: 'General Sans', fontWeight: 600, color: '#072C0B', fontSize: '18px', marginBottom: '8px' }}>
+                                Bulk & Wholesale Enquiries
+                            </h4>
+                            <p style={{ color: '#4a5568', margin: 0, fontSize: '15px' }}>
+                                For bulk purchasing, events, or retailer distribution:{' '}
+                                <Link to="/contact-us" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                                    contact karikku
+                                </Link>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <Footer />
@@ -213,24 +243,28 @@ const AllProducts = () => {
 const ProductCard = ({ product, getVariantInfo, formatVariants }) => {
     const variantInfo = getVariantInfo(product.variants);
     const formattedVariants = formatVariants(product.variants);
+    const seo = getProductSeo(product);
+    const focusKeyword = seo?.h1 || product.productName || product.name || 'Product';
+    const imageAlt = seo?.mainImageAlt || focusKeyword;
 
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 mainrow">
-            <Link className='exclu-prod' to={`/product-page/${product.id}`}>
+            <Link className='exclu-prod' to={`/product-page/${product.id}`} title={focusKeyword}>
                 <div className="product-card">
                     <div className="product-image">
                         <div className="product-card-img-btn">
                             <img
                                 src={product.imageUrl || product.primaryImage || (product.variantCombinations && product.variantCombinations.length > 0 ? product.variantCombinations[0].primaryImage : '')
                                     || ''}
-                                alt={product.productName || product.name || 'Product'}
+                                alt={imageAlt}
+                                title={focusKeyword}
                             />
 
                             <div className="button-main">
                                 <div className='btn-main'>
                                     <button
                                         className="add-btn"
-                                        title="View Details"
+                                        title={focusKeyword}
                                     >
                                         <PiPlusBold style={{ margin: "0px" }} />
                                     </button>
@@ -239,7 +273,7 @@ const ProductCard = ({ product, getVariantInfo, formatVariants }) => {
                         </div>
                     </div>
                     <div className="product-details">
-                        <h6>{product.productName || product.name || 'Product Name'}</h6>
+                        <h6 title={focusKeyword}>{focusKeyword}</h6>
 
                         <div className="availability">
                             {formattedVariants ? (

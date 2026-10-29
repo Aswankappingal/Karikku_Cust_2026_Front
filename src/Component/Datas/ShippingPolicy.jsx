@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../common/Navbar/Navbar';
 import Footer from '../common/Footer/Footer';
 import ScrollToTopOnMount from '../common/ScrollToTopOnMount';
+import { Link } from 'react-router-dom';
 
 const ShippingPolicy = () => {
   return (
@@ -19,7 +20,7 @@ const ShippingPolicy = () => {
 
       <div className="max-w-4xl mx-auto p-6 bg-white text-gray-800 font-inter px-3 mt-5">
         <div className="mb-8 py-4">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Shipping Policy</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Karikku Shipping Policy</h1>
         </div>
 
         <div className="space-y-6 text-sm leading-relaxed">
@@ -93,13 +94,13 @@ const ShippingPolicy = () => {
               Return of purchased products is facilitated through our <strong>reverse logistics partners</strong>. Upon initiating a return request on <a href="https://karikku.co" className="text-blue-600 hover:underline">karikku.co</a> and our approval, our reverse logistics partner will contact you for pickup.
             </p>
             <p className="mt-4">
-              Returns will be handled in accordance with our <strong>Cancellation, Return and Refund Policy</strong>.
+              Returns will be handled in accordance with our <Link to="/refund-policy" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>karikku refund policy</Link>.
             </p>
           </section>
 
           <section className="border-t pt-6 mt-8">
             <h2 className="text-xl font-semibold text-gray-900 mb-3">Contact Us</h2>
-            <p className="mb-4">If you have questions about shipping or delivery, contact:</p>
+            <p className="mb-4">If you have questions about shipping or delivery, please <Link to="/contact-us" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>contact karikku</Link>:</p>
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="space-y-2">
                 <div>

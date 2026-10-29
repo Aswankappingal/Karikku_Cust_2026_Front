@@ -28,7 +28,7 @@
             
 
 
-            h3 {
+            h1, h3 {
                 font-family: Nohemi;
                 font-weight: 600;
                 font-size: 32px;
@@ -40,9 +40,6 @@
                 /* Optional for better compatibility */
                 background-clip: text;
                 color: transparent;
-
-                /* text-align: center; */
-                /* Uncomment if needed */
             }
 
             .choose-section {

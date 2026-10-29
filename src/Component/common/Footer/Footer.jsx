@@ -113,16 +113,11 @@ const Footer = () => {
                             <div className="col-6 col-lg-3 mb-4 quick-links">
                                 <h5 className="footer-heading">Help</h5>
                                 <ul className="footer-links">
-                                    <li><Link to="/privacy-policy">Privacy policy</Link></li>
-
-                                    {/* <li><Link to="/contact-us">Contact Us</Link></li> */}
-                                    {/* <li><Link to="#">  Privacy policy </Link></li> */}
-                                    {/* <li><Link to="/blogs">Blog</Link></li> */}
-                                    <li><Link to="/refund-policy"> Refund policy</Link></li>
-                                    <li><Link to="/shipping-policy"> Shipping policy</Link></li>
-                                    <li><Link to="/terms-of-service">Terms & conditions</Link></li>
+                                    <li><Link to="/privacy-policy">Karikku privacy policy</Link></li>
+                                    <li><Link to="/refund-policy">Karikku refund policy</Link></li>
+                                    <li><Link to="/shipping-policy">Karikku shipping policy</Link></li>
+                                    <li><Link to="/terms-of-service">Karikku terms of service</Link></li>
                                     <li><Link to="/contact-us">Contact Us</Link></li>
-
                                 </ul>
                             </div>
 

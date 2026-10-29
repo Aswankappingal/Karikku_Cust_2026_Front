@@ -130,8 +130,12 @@ const FollowusandBlog = () => {
         <div className="head-section">
           <h3>Follow us</h3>
           <h2>stay fresh with <br />karikku moments</h2>
-          {/* <p>At Karikku, our journey is deeply intertwined with the lush landscapes of Kerala, where coconuts flourish under nature's nurturing care. We are committed to delivering products that encapsulate the purity and richness of our homeland.</p> */}
-          {/* <button>Explore our process  <BsArrowUpRightCircleFill className='btn-icon' /> </button> */}
+          <div className="blog-teaser-link-wrap" style={{ marginTop: '1.2rem' }}>
+            <Link to="/blogs" className="blog-teaser-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#3DAE4A', fontWeight: 600, fontSize: '18px', textDecoration: 'none' }}>
+              tender coconut water benefits
+              <BsArrowUpRightCircleFill className='btn-icon' />
+            </Link>
+          </div>
         </div>
 
         <div className="marquee-container">

@@ -14,35 +14,19 @@ const About = () => {
           </h2>
         </div>
         <div className="description">
-          <p>Refresh and replenish with nature's ultimate thirst quencher. Karikku Tender coconut water <br className="d-none d-md-block" /> is packed with electrolytes, naturally low in sugar, and bursting with tropical goodness.</p>
-          <Link to={'/about-us'}><button>Read more
-
-            {/* <span id='about-us'>about us</span>  */}
-            <BsArrowUpRightCircleFill className='btn-icon' />
-          </button></Link>
+          <p>
+            Refresh and replenish with nature's ultimate thirst quencher. Karikku Tender coconut water <br className="d-none d-md-block" />
+            is packed with electrolytes, naturally low in sugar, and bursting with tropical goodness. <br className="d-none d-md-block" />
+            Available across select partner stores in Kerala — explore <Link to={'/store'} style={{ color: '#3DAE4A', fontWeight: '600', textDecoration: 'underline' }}>where to buy karikku coconut water</Link>.
+          </p>
+          <Link to={'/about-us'} title="karikku kerala coconut water brand">
+            <button>
+              karikku kerala coconut water brand
+              <BsArrowUpRightCircleFill className='btn-icon' />
+            </button>
+          </Link>
         </div>
       </div>
-      {/* Achievement section */}
-      {/* <div className="container achievements">
-        <div className="row achv-main">
-          <div className=" col-lg-3 achv-item">
-            <h3>12,000+</h3>
-            <p>Satisfied customers <br className="d-none d-md-block" /> enjoying our products daily.​</p>
-          </div>
-          <div className="col-lg-3 achv-item">
-            <h3>100%</h3>
-            <p> Pure, cold-pressed<br className="d-none d-md-block" /> coconut oil in every bottle.​</p>
-          </div>
-          <div className="col-lg-3 achv-item">
-            <h3>5,000+</h3>
-            <p> Liters of tender coconut water <br className="d-none d-md-block" />  delivered monthly.​</p>
-          </div>
-          <div className="col-lg-3 achv-item">
-            <h3>75+</h3>
-            <p> Retail partners <br className="d-none d-md-block" />  across Kerala.​</p>
-          </div>
-        </div>
-      </div> */}
 
       <div className="container commitment-features">
         <div className="why-choose-head">

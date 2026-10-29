@@ -86,20 +86,43 @@
                     transform: translateY(20px);
                     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
-                    h1 {
+                    h1, h2 {
                         font-weight: 500;
                         font-family: Nohemi, sans-serif;
                         line-height: 120%;
                         letter-spacing: -3%;
                         font-size: 48px !important;
+                        background: linear-gradient(93.31deg, #AEFF5D 0.94%, #FFD94E 28.42%, #FFFFED 54.17%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        color: transparent;
+                        margin: 0;
                     }
 
-                    /* Gradient text */
-                    background: linear-gradient(93.31deg, #AEFF5D 0.94%, #FFD94E 28.42%, #FFFFED 54.17%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                    color: transparent;
+                    .banner-hero-btn {
+                        display: inline-block;
+                        margin-top: 18px;
+                        background-color: #3DAE4A;
+                        color: #ffffff !important;
+                        -webkit-text-fill-color: #ffffff !important;
+                        padding: 11px 26px;
+                        border-radius: 50px;
+                        font-family: 'General Sans', sans-serif;
+                        font-weight: 600;
+                        font-size: 15px;
+                        text-decoration: none;
+                        transition: all 0.25s ease;
+                        box-shadow: 0 4px 15px rgba(61, 174, 74, 0.4);
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+
+                        &:hover {
+                            background-color: #2e8b3a;
+                            color: #ffffff !important;
+                            transform: translateY(-2px);
+                            box-shadow: 0 6px 20px rgba(61, 174, 74, 0.5);
+                        }
+                    }
                 }
             }
 

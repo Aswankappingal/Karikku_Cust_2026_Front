@@ -1,35 +1,47 @@
 .contact-Main-wrapper {
 
     .contact-wrapper {
-        margin-top: 2rem;
-        height: 110vh;
-        // padding-bottom: 3rem;
+        padding-top: 10rem;
+        padding-bottom: 5rem;
+        min-height: 100vh;
+        height: auto;
         background-color: #E3F7E5;
 
         .left-content {
-            height: 100%;
-            // background-color: yellow;
+            height: auto;
+            min-height: 100%;
             display: flex;
             align-items: center;
-            height: 100vh;
+            padding: 1.5rem 0;
         }
 
         .contactus-lef-side {
-            // background-color: red;
-
-            width: 80%;
+            width: 85%;
             margin: auto;
+            padding-top: 5rem;
+
+            h1 {
+                font-family: Nohemi;
+                font-weight: 600;
+                font-size: 38px;
+                line-height: 110%;
+                letter-spacing: -2%;
+                background: linear-gradient(90deg, rgba(115, 137, 51, 1) 18%, rgba(6, 44, 11, 1) 41%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 8px;
+            }
 
             h2 {
                 font-family: Resonate;
                 font-weight: 400;
-                font-size: 56px;
-                padding-top: 12px;
+                font-size: 48px;
+                padding-top: 4px;
                 background: linear-gradient(90deg, rgba(245, 189, 46, 1) 18%, rgba(52, 109, 0, 1) 44%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 letter-spacing: -2%;
-
+                margin-bottom: 12px;
             }
 
             .ReadMoreBtn {
@@ -52,26 +64,11 @@
                 justify-content: center;
 
                 .btn-icon {
-
                     margin-left: 1rem;
                     width: 24px;
                     height: 24px;
                     color: #3DAE4A;
-
                 }
-            }
-
-            h1 {
-                font-family: Nohemi;
-                font-weight: 600;
-                font-size: 60px;
-                line-height: 105%;
-                letter-spacing: -2%;
-                background: linear-gradient(90deg, rgba(115, 137, 51, 1) 18%, rgba(6, 44, 11, 1) 41%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-
-
             }
 
             p {
@@ -186,22 +183,24 @@
         }
     }
 
-    @media(max-width: 576px) {
+    @media(max-width: 809px) {
         .contact-wrapper {
             margin-top: 0 !important;
+            padding-top: 1.5rem !important;
 
             .left-content {
-                height: 100%;
-                // background-color: yellow;
+                height: auto !important;
+                min-height: auto !important;
                 display: flex;
                 align-items: start !important;
-                height: 45vh;
+                padding: 0 !important;
             }
         }
 
         .contactus-lef-side {
             width: 100% !important;
-            margin-top: 4rem !important;
+            margin-top: 1rem !important;
+            padding-top: 0 !important;
             text-align: center;
 
 

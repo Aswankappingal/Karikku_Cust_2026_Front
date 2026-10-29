@@ -16,6 +16,7 @@ import { toast } from 'react-toastify';
 import { FaCheck } from 'react-icons/fa';
 import LoginModal from '../../Theme/LoginModal/LoginModal';
 import OtpLoginModal from '../../Theme/OtpLoginModal/OtpLoginModal';
+import { getProductSeo } from '../../../utils/seoConfig';
 
 const processDataByCategory = {
     'Food & Beverages': {
@@ -173,7 +174,13 @@ const ProductPage = () => {
         removeItem
     } = useCart();
 
-    const product = filteredProducts.find(p => String(p.id) === id);
+    const product = filteredProducts.find(p => 
+        String(p.id) === id || 
+        p.slug === id ||
+        (p.name && p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') === id)
+    ) || filteredProducts[0];
+
+    const seo = getProductSeo(product || id);
 
     // Initialize with first variant combination if product has variants
     useEffect(() => {
@@ -419,11 +426,19 @@ const ProductPage = () => {
             <div className="container-fluid">
                 <div className="product-page-sub row">
                     <div className="col-lg-6 col-md-6 col-sm-12 product-page-card">
-                        <img src={displayImage} alt={product.name} />
+                        <img src={displayImage} alt={seo?.mainImageAlt || product.name} />
                     </div>
 
                     <div className="col-lg-6 col-md-6 col-sm-12 product-page-contents">
-                        <h2>{product.name}</h2>
+                        <div className="product-seo-breadcrumb">
+                            <Link to="/">Home</Link>
+                            <span className="crumb-sep">&gt;</span>
+                            <Link to="/products">buy tender coconut water online</Link>
+                            <span className="crumb-sep">&gt;</span>
+                            <span className="current-crumb">{seo?.h1 || product.name}</span>
+                        </div>
+
+                        <h1>{seo?.h1 || product.name}</h1>
                         <p>{product.features}</p>
                         <p id='price'>Selling Price</p>
                         <h3 className="price-range">
@@ -434,6 +449,11 @@ const ProductPage = () => {
                                 </span>
                             )}
                             <span id='offers'> {product.offers}</span>
+                            {seo?.offerLink && (
+                                <span className="product-seo-inline-note ms-2">
+                                    (<Link to={seo.offerLink.slug}>{seo.offerLink.text}</Link>)
+                                </span>
+                            )}
                         </h3>
 
                         {/* Display variant details if selected */}
@@ -523,6 +543,12 @@ const ProductPage = () => {
                                 </div>
                             )}
                         </div>
+
+                        {seo?.isTenderCoconut && (
+                            <div className="product-seo-inline-note mt-3">
+                                Fresh doorstep dispatch &middot; Review our <Link to="/shipping-policy">karikku shipping policy</Link>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -532,6 +558,26 @@ const ProductPage = () => {
                         <h6>Storage Instructions : <span>{product.storageInstruction}</span></h6>
                         <h6>Shelf Life : <span> {product.shelfLife}</span></h6>
                         <h6>Certifications : <span>{product.certification}</span></h6>
+
+                        {seo?.endOfDescLinks && seo.endOfDescLinks.length > 0 && (
+                            <div className="product-seo-inline-note mt-3 d-block">
+                                Explore other sizes:{' '}
+                                {seo.endOfDescLinks.map((lnk, idx) => (
+                                    <React.Fragment key={idx}>
+                                        {idx > 0 && ', '}
+                                        <Link to={lnk.slug.startsWith('/') ? lnk.slug : `/product-page/${lnk.slug}`}>
+                                            {lnk.text}
+                                        </Link>
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                        )}
+
+                        {seo?.wholesaleLink && (
+                            <div className="product-seo-inline-note mt-2 d-block">
+                                Looking for bulk or distributor supply? <Link to={seo.wholesaleLink.slug}>{seo.wholesaleLink.text}</Link>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -574,6 +620,20 @@ const ProductPage = () => {
                             </div>
 
                             <h3 className='Other-pro'>Other products</h3>
+
+                            {seo?.relatedLinks && seo.relatedLinks.length > 0 && (
+                                <div className="product-seo-inline-note mb-4 d-block">
+                                    Recommended companion:{' '}
+                                    {seo.relatedLinks.map((lnk, idx) => (
+                                        <React.Fragment key={idx}>
+                                            {idx > 0 && ', '}
+                                            <Link to={lnk.slug.startsWith('/') ? lnk.slug : `/product-page/${lnk.slug}`}>
+                                                {lnk.text}
+                                            </Link>
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+                            )}
 
                             <div className="row" style={{ rowGap: '50px' }}>
                                 {filteredProducts

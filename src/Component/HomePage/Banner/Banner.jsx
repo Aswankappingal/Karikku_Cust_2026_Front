@@ -5,6 +5,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { Link } from 'react-router-dom';
+
 const Banner = () => {
   const { banners, loading, error } = useBanner();
   const sliderRef = useRef(null);
@@ -45,6 +47,8 @@ const Banner = () => {
     initialSlide: 0
   };
 
+  const mainImageAlt = "Tender coconut water: Karikku bottles with fresh green coconuts";
+
   return (
     <div className="BannerMainWrapper">
       <div className="banner-sub-wrapper">
@@ -52,13 +56,14 @@ const Banner = () => {
           <div className="banner-img">
             <img
               src={banners[0].imageUrl}
-              alt={banners[0].title || 'Banner'}
+              alt={mainImageAlt}
             />
-            {banners[0].title && (
-              <div className="banner-txt">
-                <h1>{banners[0].title}</h1>
-              </div>
-            )}
+            <div className="banner-txt">
+              <h1>{banners[0].title || 'Tender Coconut Water'}</h1>
+              <Link to="/products" className="banner-hero-btn">
+                buy tender coconut water online
+              </Link>
+            </div>
           </div>
         ) : (
           <Slider ref={sliderRef} {...settings}>
@@ -66,13 +71,18 @@ const Banner = () => {
               <div className="banner-img" key={banner._id || banner.id || index}>
                 <img
                   src={banner.imageUrl}
-                  alt={banner.title || 'Banner'}
+                  alt={index === 0 ? mainImageAlt : (banner.title || `Karikku bottle ${index + 1}`)}
                 />
-                {banner.title && (
-                  <div className="banner-txt">
-                    <h1>{banner.title}</h1>
-                  </div>
-                )}
+                <div className="banner-txt">
+                  {index === 0 ? (
+                    <h1>{banner.title || 'Tender Coconut Water'}</h1>
+                  ) : (
+                    <h2>{banner.title || 'Pure Natural Hydration'}</h2>
+                  )}
+                  <Link to="/products" className="banner-hero-btn">
+                    buy tender coconut water online
+                  </Link>
+                </div>
               </div>
             ))}
           </Slider>

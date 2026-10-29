@@ -38,6 +38,7 @@
             // width: 50%;
             padding: 2rem 4rem;
 
+            h1,
             h2 {
                 font-family: Nohemi;
                 font-weight: 600;
@@ -47,6 +48,59 @@
                 background: linear-gradient(92.63deg, #738933 0.29%, #062C0B 85.03%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
+                margin-bottom: 12px;
+            }
+
+            .product-seo-breadcrumb {
+                font-family: General Sans, sans-serif;
+                font-size: 13px;
+                color: #777;
+                margin-bottom: 12px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 6px;
+
+                a {
+                    color: #556B2F;
+                    text-decoration: none;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: #062C0B;
+                        text-decoration: underline;
+                    }
+                }
+
+                .crumb-sep {
+                    color: #aaa;
+                }
+
+                .current-crumb {
+                    color: #444;
+                    font-weight: 500;
+                }
+            }
+
+            .product-seo-inline-note {
+                font-family: General Sans, sans-serif;
+                font-size: 13px;
+                color: #555;
+                margin-top: 8px;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+
+                a {
+                    color: #556B2F;
+                    font-weight: 600;
+                    text-decoration: underline;
+                    text-underline-offset: 3px;
+
+                    &:hover {
+                        color: #062C0B;
+                    }
+                }
             }
 
             p {

@@ -151,35 +151,33 @@
   }
 
   // Achievement section
+  .achievements {
+    padding-top: 5rem;
+    width: 100%;
+    margin: auto;
 
-  // .achievements {
-  //   padding-top: 5rem;
-  //   width: 100%;
-  //   margin: auto;
+    .achv-main {
+      padding-left: 2rem;
 
-  //   .achv-main {
-  //     padding-left: 2rem;
+      h3 {
+        font-family: Nohemi;
+        font-weight: 600;
+        font-size: 50px;
+        line-height: 110%;
+        letter-spacing: -2%;
+        color: #072C0B;
+      }
 
-  //     h3 {
-  //       font-family: Nohemi;
-  //       font-weight: 600;
-  //       font-size: 50px;
-  //       line-height: 110.00000000000001%;
-  //       letter-spacing: -2%;
-  //       color: #072C0B;
-
-  //     }
-
-  //     p {
-  //       font-family: General Sans;
-  //       font-weight: 400;
-  //       font-size: 18px;
-  //       line-height: 130%;
-  //       letter-spacing: 0%;
-  //       color: #050D1E;
-  //     }
-  //   }
-  // }
+      p {
+        font-family: General Sans;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        color: #050D1E;
+      }
+    }
+  }
 
   .commitment-features {
     width: 100%;

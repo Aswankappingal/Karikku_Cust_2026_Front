@@ -18,19 +18,43 @@ const ContactUs = () => {
                         <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                             <div className="left-content">
                                 <div className="contactus-lef-side">
-                                    <h2>Contact Us</h2>
-                                    <h1>We’d love to hear <br />from you!</h1>
+                                    <h1>Contact Karikku</h1>
+                                    <h2>We’d love to hear <br />from you!</h2>
+                                    <img src="./Images/girl.svg" alt="Contact Karikku: customer support team" className="img-fluid my-3" style={{ maxHeight: '140px', objectFit: 'contain' }} />
                                     <p>Got questions about our natural products, bulk orders, or partnership opportunities? Drop us a message – we’re here to help!</p>
-                                    {/* <ExploreBtn className='' buttonText='read more about us'/> */}
-     
-                                    <Link to='/about-us'>
-                                        <button className='ReadMoreBtn'>
-                                            Read more about us
 
-                                            <BsArrowUpRightCircleFill className='btn-icon' />
-                                        </button>
-                                    </Link>
+                                    <div className="bulk-wholesale-section mt-4 p-3 rounded-3" style={{ backgroundColor: '#F3F9F1', border: '1px solid #D8EAD4' }}>
+                                        <h5 style={{ fontWeight: 600, color: '#072C0B', fontSize: '16px', marginBottom: '6px' }}>Bulk and Wholesale Orders</h5>
+                                        <p style={{ fontSize: '14px', color: '#4a5568', margin: 0 }}>
+                                            Interested in commercial orders or supply? Browse our pack sizes and{' '}
+                                            <Link to="/products" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                                                buy tender coconut water online
+                                            </Link>.
+                                        </p>
+                                    </div>
 
+                                    <div className="order-support-section mt-3 p-3 rounded-3" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2ECE0' }}>
+                                        <h5 style={{ fontWeight: 600, color: '#072C0B', fontSize: '16px', marginBottom: '6px' }}>Order Support & Policies</h5>
+                                        <p style={{ fontSize: '14px', color: '#4a5568', margin: 0 }}>
+                                            Have questions about dispatch or returns? View our{' '}
+                                            <Link to="/shipping-policy" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                                                karikku shipping policy
+                                            </Link>{' '}
+                                            and{' '}
+                                            <Link to="/refund-policy" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                                                karikku refund policy
+                                            </Link>.
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-4">
+                                        <Link to='/about-us'>
+                                            <button className='ReadMoreBtn'>
+                                                Read more about us
+                                                <BsArrowUpRightCircleFill className='btn-icon' />
+                                            </button>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>

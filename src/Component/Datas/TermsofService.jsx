@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../common/Navbar/Navbar';
 import Footer from '../common/Footer/Footer';
 import ScrollToTopOnMount from '../common/ScrollToTopOnMount';
+import { Link } from 'react-router-dom';
 
 const TermsOfService = () => {
   return (
@@ -18,11 +19,11 @@ const TermsOfService = () => {
       <ScrollToTopOnMount/>
       
       <div style={{ padding: '1rem 2.8rem' }}>
-        <h3 style={{
+        <h1 style={{
             marginTop: '5rem',
             fontFamily: '"General Sans", sans-serif',
             fontWeight: 600,
-            fontSize: '24px',
+            fontSize: '28px',
             lineHeight: '105%',
             background: 'linear-gradient(90deg, #738933 18%, rgba(3, 36, 7, 0.793) 44%)',
             WebkitBackgroundClip: 'text',
@@ -30,13 +31,13 @@ const TermsOfService = () => {
             backgroundClip: 'text',
             color: 'transparent'
         }}>
-            Terms of Service
-        </h3>
+            Karikku Terms of Service
+        </h1>
       </div>
 
       <div className="max-w-4xl mx-auto p-6 bg-white text-gray-800 font-inter px-3 mt-5">
         <div className="mb-8 py-4">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Terms of Service</h1>
+          <p className="text-sm text-gray-400">Effective Date: 04/05/2025</p>
         </div>
 
         <div className="space-y-6 text-sm leading-relaxed">
@@ -99,7 +100,7 @@ const TermsOfService = () => {
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">Section 5 - Products or Services</h2>
             <p>
-              Certain products or Services may be available exclusively online through the website. These products or Services may have limited quantities and are subject to return or exchange only according to our Refund Policy.
+              Certain products or Services may be available exclusively online through the website. These products or Services may have limited quantities and are subject to return or exchange in accordance with our <Link to="/refund-policy" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>karikku refund policy</Link> and delivery terms outlined under our <Link to="/shipping-policy" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>karikku shipping policy</Link>.
             </p>
             <p className="mt-4">
               We have made every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor's display of any color will be accurate.
@@ -152,7 +153,7 @@ const TermsOfService = () => {
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">Section 10 - Personal Information</h2>
             <p>
-              Your submission of personal information through the store is governed by our Privacy Policy.
+              Your submission of personal information through the store is governed by our <Link to="/privacy-policy" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>karikku privacy policy</Link>.
             </p>
           </section>
 

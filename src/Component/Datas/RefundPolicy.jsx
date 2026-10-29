@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../common/Navbar/Navbar';
 import Footer from '../common/Footer/Footer';
 import ScrollToTopOnMount from '../common/ScrollToTopOnMount';
+import { Link } from 'react-router-dom';
 
 const RefundPolicy = () => {
   return (
@@ -19,7 +20,7 @@ const RefundPolicy = () => {
 
       <div className="max-w-4xl mx-auto p-6 bg-white text-gray-800 font-inter px-3 mt-5">
         <div className="mb-8 py-4">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Refund Policy</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Karikku Refund Policy</h1>
         </div>
 
         <div className="space-y-6 text-sm leading-relaxed">
@@ -34,7 +35,7 @@ const RefundPolicy = () => {
 
           <section>
             <p>
-              To start a return, you can contact us at <a href="mailto:sales@karikku.co" className="text-blue-600 hover:underline">sales@karikku.co</a>
+              To start a return or request a refund, please <Link to="/contact-us" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>contact karikku</Link> or reach out directly at <a href="mailto:sales@karikku.co" className="text-blue-600 hover:underline">sales@karikku.co</a>
             </p>
             <p className="mt-4">
               <strong>Please note that returns will need to be sent to the following address:</strong>
@@ -53,7 +54,7 @@ const RefundPolicy = () => {
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">Damages and Issues</h2>
             <p>
-              Please inspect your order upon reception and contact us immediately if the item is defective, damaged, or if you receive the wrong item, so that we can evaluate the issue and make it right.
+              Please inspect your order upon reception and contact us immediately if the item is defective, damaged, or if you receive the wrong item, so that we can evaluate the issue and make it right. In case of transit damage or transit delays, please review our <Link to="/shipping-policy" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>karikku shipping policy</Link>.
             </p>
           </section>
 

@@ -46,18 +46,19 @@ function App() {
             <Route path='/refund-policy' element={<RefundPolicy />} />
             <Route path='/shipping-policy' element={<ShippingPolicy />} />
             <Route path='/Terms-of-service' element={<TermsOfService />} />
-
-
+            <Route path='/terms-of-service' element={<TermsOfService />} />
 
             <Route path='/' element={<HomePage />} />
             <Route path='/cart' element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-            <Route path='*' element={<PageNotFound />} />
             <Route path='/login-modal' element={<LoginModal />} />
             <Route path='/products' element={<AllProducts />} />
             <Route path='/Sidebar' element={<Productsidebar />} />
             <Route path='/ExploreProducts' element={<ExploreProducts />} />
             <Route path='/about-us' element={<AboutUs />} />
             <Route path='/Product-page/:id' element={<ProductPage />} />
+            <Route path='/product-page/:id' element={<ProductPage />} />
+            <Route path='/product/:id' element={<ProductPage />} />
+            <Route path='/products/:id' element={<ProductPage />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/contact-us' element={<ContactUs />} />
             <Route path='/store' element={<Store />} />
@@ -73,14 +74,7 @@ function App() {
             <Route path='/Empty' element={<EmptyCart />} />
             <Route path='/Faq' element={<FaqSection />} />
             <Route path='/Contact-support' element={<ContactSupport />} />
-
-
-
-
-
-
-
-
+            <Route path='*' element={<PageNotFound />} />
           </Routes>
         <ToastContainer
           position="top-right"

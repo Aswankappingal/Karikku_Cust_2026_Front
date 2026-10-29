@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../common/Navbar/Navbar';
 import Footer from '../common/Footer/Footer';
 import ScrollToTopOnMount from '../common/ScrollToTopOnMount';
+import { Link } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
   return (
@@ -18,11 +19,11 @@ const PrivacyPolicy = () => {
       <ScrollToTopOnMount/>
       
       <div style={{ padding: '1rem 2.8rem' }}>
-        <h3 style={{
+        <h1 style={{
             marginTop: '5rem',
             fontFamily: '"General Sans", sans-serif',
             fontWeight: 600,
-            fontSize: '24px',
+            fontSize: '28px',
             lineHeight: '105%',
             background: 'linear-gradient(90deg, #738933 18%, rgba(3, 36, 7, 0.793) 44%)',
             WebkitBackgroundClip: 'text',
@@ -30,12 +31,11 @@ const PrivacyPolicy = () => {
             backgroundClip: 'text',
             color: 'transparent'
         }}>
-            Privacy Policy
-        </h3>
+            Karikku Privacy Policy
+        </h1>
       </div>
     <div className="max-w-3xl mx-auto px-6 py-12 bg-white font-inter mt-10 mb-20">
       <div className="mb-16">
-        {/* <h1 className="text-3xl md:text-4xl font-normal text-black mb-3 tracking-tight">Privacy Policy</h1> */}
         <p className="text-sm text-gray-400">Last updated: 04/05/2025</p>
       </div>
 
@@ -46,9 +46,7 @@ const PrivacyPolicy = () => {
             This Privacy Policy describes how <strong className="text-black font-medium">Karikku store</strong> (the "Site", "we", "us", or "our") 
             collects, uses, and discloses your personal information when you visit, use our services, or make a 
             purchase from <strong className="text-black font-medium">karikku.co</strong> (the "Site") or otherwise communicate with us (collectively, 
-            the "Services"). For purposes of this Privacy Policy, "you" and "your" means you as the user of the 
-            Services, whether you are a customer, website visitor, or another individual whose information we have 
-            collected pursuant to this Privacy Policy.
+            the "Services"). This policy is governed in conjunction with the <Link to="/terms-of-service" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>karikku terms of service</Link>.
           </p>
           <p className="mt-4">
             Please read this Privacy Policy carefully. By using and accessing any of the Services, you agree to 
@@ -209,7 +207,7 @@ const PrivacyPolicy = () => {
 
         <section className="pt-8">
           <h2 className="text-xl md:text-2xl font-normal text-black mb-6">Contact Us</h2>
-          <p className="mb-6">If you have questions or wish to exercise your data rights, contact:</p>
+          <p className="mb-6">If you have questions or wish to exercise your data rights, please <Link to="/contact-us" style={{ color: '#556B2F', fontWeight: 600, textDecoration: 'underline' }}>contact karikku</Link>:</p>
           <div className="space-y-3">
             <div>
               <strong className="text-black font-medium">Address:</strong> Karikku ventures private limited, Perinthalmanna, Kerala, India, 679322

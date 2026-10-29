@@ -69,9 +69,9 @@ const ProductCards = () => {
               <img className='bottle-vector' src="./Images/bottle-card-vector.svg" alt="" />
 
               <div className='buy-today-btn-wraapper-2'>
-                <Link to={'/product-page/PD004'}>
+                <Link to={'/product-page/PD004'} title="tender coconut water 200ml pack of 12">
                   <button className='buy-today-btn-2'>
-                    Buy Today
+                    tender coconut water 200ml pack of 12
                     <span className="icons-buy-2">
                       <MdArrowOutward />
                     </span>

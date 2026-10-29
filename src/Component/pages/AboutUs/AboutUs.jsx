@@ -14,25 +14,24 @@ const AboutUs = () => {
             <ScrollToTopOnMount />
             <Navbar bgColor={"#F3FFF4"} />
             <div className="our-story">
-                <h3>Our Story</h3>
+                <h1>Karikku Kerala Coconut Water Brand</h1>
                 <h2>Rooted in nature, <br className="d-none d-md-block" />Crafted for you.</h2>
                 <p>At Karikku, we believe the purest experiences come from nature. Born in the heart of Kerala,<br className="d-none d-md-block" /> our journey began with a single purpose — to bring the authentic taste of fresh, tender<br className="d-none d-md-block" /> coconut and traditional Kerala ingredients to the world.</p>
 
-                <Link to={'/products'} >
-                    <ExploreBtn buttonText='Explore Our Products' />
-
+                <Link to={'/products'} title="buy tender coconut water online">
+                    <ExploreBtn buttonText='buy tender coconut water online' />
                 </Link>
                 <div className="our-story-images-section">
                     <div className="our-story-images">
-                        <img src="/Images/Frame-Coconut.png" alt="no-images" />
+                        <img src="/Images/Frame-Coconut.png" alt="Karikku Kerala coconut water brand: coconut groves on the Kerala coast" />
                     </div>
 
                     <div className="our-story-images2">
-                        <img src="/Images/Flower-Coconut.svg" alt="no-images" />
+                        <img src="/Images/Flower-Coconut.svg" alt="Karikku natural coconut extraction" />
                     </div>
 
                     <div className="our-story-images3">
-                        <img src="/Images/Cocount-trees.svg" alt="no-images" />
+                        <img src="/Images/Cocount-trees.svg" alt="Kerala coastal coconut palms" />
                     </div>
                 </div>
                 <img src="/Images/Aboutus-Mask.png" className='mask-image' alt="" />
@@ -44,8 +43,8 @@ const AboutUs = () => {
                         <h2>Savor the spirit <br className="d-none d-md-block" /> of Kerala's <br className="d-none d-md-block" /> coconuts</h2>
                         <p>It all started under the shade of a coconut tree. What <br className="d-none d-md-block" /> began as a passion project among friends has now <br className="d-none d-md-block" />evolved into a purpose-driven and committed to <br className="d-none d-md-block" /> wellness, sustainability, and quality.</p>
                         <p>With every sip of our drinks and every drop of our oils, we <br className="d-none d-md-block" /> take you back to the lush green landscapes of Kerala — <br className="d-none d-md-block" /> fresh, vibrant, and full of life.</p>
-                        <Link to={'/products'}>
-                            <ExploreBtn buttonText='Explore our products' />
+                        <Link to={'/products'} title="buy tender coconut water online">
+                            <ExploreBtn buttonText='buy tender coconut water online' />
                         </Link>
                     </div>
                     <div className="col-lg-6 right-vision">
@@ -126,7 +125,10 @@ const AboutUs = () => {
                                 </div>
                                 <div className="feature-para">
                                     <p>
-                                        We’re committed to responsible sourcing, eco-friendly packaging, and supporting local farmers.
+                                        We’re committed to responsible sourcing, eco-friendly packaging, and supporting local farmers. Discover our{' '}
+                                        <Link to="/blogs" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                                            tender coconut water benefits
+                                        </Link>.
                                     </p>
                                 </div>
                             </div>
@@ -147,6 +149,35 @@ const AboutUs = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Closing section SEO Internal Links */}
+            <div className="container my-5 p-4 rounded-4" style={{ backgroundColor: '#F8FAF7', border: '1px solid #E6ECE4' }}>
+                <div className="row g-4 align-items-center">
+                    <div className="col-md-6">
+                        <h4 style={{ fontFamily: 'Nohemi', fontSize: '20px', fontWeight: 600, color: '#072C0B', marginBottom: '8px' }}>
+                            Visit Our Retail Outlets
+                        </h4>
+                        <p style={{ color: '#4a5568', margin: 0, fontSize: '15px' }}>
+                            Experience Karikku freshness at stores near you:{' '}
+                            <Link to="/store" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                                where to buy karikku coconut water
+                            </Link>
+                        </p>
+                    </div>
+                    <div className="col-md-6">
+                        <h4 style={{ fontFamily: 'Nohemi', fontSize: '20px', fontWeight: 600, color: '#072C0B', marginBottom: '8px' }}>
+                            Partner With Us
+                        </h4>
+                        <p style={{ color: '#4a5568', margin: 0, fontSize: '15px' }}>
+                            Have questions or want to collaborate with our team?{' '}
+                            <Link to="/contact-us" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                                contact karikku
+                            </Link>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <FollowusandBlog />
             <Footer />
 

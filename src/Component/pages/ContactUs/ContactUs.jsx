@@ -131,7 +131,7 @@ const ContactUs = () => {
                 <div className="map-section">
                     <div className="map-container">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d125361.95957810729!2d76.1428516!3d10.920912!3m2!1i1024!2i768!4f13.1!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7cd55e35cec03%3A0x4b535c135113c33!2sKARIKKU%20VENTURES%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1776927080627!5m2!1sen!2sin" 
+                            src="https://maps.google.com/maps?q=Karikku%20Ventures%20Private%20Limited,%20Perinthalmanna,%20Kerala%20679322&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                             style={{ width: '100%', height: '100%', border: 0 }} 
                             allowFullScreen="" 
                             loading="lazy" 

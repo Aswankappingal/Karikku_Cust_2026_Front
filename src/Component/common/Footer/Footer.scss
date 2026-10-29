@@ -28,11 +28,17 @@
 
         // Newsletter Section
         .karikku-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             .logo {
                 height: 110px;
-                // width: auto;
-                width: 100%;
-                margin-bottom: 12px;
+                max-width: 160px;
+                width: auto;
+                object-fit: contain;
+                display: block;
+                margin: 0 auto 12px;
             }
         }
 
@@ -58,464 +64,292 @@
             align-items: center;
             width: 50%;
             max-width: 520px;
-            margin: auto;
             height: 52px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 50px;
             padding: 4px 4px 4px 18px;
-            border-radius: 30px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-
-            &:focus-within {
-                box-shadow: 0 4px 25px rgba(46, 125, 50, 0.15);
-                border-color: #2E7D32;
-            }
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 
             .email {
                 flex: 1;
-                height: 100%;
                 display: flex;
                 align-items: center;
 
                 .newsletter-input {
-                    width: 100%;
-                    height: 100%;
                     border: none;
-                    background: transparent;
-                    padding: 0 12px 0 4px;
-                    font-size: 15px;
-                    color: #1B1B1B;
                     outline: none;
+                    background: transparent;
+                    font-size: 14px;
+                    color: #333;
+                    width: 100%;
+                    padding: 0 8px 0 0;
 
                     &::placeholder {
-                        color: #888888;
+                        color: #999;
+                        font-weight: 400;
                     }
 
                     &:focus {
-                        outline: none !important;
-                        box-shadow: none !important;
-                        background: transparent !important;
+                        box-shadow: none;
+                        outline: none;
                     }
                 }
             }
 
             .subscribe-btn {
-                height: 100%;
-                display: flex;
-                align-items: center;
+                flex-shrink: 0;
 
                 .newsletter-btn {
-                    height: 100%;
-                    padding: 0 24px;
-                    background: linear-gradient(135deg, #3DAE4A 0%, #3DAE4A 100%);
-                    color: #ffffff;
+                    background: #3DAE4A;
                     border: none;
-                    border-radius: 25px;
-                    font-weight: 600;
+                    border-radius: 50px;
+                    padding: 0 24px;
+                    height: 44px;
                     font-size: 14px;
-                    letter-spacing: 0.3px;
-                    cursor: pointer;
-                    white-space: nowrap;
+                    font-weight: 600;
+                    color: #FFFFFF;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.25);
-                    margin: 0 !important;
+                    cursor: pointer;
+                    transition: background 0.2s ease, transform 0.1s ease;
 
                     &:hover {
-                        background: linear-gradient(135deg, #388E3C 0%, #2E7D32 100%);
-                        transform: translateY(-1px);
-                        box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
+                        background: #339940;
                     }
 
                     &:active {
-                        transform: translateY(0);
+                        transform: scale(0.98);
                     }
                 }
             }
         }
 
         .validation-message {
-            margin-top: 12px;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 13px;
+            margin-top: 8px;
             text-align: center;
-            font-family: General Sans;
 
             &.error {
-                color: #d32f2f;
+                color: #e53935;
             }
 
             &.success {
-                color: #2E7D32;
+                color: #2e7d32;
             }
         }
 
-        // Footer Content
+        // Footer Content Row
+        .footer-content-row {
+            margin-top: 40px;
+        }
 
-
+        // Location Section
         .footer-heading {
-            font-family: General sans-serif;
+            font-family: General Sans;
             font-weight: 600;
+            font-style: Semibold;
             font-size: 20px;
+            leading-trim: NONE;
             line-height: 130%;
-            letter-spacing: 0%;
             color: #1B1B1B;
+            letter-spacing: 0%;
 
+            margin-bottom: 16px;
         }
 
         .footer-text {
-            // font-family: General sans-serif;
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 130%;
-            letter-spacing: 0%;
-            text-transform: uppercase;
-            margin-top: 1.4rem;
-            color: #1B1B1B !important;
-
-
-
-
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
 
             .only-91 {
-                // font-family: General sans-serif;
-                font-weight: 700;
-                font-style: bold;
-                font-size: 20px;
+                font-family: General Sans;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 16px;
                 leading-trim: NONE;
-                line-height: 110.00000000000001%;
-                letter-spacing: -3%;
-                color: #003E00;
-
-
+                line-height: 130%;
+                letter-spacing: 0%;
+                color: #537557;
 
             }
 
             .number-only {
-                // font-family: General sans-serif;
-                font-weight: 700;
+                font-family: General Sans;
+                font-weight: 500;
                 font-style: Medium;
-                font-size: 19px;
+                font-size: 16px;
                 leading-trim: NONE;
-                line-height: 110.00000000000001%;
-                letter-spacing: -3%;
-                color: #003E00;
+                line-height: 130%;
+                letter-spacing: 0%;
+                color: #1B1919;
 
             }
 
             .sales-karikku-only {
-                color: #003E00;
-                // font-family: General sans-serif;
-                font-weight: 600;
+                font-family: General Sans;
+                font-weight: 500;
                 font-style: Medium;
-                font-size: 17px;
-                line-height: 152%;
-                letter-spacing: -3%;
-
-
-            }
-
-            span {
-                font-weight: 700;
+                font-size: 16px;
+                leading-trim: NONE;
+                line-height: 130%;
+                letter-spacing: 0%;
+                color: #537557;
 
             }
-
         }
 
+        // Quick Links
         .footer-links {
             list-style: none;
             padding: 0;
             margin: 0;
-            margin-top: .5rem;
 
             li {
-                margin-bottom: 0.5rem;
-
-
+                margin-bottom: 10px;
 
                 a {
-                    color: #1B1B1B !important;
-                    text-decoration: none;
-                    // font-family: General sans-serif;
-                    font-weight: 600 !important;
-                    font-style: Regular;
-                    font-size: 15px;
-                    leading-trim: NONE;
+                    color: #1B1919;
+                    font-family: General Sans;
+                    font-weight: 400;
+                    font-size: 16px;
                     line-height: 130%;
                     letter-spacing: 0%;
-                    transition: all 0.3s ease;
 
-                    &:hover,
-                    &:active {
-                        color: #2E7D32 !important;
-                        text-decoration: underline;
-                        text-underline-offset: 4px;
+                    text-decoration: none;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: #3DAE4A;
                     }
                 }
             }
         }
 
-        // Social Media
+        // Social Links
         .social-links {
             display: flex;
-            gap: 15px;
-
-
-            @media (max-width: 991px) {
-                justify-content: center;
-                margin-top: 20px;
-            }
+            gap: 12px;
+            justify-content: flex-start;
 
             .social-link {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #508658;
+                color: #fff;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 40px;
-                height: 40px;
-                background-color: transparent;
-                border: 0.7px solid rgba(132, 132, 132, 0.1);
-                border-radius: 100%;
-                color: #555;
                 text-decoration: none;
-                font-size: 17px;
-                transition: all 0.3s ease;
-                // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                font-size: 16px;
+                transition: background 0.2s ease, transform 0.2s ease;
 
                 &:hover {
-                    background-color: #2E7D32;
-                    color: #fff;
+                    background: #339940;
                     transform: translateY(-2px);
-                }
-
-                i {
-                    font-size: 22px !important;
-
                 }
             }
         }
 
-        // Bottom Section
+        // Copyright
         .footer-copyright {
-            color: #1B1B1B;
-            font-family: General Sans;
-            font-weight: 450;
-            font-style: Regular;
-            font-size: 15px !important;
-            leading-trim: NONE;
-            line-height: 130%;
-            letter-spacing: 0%;
-
-
-
-            @media (max-width: 767px) {
-                text-align: start;
-                margin-bottom: 10px !important;
-            }
+            color: #777;
+            font-size: 13px;
         }
 
         .privacy-link {
-            color: #1B1B1B;
-            font-family: General Sans;
-            font-weight: 400;
-            font-style: Regular;
-            font-size: 15px;
-            leading-trim: NONE;
-            line-height: 150%;
-            letter-spacing: 0%;
+            color: #777;
             text-decoration: none;
-            transition: color 0.3s ease;
-            margin-left: 12px;
+            font-size: 13px;
 
             &:hover {
-                color: #2E7D32;
-            }
-
-            @media (max-width: 767px) {
-                display: block;
-                text-align: start;
+                color: #3DAE4A;
             }
         }
-
-        .privacy-link-first {
-            font-family: General Sans;
-            font-weight: 400;
-            font-style: Regular;
-            font-size: 16px;
-            leading-trim: NONE;
-            line-height: 120%;
-            letter-spacing: 0%;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            color: #1B1B1B;
-            margin-left: 12px;
-
-
-
-        }
-
-        .privacy-link-first-mob {
-            display: none;
-        }
-
-        .border-top {
-            border-color: rgba(46, 125, 50, 0.2) !important;
-        }
-
-        @media (min-width: 576px) and (max-width: 876px) {
-
-            .privacy-link-first {
-                display: none;
-            }
-
-            .footer-copyright {
-                color: #1B1B1B;
-                font-family: General Sans;
-                font-weight: 450;
-                font-style: Regular;
-                font-size: 15px !important;
-                leading-trim: NONE;
-                line-height: 130%;
-                letter-spacing: 0%;
-            }
-
-            .privacy-link {
-                color: #1B1B1B;
-                font-family: General Sans;
-                font-weight: 400;
-                font-style: Regular;
-                font-size: 14px;
-                leading-trim: NONE;
-                line-height: 160%;
-                letter-spacing: 0%;
-                text-decoration: none;
-                transition: color 0.3s ease;
-
-            }
-
-
-
-            .privacy-link-first-mob {
-                font-family: General Sans;
-                font-weight: 400;
-                font-style: normal;
-                /* Regular → normal */
-                font-size: 14px;
-                line-height: 130%;
-                letter-spacing: 0;
-                text-decoration: none;
-                transition: color 0.3s ease;
-                color: #1B1B1B;
-                margin-left: 12px !important;
-                display: inline-block;
-            }
-        }
-
-        @media (max-width:576px) {
-
-            .privacy-link {
-                color: #1B1B1B;
-                font-family: General Sans;
-                font-weight: 400;
-                font-style: Regular;
-                font-size: 13px;
-                leading-trim: NONE;
-                line-height: 163%;
-                letter-spacing: 0%;
-                text-decoration: none;
-                transition: color 0.3s ease;
-
-            }
-
-            .privacy-link-first-mob {
-                font-family: General Sans;
-                font-weight: 400;
-                font-style: normal;
-                /* Regular → normal */
-                font-size: 14px;
-                line-height: 130%;
-                letter-spacing: 0;
-                text-decoration: none;
-                transition: color 0.3s ease;
-                color: #1B1B1B;
-                margin-left: 6px !important;
-                display: inline-block;
-
-            }
-
-            .privacy-link-first {
-                display: none !important;
-            }
-
-            .footer-copyright {
-                color: #1B1B1B;
-                font-family: General Sans;
-                font-weight: 450;
-                font-style: Regular;
-                font-size: 13px !important;
-                leading-trim: NONE;
-                line-height: 130%;
-                letter-spacing: 0%;
-                margin-right: 12px;
-            }
-
-        }
-
-
     }
 }
 
-// Responsive adjustments
-@media (max-width: 876px) {
+// Media Queries for Footer
+@media (max-width: 992px) {
     .FootermainWrapper .footer {
-        padding: 0px 0 2rem !important;
-
-        .newsletter-form {
-            width: 85% !important;
-            max-width: 480px;
-            height: 48px;
-            padding: 3px 3px 3px 14px;
-
-            .email {
-                flex: 1;
-
-                .newsletter-input {
-                    font-size: 13px !important;
-                    padding: 0 8px 0 2px !important;
-                }
-            }
-
-            .subscribe-btn {
-                width: auto !important;
-
-                .newsletter-btn {
-                    padding: 0 20px !important;
-                    margin-left: 0 !important;
-                    font-size: 13px !important;
-                }
-            }
-        }
-
         .footer-heading {
-            font-size: 1rem;
+            font-size: 15px;
         }
 
         .footer-text,
         .footer-links a {
-            font-size: 0.85rem;
+            font-size: 13px;
         }
 
-        .quick-links {
-            margin-left: .1rem;
+        .newsletter-form {
+            width: 70%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .FootermainWrapper .footer {
+        padding: 0 0 30px;
+
+        .newsletter-outer-line {
+            border-bottom: 1px solid #C4E2C8;
+            /* green instead of red if you want brand color */
+            width: 100%;
+            margin-top: 0rem;
+            /* pushes the border down */
+            padding-bottom: 1.9rem;
+            /* adds breathing space above the line */
+        }
+
+        .karikku-logo .logo {
+            height: 90px;
+            max-width: 140px;
+        }
+
+        .newsletter-form {
+            width: 85%;
+        }
+
+        .social-links {
+            justify-content: flex-start;
+            margin-top: 10px;
+        }
+
+        .footer-copyright,
+        .privacy-link {
+            text-align: center;
+            display: block;
+            margin: 4px 0;
         }
     }
 }
 
 @media (max-width: 576px) {
     .FootermainWrapper .footer {
-        padding: 40px 0 30px;
+        padding: 0 0 24px;
+
+        .karikku-logo .logo {
+            height: 80px;
+            max-width: 120px;
+        }
+
+        .newsletter-outer-line {
+            border-bottom: 1px solid #C4E2C8;
+            /* green instead of red if you want brand color */
+            width: 100%;
+            margin-top: 0rem;
+            /* pushes the border down */
+            padding-bottom: 1.9rem;
+            /* adds breathing space above the line */
+        }
+
+        .newsletter-title {
+            font-size: 28px;
+            line-height: 110%;
+        }
 
         .newsletter-form {
             width: 95% !important;

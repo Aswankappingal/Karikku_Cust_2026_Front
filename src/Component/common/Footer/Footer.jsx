@@ -36,7 +36,16 @@ const Footer = () => {
                     <div className="row justify-content-center mb-5">
                         <div className="col-12 col-md-8 col-lg-6 text-center newsletter-outer-line">
                             <div className="karikku-logo mb-3">
-                                <img src="/Images/Karikku-footer-logo.svg" alt="Karikku" className="logo" />
+                                <img
+                                    src="/Images/Karikku-footer-logo.svg"
+                                    alt="Karikku"
+                                    className="logo"
+                                    onError={(e) => {
+                                        // Fallback if SVG pattern doesn't render in some browsers
+                                        e.target.onerror = null;
+                                        e.target.src = "/Images/Karikku logo 2.svg";
+                                    }}
+                                />
                             </div>
                             <h3 className="newsletter-title mb-4">
                                 Subscribe to Karikku for<br />

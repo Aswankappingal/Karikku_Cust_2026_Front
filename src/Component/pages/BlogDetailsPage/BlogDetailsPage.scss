@@ -134,7 +134,7 @@
                     line-height: 114.99999999999999%;
                     letter-spacing: -3%;
                     color: #191B1D;
-                  
+
                 }
 
                 p {
@@ -361,9 +361,11 @@
 
             .blog-detail-heading {
                 font-size: 31px !important;
+                margin-top: 6rem;
+                
 
-                .banner{
-                    img{
+                .banner {
+                    img {
                         height: 100%;
                         width: 100%;
                         object-fit: cover;
@@ -373,11 +375,11 @@
 
             }
 
-            .blogs{
-                .blog-content{
-                    .blog-description{
+            .blogs {
+                .blog-content {
+                    .blog-description {
                         font-size: 28px !important;
-                        
+
                     }
                 }
             }

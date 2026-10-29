@@ -173,22 +173,67 @@
     }
 
     .blogs-content {
-        padding: 3rem;
+        padding: 5rem 3.5rem 3rem 3.5rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .blog-header {
-        padding-top: 4rem;
+        padding-top: 1.5rem;
+        width: 100%;
 
         h1 {
             font-family: Nohemi;
             font-weight: 600;
-            font-size: 80px;
-            line-height: 105%;
-            letter-spacing: -2%;
+            font-size: clamp(30px, 3.8vw, 48px);
+            line-height: 115%;
+            letter-spacing: -1.5px;
             background: linear-gradient(60.37deg, #738933 6.89%, #062C0B 44.03%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 0.75rem;
+            max-width: 100%;
+            word-break: break-word;
+        }
+
+        .blog-intro-text {
+            max-width: 820px;
+            color: #4a5568;
+            font-size: clamp(14px, 1.2vw, 16px);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .blog-top-cta-banner {
+            background-color: #F3F9F1;
+            border: 1px solid #D8EAD4;
+            max-width: 650px;
+            margin: 0.75rem 0 2rem 0;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-align: left;
+
+            p {
+                margin: 0;
+                font-size: clamp(13px, 1.1vw, 15px);
+                color: #072C0B;
+                line-height: 1.5;
+            }
+        }
+
+        .seo-highlight-link {
+            color: #3DAE4A;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: #2e8b39;
+            }
         }
     }
 
@@ -295,103 +340,110 @@
         }
     }
 
-    @media(max-width:567px) {
-
-        @media (max-width:568px) {
-            .faq-main {
-
-                .img-green-leaf {
-                    display: none;
-                }
-
-                .faq-header {
-                    margin-top: 20%;
-                }
-
-                h2 {
-                    font-size: 32px;
-                    line-height: 100%;
-                }
-
-                h1 {
-                    font-size: 40px;
-                    line-height: 105%;
-                }
-
-                .search-bar {
-                    width: 90%;
-                }
-
-                .faq-comments-group {
-                    flex-direction: column;
-                    width: 90%;
-                    padding-left: 10%;
-                    padding-right: 1%;
-                }
-
+    @media (max-width: 568px) {
+        .faq-main {
+            .img-green-leaf {
+                display: none;
             }
 
-            .faq-section {
-                padding: 2rem !important;
-                margin-top: 5%;
-
-
-                .mask-image {
-                    display: none;
-                }
-
-                .faq-heading {
-                    font-size: 32px !important;
-                    width: 289px;
-                    height: 74px;
-                }
+            .faq-header {
+                margin-top: 20%;
             }
 
-            .questian-section-wrapper {
-                width: 100% !important;
+            h2 {
+                font-size: 32px;
+                line-height: 100%;
+            }
 
-                .faq-question {
-                    h3 {
-                        font-size: 18px !important;
-                    }
+            h1 {
+                font-size: 40px;
+                line-height: 105%;
+            }
 
-                    .expand-btn {
-                        width: 30px;
-                        height: 30px;
+            .search-bar {
+                width: 90%;
+            }
+
+            .faq-comments-group {
+                flex-direction: column;
+                width: 90%;
+                padding-left: 10%;
+                padding-right: 1%;
+            }
+        }
+
+        .faq-section {
+            padding: 2rem !important;
+            margin-top: 5%;
+
+            .mask-image {
+                display: none;
+            }
+
+            .faq-heading {
+                font-size: 32px !important;
+                width: 289px;
+                height: 74px;
+            }
+        }
+
+        .questian-section-wrapper {
+            width: 100% !important;
+
+            .faq-question {
+                h3 {
+                    font-size: 18px !important;
+                }
+
+                .expand-btn {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .faq-main {
+            .faq-comments-group {
+                width: 100%;
+
+                .comments {
+                    .comments-para {
+                        font-size: 18px;
                     }
                 }
             }
         }
+    }
 
-
-        @media (max-width: 1000px) {
-            .faq-main {
-                .faq-comments-group {
-                    width: 100%;
-
-                    .comments {
-                        .comments-para {
-                            font-size: 18px;
-                        }
-                    }
-                }
-            }
-        }
-
-
-
-
+    @media (max-width: 991px) {
         .blogs-content {
-            padding: 1rem !important;
+            padding: 4.5rem 2rem 2rem 2rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .blogs-content {
+            padding: 4rem 1rem 1.5rem 1rem;
 
             .blog-header {
-                padding-top: 4rem !important;
+                padding-top: 1rem;
 
                 h1 {
-                    font-size: 40px !important;
+                    font-size: 28px;
+                    letter-spacing: -0.5px;
+                }
+
+                .blog-intro-text {
+                    font-size: 14px;
+                }
+
+                .blog-top-cta-banner {
+                    padding: 0.65rem 0.85rem;
+                    margin-bottom: 1.5rem;
                 }
             }
-
         }
     }
 }

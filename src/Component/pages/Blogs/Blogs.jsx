@@ -138,13 +138,13 @@ const Blogs = () => {
             <div className="blogs-content">
                 <div className='blog-header'>
                     <h1>Tender Coconut Water Benefits</h1>
-                    <p className="blog-intro-text text-start mb-3" style={{ maxWidth: '780px', color: '#555', fontSize: '16px', lineHeight: '1.6', textAlign: 'left', marginLeft: 0 }}>
-                        Welcome to the wellness journal of <Link to="/about-us" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>karikku kerala coconut water brand</Link>. Learn about the natural health advantages, hydration power, and nutrient richness of fresh tender coconuts.
+                    <p className="blog-intro-text">
+                        Welcome to the wellness journal of <Link to="/about-us" className="seo-highlight-link">karikku kerala coconut water brand</Link>. Learn about the natural health advantages, hydration power, and nutrient richness of fresh tender coconuts.
                     </p>
-                    <div className="blog-top-cta-banner p-3 mb-4 rounded-3 text-start" style={{ backgroundColor: '#F3F9F1', border: '1px solid #D8EAD4', maxWidth: '650px', margin: '1rem 0 2.5rem 0', textAlign: 'left' }}>
-                        <p style={{ margin: 0, fontSize: '15px', color: '#072C0B' }}>
+                    <div className="blog-top-cta-banner">
+                        <p>
                             Ready to refresh your body naturally?{' '}
-                            <Link to="/products" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                            <Link to="/products" className="seo-highlight-link">
                                 buy tender coconut water online
                             </Link>
                         </p>

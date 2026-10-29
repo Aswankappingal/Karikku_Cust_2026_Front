@@ -87,6 +87,16 @@ const BlogDetailsPage = () => {
           <div className="blog-content ql-editor">
             {blog.content ? parse(blog.content) : <p>No content available</p>}
           </div>
+
+          {/* Contextual product recommendation link as specified in SEO Plan */}
+          <div className="blog-product-recommendation mt-4 p-3 rounded-3" style={{ backgroundColor: '#F3F9F1', border: '1px solid #D8EAD4', textAlign: 'left' }}>
+            <p style={{ margin: 0, fontSize: '15px', color: '#072C0B' }}>
+              Experience authentic Kerala refreshment:{' '}
+              <Link to="/products" style={{ color: '#3DAE4A', fontWeight: 600, textDecoration: 'underline' }}>
+                buy tender coconut water online
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
 

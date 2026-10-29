@@ -60,7 +60,7 @@ const Footer = () => {
                                         value={email}
                                         onChange={(e) => {
                                             setEmail(e.target.value);
-                                            setMessage(''); // clear message on typing
+                                               setMessage(''); // clear message on typing
                                         }}
                                     />
 
@@ -111,9 +111,7 @@ const Footer = () => {
                                     <li><Link to="/products">Our products</Link></li>
                                     <li><Link to="/about-us">About us</Link></li>
                                     <li><Link to="/store">Stores</Link></li>
-                                    {/* <li><Link to="/terms-of-service">Terms of service</Link></li> */}
-                                    {/* <li><Link to="/blogs">Blog</Link></li> */}
-                                    {/* <li><Link to="/process">Our process</Link></li> */}
+                                    <li><Link to="/blogs">Blogs</Link></li>
                                     <li><Link to="/Faq">Faq</Link></li>
                                 </ul>
                             </div>

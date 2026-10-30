@@ -108,7 +108,10 @@
 
         .banner {
             width: 100%;
-            height: 646px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            max-height: 580px;
+            border-radius: 12px;
             margin-top: 2rem;
             overflow: hidden;
 
@@ -141,12 +144,166 @@
                     padding-top: 1rem;
                     font-family: Helvetica;
                     font-weight: 400;
-                    // width: 80%;
                     font-size: 16px;
-                    line-height: 130%;
+                    line-height: 155%;
                     letter-spacing: 0%;
                     vertical-align: middle;
+                    color: #2b2b2b;
 
+                    &.lead-text {
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: #1a1a1a;
+                        line-height: 150%;
+                    }
+                }
+
+                ul.blog-bullet-list, ol.blog-numbered-list {
+                    margin-top: 0.8rem;
+                    margin-bottom: 1.2rem;
+                    padding-left: 1.8rem;
+                    font-family: Helvetica;
+                    font-size: 15.5px;
+                    line-height: 160%;
+                    color: #333;
+
+                    li {
+                        margin-bottom: 0.4rem;
+                    }
+                }
+
+                .table-container {
+                    width: 100%;
+                    overflow-x: auto;
+                    margin: 1.5rem 0;
+                    border-radius: 8px;
+                    border: 1px solid #e2e8f0;
+
+                    .blog-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-family: Helvetica, Arial, sans-serif;
+                        font-size: 14.5px;
+                        text-align: left;
+                        background-color: #ffffff;
+
+                        thead {
+                            background-color: #f1f7ee;
+                            tr {
+                                th {
+                                    padding: 12px 16px;
+                                    font-weight: 600;
+                                    color: #1f3d1b;
+                                    border-bottom: 2px solid #cce1c7;
+                                }
+                            }
+                        }
+
+                        tbody {
+                            tr {
+                                border-bottom: 1px solid #edf2f7;
+                                &:nth-child(even) {
+                                    background-color: #fafdf9;
+                                }
+                                &:hover {
+                                    background-color: #f4faef;
+                                }
+
+                                td {
+                                    padding: 12px 16px;
+                                    color: #334155;
+                                    vertical-align: top;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .blog-note {
+                    background-color: #fef9ee;
+                    border-left: 4px solid #f59e0b;
+                    padding: 12px 16px;
+                    border-radius: 4px;
+                    margin: 1rem 0;
+                    color: #78350f;
+                    font-size: 14.5px;
+                }
+
+                .blog-cta-banner {
+                    margin: 2.2rem 0;
+                    padding: 1.5rem;
+                    background: linear-gradient(135deg, #1b431e 0%, #29682e 100%);
+                    border-radius: 12px;
+                    text-align: center;
+                    box-shadow: 0 4px 15px rgba(27, 67, 30, 0.15);
+
+                    .blog-cta-link {
+                        display: inline-block;
+                        color: #ffffff !important;
+                        font-weight: 600;
+                        font-size: 16px;
+                        padding: 12px 28px;
+                        background-color: #48bb78;
+                        border-radius: 30px;
+                        transition: all 0.25s ease;
+                        text-decoration: none;
+
+                        &:hover {
+                            background-color: #38a169;
+                            transform: translateY(-2px);
+                            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                        }
+                    }
+                }
+
+                h2 {
+                    padding-top: 1.5rem;
+                    margin-bottom: 0.5rem;
+                    font-family: General Sans, sans-serif;
+                    font-weight: 600;
+                    font-size: 26px;
+                    line-height: 125%;
+                    color: #143318;
+                }
+
+                .blog-inline-link {
+                    color: #2b7a34 !important;
+                    font-weight: 600;
+                    text-decoration: underline !important;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: #143318 !important;
+                    }
+                }
+
+                .blog-faqs-wrapper {
+                    margin-top: 2.5rem;
+                    padding-top: 1.5rem;
+                    border-top: 2px solid #e2e8f0;
+
+                    .blog-faq-block {
+                        margin-bottom: 1.4rem;
+                        padding: 14px 18px;
+                        background: #f8fafc;
+                        border-radius: 8px;
+                        border: 1px solid #e2e8f0;
+
+                        h4 {
+                            font-size: 17px;
+                            font-weight: 600;
+                            color: #1e293b;
+                            margin-bottom: 6px;
+                        }
+
+                        p {
+                            padding-top: 0;
+                            margin: 0;
+                            font-size: 15px;
+                            color: #475569;
+                            line-height: 150%;
+                        }
+                    }
                 }
 
                 .sub-banner {
@@ -224,7 +381,9 @@
                 margin-bottom: 3rem;
 
                 .blog-image {
-                    height: 200px;
+                    height: auto;
+                    aspect-ratio: 16 / 10;
+                    border-radius: 12px;
                     overflow: hidden;
 
                     img {
@@ -315,7 +474,8 @@
             }
 
             .banner {
-                height: 350px !important;
+                height: auto !important;
+                aspect-ratio: 16 / 10;
             }
 
             .sub-banner {

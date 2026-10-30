@@ -6,7 +6,7 @@ import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import ScrollToTopOnMount from '../../common/ScrollToTopOnMount';
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import { RxDotFilled } from 'react-icons/rx';
 import Footer from '../../common/Footer/Footer';
 import useBlogs from '../../../store/hook/useBlogspost';
@@ -15,16 +15,33 @@ import 'react-quill/dist/quill.snow.css';
 import { GoLink } from 'react-icons/go';
 
 const BlogDetailsPage = () => {
-  const { id } = useParams();
+  const params = useParams();
+  const location = useLocation();
+  const pathSlug = location.pathname.replace(/^\//, '');
+  const id = params.id || pathSlug || 'coconut-water-vs-electrolyte-drinks';
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
 
   const { blogs, loading, error } = useBlogs();
 
-  const blog = blogs.find((b) => b.id === id);
+  // Support lookup by either Firestore document id or SEO slug
+  const blog = blogs.find((b) => b.id === id || b.slug === id || b.urlSlug === id);
 
   useEffect(() => {
-    console.log(blog, 'blogsss');
+    if (blog) {
+      if (blog.metaTitle || blog.title) {
+        document.title = `${blog.metaTitle || blog.title} | Karikku`;
+      }
+      if (blog.metaDescription) {
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+          metaDesc = document.createElement('meta');
+          metaDesc.setAttribute('name', 'description');
+          document.head.appendChild(metaDesc);
+        }
+        metaDesc.setAttribute('content', blog.metaDescription);
+      }
+    }
   }, [blog]);
 
   // Calculate pagination
@@ -126,6 +143,7 @@ const BlogDetailsPage = () => {
               <BsArrowRightShort className='arrow' />
             </div>
           </div>
+    
         </div>
 
         <div className="blog-cards-wrapper">

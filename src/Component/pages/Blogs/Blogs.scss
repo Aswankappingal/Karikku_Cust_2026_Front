@@ -245,13 +245,18 @@
             margin-bottom: 3rem;
 
             .blog-image {
-                height: 200px;
+                width: 100%;
+                aspect-ratio: 16 / 10;
+                height: auto;
+                border-radius: 12px;
                 overflow: hidden;
+                background-color: #f6f7f8;
 
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    display: block;
                 }
             }
 

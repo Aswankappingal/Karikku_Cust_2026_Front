@@ -64,6 +64,8 @@ function App() {
             <Route path='/store' element={<Store />} />
             <Route path='/wishlist' element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
             <Route path='/blog-details/:id' element={<BlogDetailsPage />} />
+            <Route path='/coconut-water-vs-electrolyte-drinks' element={<BlogDetailsPage />} />
+            <Route path='/why-does-coconut-milk-separate' element={<BlogDetailsPage />} />
             <Route path='/address' element={<ProtectedRoute><Address /></ProtectedRoute>} />
             <Route path='/order-details' element={<ProtectedRoute><OrderDetails /></ProtectedRoute>} />
             <Route path='/order-complete' element={<ProtectedRoute><OrderComplete /></ProtectedRoute>} />
